@@ -1,0 +1,126 @@
+---
+interface Props {
+  email?: string;
+}
+
+const { email = "agusllama1@gmail.com" } = Astro.props;
+---
+
+<section id="sobre-mi" class="w-full py-14 sm:py-20 md:py-24 bg-apple-bg border-t border-black/[0.06] relative">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <!-- Header de Sección -->
+    <div class="max-w-2xl mb-10 sm:mb-14">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-black/[0.08] text-apple-text-secondary text-[11px] sm:text-xs font-bold tracking-widest uppercase mb-3.5 shadow-xs">
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-primary"></span>
+        <span>TU SOCIO TECNOLÓGICO</span>
+      </div>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-apple-text-primary tracking-tight mt-1 mb-3 text-balance">
+        Trato directo y compromiso de resultados
+      </h2>
+      <p class="text-sm sm:text-base text-apple-text-secondary leading-relaxed text-pretty">
+        Desarrollo ágil, comunicación clara y soluciones llave en mano pensadas para que no tengas que preocuparte por la tecnología.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
+      
+      <!-- Columna Izquierda: Tarjeta de Presentación y Valores (7 cols) -->
+      <div class="lg:col-span-7 bento-card p-6 sm:p-8 md:p-9 bg-white">
+        <div class="flex items-center gap-4 pb-5 mb-5 border-b border-black/[0.06]">
+          <div class="w-13 h-13 sm:w-15 sm:h-15 rounded-2xl bg-brand-primary text-white flex items-center justify-center font-black text-lg sm:text-xl shadow-xs shrink-0 tracking-tight">
+            AL
+          </div>
+          <div>
+            <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-apple-text-primary leading-tight tracking-tight">
+              Agustín Llama
+            </h3>
+            <p class="text-xs sm:text-sm text-apple-text-secondary leading-tight mt-1 font-medium">
+              Desarrollador Full Stack · Enfoque en Negocios
+            </p>
+          </div>
+        </div>
+
+        <div class="space-y-3.5 sm:space-y-4 text-sm sm:text-base text-apple-text-secondary leading-relaxed mb-6 sm:mb-8 text-pretty">
+          <p>
+            Entiendo que cuando contratas a un profesional para digitalizar tu negocio, el mayor dolor suele ser la falta de respuesta, los plazos que se extienden y la confusión de tener que coordinar diseñadores y programadores por separado.
+          </p>
+          <p>
+            Mi enfoque es <strong class="text-apple-text-primary font-bold">100% integral y sin intermediarios</strong>. Me encargo personalmente desde la estructura visual hasta las bases de datos y la puesta en marcha definitiva.
+          </p>
+          <p>
+            Hablamos en términos de objetivos comerciales y tiempos concretos, sin jerga técnica incomprensible.
+          </p>
+        </div>
+
+        <!-- 3 Compromisos de Confianza en Micro-Grid (Perfecto en Mobile) -->
+        <div class="grid grid-cols-3 gap-2.5 sm:gap-3.5 pt-5 border-t border-black/[0.06] mb-6">
+          <div class="p-3 sm:p-3.5 rounded-2xl bg-[#F8F9FB] border border-black/[0.05] text-center">
+            <span class="block text-sm sm:text-base font-extrabold text-apple-text-primary">1 a 1</span>
+            <span class="text-[11px] text-apple-text-secondary font-medium leading-tight mt-0.5 block">Directo</span>
+          </div>
+          <div class="p-3 sm:p-3.5 rounded-2xl bg-[#F8F9FB] border border-black/[0.05] text-center">
+            <span class="block text-sm sm:text-base font-extrabold text-apple-text-primary">&lt; 24 hs</span>
+            <span class="text-[11px] text-apple-text-secondary font-medium leading-tight mt-0.5 block">Respuesta</span>
+          </div>
+          <div class="p-3 sm:p-3.5 rounded-2xl bg-[#F8F9FB] border border-black/[0.05] text-center">
+            <span class="block text-sm sm:text-base font-extrabold text-apple-text-primary">100%</span>
+            <span class="text-[11px] text-apple-text-secondary font-medium leading-tight mt-0.5 block">Tuyo</span>
+          </div>
+        </div>
+
+        <div>
+          <a 
+            href={`mailto:${email}?subject=Charla%20inicial%20de%20proyecto&body=Hola%20Agust%C3%ADn%2C%20quisiera%20coordinar%20una%20breve%20charla%20para%20contarte%20sobre%20mi%20negocio.`}
+            class="bento-btn-primary min-h-[48px] w-full sm:w-auto text-center justify-center active:scale-[0.98] transition-all shadow-sm"
+          >
+            <span>Iniciar una conversación directa</span>
+            <svg class="w-4 h-4 ml-1.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Columna Derecha: Metodología de Trabajo en 3 Pasos (5 cols) -->
+      <div class="lg:col-span-5 bento-card p-6 sm:p-8 md:p-9 bg-white">
+        <h3 class="text-base sm:text-lg font-bold text-apple-text-primary mb-6 flex items-center gap-2 tracking-tight">
+          <span class="w-2 h-2 rounded-full bg-brand-primary"></span>
+          <span>Proceso ágil y estructurado</span>
+        </h3>
+
+        <div class="space-y-6 relative border-l-2 border-black/[0.06] ml-3.5 pl-6 sm:pl-7">
+          <div class="relative">
+            <div class="absolute -left-[33px] top-0.5 w-6 h-6 rounded-full bg-brand-primary text-white text-xs font-bold flex items-center justify-center border-2 border-white shadow-xs">
+              1
+            </div>
+            <h4 class="text-sm font-bold text-apple-text-primary">Diagnóstico y Alcance</h4>
+            <p class="text-xs text-apple-text-secondary mt-1.5 leading-relaxed text-pretty">
+              Analizamos tu negocio, definimos requerimientos exactos y acordamos plazos fijos antes de comenzar.
+            </p>
+          </div>
+
+          <div class="relative">
+            <div class="absolute -left-[33px] top-0.5 w-6 h-6 rounded-full bg-brand-primary text-white text-xs font-bold flex items-center justify-center border-2 border-white shadow-xs">
+              2
+            </div>
+            <h4 class="text-sm font-bold text-apple-text-primary">Desarrollo y Enlace en Vivo</h4>
+            <p class="text-xs text-apple-text-secondary mt-1.5 leading-relaxed text-pretty">
+              Construyo la plataforma con avances periódicos para que pruebes el funcionamiento real en un entorno privado.
+            </p>
+          </div>
+
+          <div class="relative">
+            <div class="absolute -left-[33px] top-0.5 w-6 h-6 rounded-full bg-apple-green text-white text-xs font-bold flex items-center justify-center border-2 border-white shadow-xs">
+              3
+            </div>
+            <h4 class="text-sm font-bold text-apple-text-primary">Lanzamiento y Capacitación</h4>
+            <p class="text-xs text-apple-text-secondary mt-1.5 leading-relaxed text-pretty">
+              Publicamos en tu dominio y te brindo un instructivo simple para que manejes tu sitio con total autonomía.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

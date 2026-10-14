@@ -1,0 +1,113 @@
+---
+interface Props {
+  email?: string;
+}
+
+const { email = "agusllama1@gmail.com" } = Astro.props;
+const mailtoHref = `mailto:${email}?subject=Consulta%20por%20proyecto%20web&body=Hola%20Agust%C3%ADn%2C%20me%20gustar%C3%ADa%20conversar%20sobre%20un%20proyecto%20para%20mi%20negocio.`;
+---
+
+<section class="w-full py-12 sm:py-16 md:py-20 bg-apple-bg border-b border-black/[0.06] relative overflow-hidden">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="max-w-3xl">
+      <!-- Status Badge / Apple Bento Tag -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-apple-green-light text-apple-green text-xs font-semibold tracking-wide mb-5 sm:mb-6 border border-emerald-500/20">
+        <span class="w-2 h-2 rounded-full bg-apple-green animate-pulse shrink-0"></span>
+        <span class="truncate">Disponible para nuevos proyectos</span>
+      </div>
+
+      <!-- Eyebrow (Apple Keynote style uppercase caption) -->
+      <p class="text-xs sm:text-sm font-bold uppercase tracking-wider text-apple-text-secondary mb-2.5 sm:mb-3">
+        DESARROLLO WEB Y SISTEMAS A MEDIDA
+      </p>
+
+      <!-- H1 / Propuesta de Valor Comercial -->
+      <h1 class="text-[2rem] sm:text-4xl md:text-5xl font-extrabold text-apple-text-primary tracking-tight leading-[1.16] sm:leading-[1.12] mb-5 sm:mb-6 text-balance">
+        Diseño y desarrollo páginas web y sistemas para hacer crecer tu negocio.
+      </h1>
+
+      <!-- Párrafo de Impacto Comercial -->
+      <p class="text-sm sm:text-base md:text-lg text-apple-text-secondary leading-relaxed mb-8 max-w-2xl font-normal text-pretty">
+        Desde el diseño visual hasta el funcionamiento interno, me encargo de todo el desarrollo para que no tengas que preocuparte por la tecnología. Soluciones creadas para aumentar tus ventas y optimizar tu tiempo.
+      </p>
+
+      <!-- Botones de Acción (Apple Pill Buttons: min 48px height) -->
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-4">
+        <!-- CTA Primario: Índigo Corporativo #4F46E5 -->
+        <a 
+          href={mailtoHref} 
+          class="bento-btn-primary min-h-[48px] !text-sm sm:!text-base !py-3.5 !px-8 shadow-sm hover:shadow-md active:scale-[0.98] transition-all justify-center"
+        >
+          <span>Trabajemos juntos</span>
+          <svg class="w-4 h-4 ml-1 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </a>
+
+        <!-- CTA Secundario: Fondo Neutro #E5E7EB, Texto Oscuro #1D1D1F -->
+        <a 
+          href="#soluciones" 
+          class="bento-btn-secondary min-h-[48px] !text-sm sm:!text-base !py-3.5 !px-6 active:scale-[0.98] transition-all justify-center"
+        >
+          <span>Explorar soluciones</span>
+        </a>
+      </div>
+
+      <!-- Micro-copy de Confianza CRO (Visible justo debajo de los botones) -->
+      <div class="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-1.5 text-xs text-apple-text-secondary mb-10 sm:mb-12 font-medium">
+        <div class="flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-apple-green shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+          <span>Presupuesto sin costo</span>
+        </div>
+        <span class="text-apple-text-tertiary hidden sm:inline">•</span>
+        <div class="flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-apple-green shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+          <span>Trato directo sin tecnicismos</span>
+        </div>
+      </div>
+
+      <!-- 3 Pilares Comerciales (Squircle Cards blancas con hover sutil sobre canvas #F5F5F7) -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4 pt-6 sm:pt-8 border-t border-black/[0.06]">
+        <div class="flex items-start gap-3 p-4 rounded-[20px] bg-white border border-black/[0.06] shadow-[0_2px_12px_-2px_rgba(0,0,0,0.03)] hover:shadow-sm hover:-translate-y-0.5 transition-all">
+          <div class="w-9 h-9 rounded-xl bg-[#F0F2F5] text-apple-text-primary flex items-center justify-center shrink-0 mt-0.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-apple-text-primary tracking-tight">Servicio Integral</h4>
+            <p class="text-xs text-apple-text-secondary mt-0.5 leading-normal">Sin intermediarios: diseño, desarrollo y puesta en marcha.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3 p-4 rounded-[20px] bg-white border border-black/[0.06] shadow-[0_2px_12px_-2px_rgba(0,0,0,0.03)] hover:shadow-sm hover:-translate-y-0.5 transition-all">
+          <div class="w-9 h-9 rounded-xl bg-[#F0F2F5] text-apple-text-primary flex items-center justify-center shrink-0 mt-0.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-apple-text-primary tracking-tight">Foco en Conversión</h4>
+            <p class="text-xs text-apple-text-secondary mt-0.5 leading-normal">Estructuras pensadas para convertir visitas en ventas.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3 p-4 rounded-[20px] bg-white border border-black/[0.06] shadow-[0_2px_12px_-2px_rgba(0,0,0,0.03)] hover:shadow-sm hover:-translate-y-0.5 transition-all">
+          <div class="w-9 h-9 rounded-xl bg-[#F0F2F5] text-apple-text-primary flex items-center justify-center shrink-0 mt-0.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-apple-text-primary tracking-tight">Ahorro de Tiempo</h4>
+            <p class="text-xs text-apple-text-secondary mt-0.5 leading-normal">Automatización de tareas repetitivas de tu negocio.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
