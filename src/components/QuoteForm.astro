@@ -1,0 +1,179 @@
+---
+// QuoteForm.astro - Formulario de Calificación & Cotización Directa (Punto Óptimo de Fricción)
+interface Props {
+  email?: string;
+}
+
+const { email = "agusllama1@gmail.com" } = Astro.props;
+---
+
+<section id="cotizar" class="w-full py-12 sm:py-16 md:py-24 bg-white border-b border-andes-border relative">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6">
+    
+    <!-- Encabezado de la Sección -->
+    <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#F4F6F8] border border-andes-border text-andes-text-primary text-[11px] sm:text-xs font-bold tracking-widest uppercase mb-3 shadow-xs">
+        <span class="w-1.5 h-1.5 rounded-full bg-andes-primary"></span>
+        <span>05 · COTIZACIÓN DIRECTA & ALCANCE</span>
+      </div>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-andes-text-primary tracking-tight mt-1 mb-2.5 sm:mb-3 text-balance">
+        Solicita tu propuesta y presupuesto cerrado
+      </h2>
+      <p class="text-sm sm:text-base text-andes-text-secondary leading-relaxed text-pretty">
+        Completa estos datos para entender los requerimientos de tu negocio. Te responderé personalmente en menos de 24 horas con una estimación clara de tiempos y costos.
+      </p>
+    </div>
+
+    <!-- Tarjeta del Formulario (Andes UI + CRO) -->
+    <div class="andes-card p-6 sm:p-10 bg-[#FAFAFA] border border-andes-border rounded-xl shadow-md">
+      <form 
+        id="quote-hybrid-form"
+        class="space-y-6"
+      >
+        <!-- Selección de Tipo de Proyecto (Botones de radio visuales con buen feedback) -->
+        <div>
+          <label class="block text-xs font-bold text-andes-text-primary uppercase tracking-wider mb-2.5">
+            1. ¿Qué tipo de solución necesita tu empresa? *
+          </label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2.5">
+            <label class="flex items-center gap-2.5 p-3 rounded-lg border border-andes-border bg-white hover:border-andes-primary/50 cursor-pointer transition text-xs font-medium text-andes-text-primary shadow-xs">
+              <input type="radio" name="project_type" value="Sitio Web Corporativo" class="text-andes-primary focus:ring-andes-primary" checked />
+              <span>Web Corporativa</span>
+            </label>
+            <label class="flex items-center gap-2.5 p-3 rounded-lg border border-andes-border bg-white hover:border-andes-primary/50 cursor-pointer transition text-xs font-medium text-andes-text-primary shadow-xs">
+              <input type="radio" name="project_type" value="Tienda Online / E-commerce" class="text-andes-primary focus:ring-andes-primary" />
+              <span>Tienda Online</span>
+            </label>
+            <label class="flex items-center gap-2.5 p-3 rounded-lg border border-andes-border bg-white hover:border-andes-primary/50 cursor-pointer transition text-xs font-medium text-andes-text-primary shadow-xs">
+              <input type="radio" name="project_type" value="Sistema de Gestión / Automatización" class="text-andes-primary focus:ring-andes-primary" />
+              <span>Sistema / Software</span>
+            </label>
+            <label class="flex items-center gap-2.5 p-3 rounded-lg border border-andes-border bg-white hover:border-andes-primary/50 cursor-pointer transition text-xs font-medium text-andes-text-primary shadow-xs">
+              <input type="radio" name="project_type" value="Optimización / Modernización" class="text-andes-primary focus:ring-andes-primary" />
+              <span>Modernización</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Datos de Contacto -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="quote-name" class="block text-xs font-bold text-andes-text-primary uppercase tracking-wider mb-1.5">
+              Tu Nombre y Apellido *
+            </label>
+            <input 
+              type="text" 
+              id="quote-name" 
+              required 
+              placeholder="Ej: Marcelo Fernández" 
+              class="w-full px-3.5 py-2.5 text-sm bg-white border border-andes-border rounded-md focus:outline-none focus:ring-2 focus:ring-andes-primary transition"
+            />
+          </div>
+
+          <div>
+            <label for="quote-email" class="block text-xs font-bold text-andes-text-primary uppercase tracking-wider mb-1.5">
+              Email de Contacto *
+            </label>
+            <input 
+              type="email" 
+              id="quote-email" 
+              required 
+              placeholder="marcelo@empresa.com" 
+              class="w-full px-3.5 py-2.5 text-sm bg-white border border-andes-border rounded-md focus:outline-none focus:ring-2 focus:ring-andes-primary transition"
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="quote-phone" class="block text-xs font-bold text-andes-text-primary uppercase tracking-wider mb-1.5">
+              WhatsApp / Teléfono (Opcional)
+            </label>
+            <input 
+              type="tel" 
+              id="quote-phone" 
+              placeholder="+54 9 11 ..." 
+              class="w-full px-3.5 py-2.5 text-sm bg-white border border-andes-border rounded-md focus:outline-none focus:ring-2 focus:ring-andes-primary transition"
+            />
+          </div>
+
+          <div>
+            <label for="quote-timeline" class="block text-xs font-bold text-andes-text-primary uppercase tracking-wider mb-1.5">
+              Plazo de Inicio Deseado
+            </label>
+            <select 
+              id="quote-timeline" 
+              class="w-full px-3.5 py-2.5 text-sm bg-white border border-andes-border rounded-md focus:outline-none focus:ring-2 focus:ring-andes-primary transition"
+            >
+              <option value="Lo antes posible (este mes)">Lo antes posible (este mes)</option>
+              <option value="En los próximos 30-60 días">En los próximos 30-60 días</option>
+              <option value="Solo explorando opciones y presupuesto">Solo explorando opciones y presupuesto</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Descripción del Proyecto -->
+        <div>
+          <label for="quote-message" class="block text-xs font-bold text-andes-text-primary uppercase tracking-wider mb-1.5">
+            Cuéntame brevemente sobre tu negocio o el dolor a resolver *
+          </label>
+          <textarea 
+            id="quote-message" 
+            rows="3" 
+            required
+            placeholder="Ej: Vendemos insumos al por mayor y queremos que los clientes hagan sus pedidos directo en la web sin mandar WhatsApps manuales..." 
+            class="w-full px-3.5 py-2.5 text-sm bg-white border border-andes-border rounded-md focus:outline-none focus:ring-2 focus:ring-andes-primary transition resize-y"
+          ></textarea>
+        </div>
+
+        <!-- Botón de Envío Primario (48px Touch target) -->
+        <div>
+          <button 
+            type="submit" 
+            class="andes-btn-primary min-h-[48px] w-full !text-base !py-3.5 shadow-md hover:shadow-lg transition cursor-pointer justify-center"
+          >
+            <span>Enviar consulta a Agustín Llama</span>
+            <svg class="w-4 h-4 ml-1.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Micro-copy de Garantías CRO -->
+        <div class="text-center pt-1">
+          <p class="text-xs text-andes-text-secondary flex items-center justify-center gap-2 flex-wrap font-medium">
+            <span class="flex items-center gap-1 text-emerald-700">✓ Presupuesto sin costo</span>
+            <span>•</span>
+            <span class="flex items-center gap-1 text-emerald-700">✓ Respuesta en &lt; 24 horas</span>
+            <span>•</span>
+            <span class="flex items-center gap-1 text-emerald-700">✓ Trato directo 1 a 1</span>
+          </p>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('quote-hybrid-form') as HTMLFormElement;
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const typeEl = form.querySelector('input[name="project_type"]:checked') as HTMLInputElement;
+      const projectType = typeEl ? typeEl.value : 'Proyecto Web';
+      const name = (document.getElementById('quote-name') as HTMLInputElement).value;
+      const clientEmail = (document.getElementById('quote-email') as HTMLInputElement).value;
+      const phone = (document.getElementById('quote-phone') as HTMLInputElement).value;
+      const timeline = (document.getElementById('quote-timeline') as HTMLSelectElement).value;
+      const message = (document.getElementById('quote-message') as HTMLTextAreaElement).value;
+
+      const subject = `Cotización: ${projectType} - ${name}`;
+      const body = `Hola Agustín,\n\nMi nombre es ${name}.\nTipo de proyecto: ${projectType}\nEmail: ${clientEmail}\nTeléfono/WhatsApp: ${phone || 'No especificado'}\nPlazo deseado: ${timeline}\n\nDetalles del proyecto:\n${message}\n\nAguardo tu propuesta y estimación de costos.`;
+
+      window.location.href = `mailto:agusllama1@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  }
+</script>

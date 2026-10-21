@@ -1,0 +1,81 @@
+---
+// CroFaq.astro - Acordeón interactivo de Preguntas Frecuentes para derribar objeciones finales
+const faqs = [
+  {
+    pregunta: "¿Cuánto cuesta un desarrollo a medida y cómo se estructuran los pagos?",
+    respuesta: "Cada proyecto se presupuesta a precio cerrado según el alcance validado en la sesión de diagnóstico técnico. Para garantizar máxima tranquilidad y compromiso mutuo, trabajamos bajo un esquema de hitos (milestones): un anticipo inicial para arquitectura, y pagos parciales vinculados a la entrega de funcionalidades comprobables en tu entorno de pruebas. Sin sobrecostos imprevistos."
+  },
+  {
+    pregunta: "¿Qué pasa si ya tenemos un sistema existente o código heredado (legacy)?",
+    respuesta: "En la sesión inicial realizamos una auditoría técnica rápida sin costo de tu base de datos y repositorio actual. Si el código existente es rescatable, lo optimizamos y refactorizamos de forma incremental sin interrumpir la operación. Si representa una deuda técnica insostenible, te explicamos con honestidad si conviene migrar a una arquitectura moderna."
+  },
+  {
+    pregunta: "¿Cómo garantizan que la fecha de entrega acordada se cumpla?",
+    respuesta: "No usamos estimaciones teóricas de agencias tradicionales. Desglosamos el desarrollo en sprints semanales de 7 días con un alcance estrictamente delimitado. Cada viernes dispones de una versión desplegada y funcional para probar. De este modo, cualquier ajuste se resuelve en tiempo real sin acumular retrasos de fin de proyecto."
+  },
+  {
+    pregunta: "¿El software y la propiedad intelectual son 100% de mi empresa?",
+    respuesta: "Totalmente sí. Al finalizar cada etapa o proyecto, se transfiere la totalidad del repositorio de código fuente (GitHub / GitLab), documentación técnica, credenciales de servidores y bases de datos a tu nombre. No existen regalías, licencias ocultas ni ataduras contractuales."
+  },
+  {
+    pregunta: "¿Qué tipo de soporte y mantenimiento brindan tras el lanzamiento?",
+    respuesta: "Todos los proyectos incluyen un período de garantía técnica post-lanzamiento de 30 a 60 días para corrección inmediata de cualquier incidencia sin costo extra. Además, ofrecemos acuerdos opcionales de mantenimiento preventivo y evolución continua por horas dedicadas."
+  }
+];
+---
+
+<section class="py-14 sm:py-20 bg-andes-bg border-b border-andes-border" id="preguntas-frecuentes">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6">
+    
+    <div class="text-center mb-10">
+      <span class="text-xs font-bold uppercase tracking-wider text-andes-primary bg-indigo-50 px-3 py-1 rounded-full border border-indigo-100 mb-3 inline-block">
+        Resolución de Dudas & Objeciones
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-andes-text-primary tracking-tight mb-3">
+        Preguntas Frecuentes
+      </h2>
+      <p class="text-sm sm:text-base text-andes-text-secondary">
+        Todo lo que necesitas saber antes de iniciar una conversación técnica con nosotros.
+      </p>
+    </div>
+
+    <!-- Acordeón Visual Accesible -->
+    <div class="space-y-3" id="cro-faq-container">
+      {faqs.map((faq, index) => (
+        <details 
+          class="group andes-card bg-white border border-andes-border rounded-lg overflow-hidden transition-all duration-200"
+          open={index === 0}
+        >
+          <summary class="flex items-center justify-between p-4 sm:p-5 font-semibold text-sm sm:text-base text-andes-text-primary cursor-pointer select-none list-none group-hover:text-andes-primary transition-colors">
+            <span class="pr-4">{faq.pregunta}</span>
+            <div class="w-6 h-6 rounded-full bg-gray-100 text-andes-text-secondary flex items-center justify-center shrink-0 group-open:bg-indigo-50 group-open:text-andes-primary group-open:rotate-180 transition-transform duration-200">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </div>
+          </summary>
+          <div class="px-4 pb-5 sm:px-5 sm:pb-5 pt-0 text-xs sm:text-sm text-andes-text-secondary leading-relaxed border-t border-gray-50 mt-1">
+            {faq.respuesta}
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <!-- Call to Action Complementario de Cierre de FAQs -->
+    <div class="mt-8 text-center p-6 bg-white border border-andes-border rounded-xl">
+      <p class="text-sm font-semibold text-andes-text-primary mb-1">
+        ¿Tienes una consulta específica sobre tu modelo de negocio?
+      </p>
+      <p class="text-xs text-andes-text-secondary mb-4">
+        Podemos analizar la viabilidad técnica directamente en 15 minutos.
+      </p>
+      <a 
+        href="#formulario-calificacion" 
+        class="andes-btn-secondary !text-xs !py-2.5 !px-5 font-bold"
+      >
+        Hablar con Agustín Llama &rarr;
+      </a>
+    </div>
+
+  </div>
+</section>

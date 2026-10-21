@@ -1,0 +1,85 @@
+---
+// Faq.astro - Acordeón de Preguntas Frecuentes desde la perspectiva de Portfolio Personal B2B
+const faqs = [
+  {
+    pregunta: "¿Cuánto cuesta un desarrollo a medida y cómo se estructuran los pagos?",
+    respuesta: "Cada proyecto se presupuesta a precio cerrado según el alcance acordado, sin cargos ocultos ni sorpresas de fin de mes. Para garantizar total transparencia y tranquilidad mutua, trabajamos por hitos: un anticipo inicial para arquitectura y diseño, y pagos parciales vinculados a entregas funcionales que tú mismo pruebas cada semana."
+  },
+  {
+    pregunta: "¿Por qué trabajar conmigo en lugar de contratar una agencia tradicional?",
+    respuesta: "En las agencias tradicionales pagas la estructura comercial de ejecutivos de cuenta y oficinas, y frecuentemente tu código es delegado a desarrolladores junior. Conmigo tienes trato directo 1 a 1 con el ingeniero senior que escribe la solución. Esto se traduce en entregas el doble de rápidas, cero 'teléfono descompuesto' y una inversión mucho más eficiente."
+  },
+  {
+    pregunta: "¿Qué pasa si ya tengo un sitio o sistema a medio hacer?",
+    respuesta: "Hacemos una revisión técnica inicial sin costo de tu repositorio y base de datos actual. Si el código existente es sólido, lo optimizamos e integramos las mejoras que necesitas. Si representa una deuda técnica riesgosa, te doy mi diagnóstico honesto sobre la conveniencia de corregirlo o rehacerlo en una arquitectura moderna."
+  },
+  {
+    pregunta: "¿El código, el dominio y la base de datos son de mi propiedad?",
+    respuesta: "100% tuyos. Desde el primer día configuro todo para que los accesos a servidores, repositorios de código (GitHub/GitLab) y bases de datos queden a nombre de tu empresa. No utilizo licencias cautivas ni dependencias que te aten a mí si en el futuro decides cambiar de equipo."
+  },
+  {
+    pregunta: "¿Cómo garantizamos que el proyecto se entregue en la fecha prometida?",
+    respuesta: "Divido el proyecto en entregas semanales de 7 días con objetivos estrictos. Cada semana dispones de un enlace privado en vivo para probar el avance real. De esta forma, cualquier ajuste se detecta y corrige inmediatamente, evitando los típicos retrasos masivos de fin de proyecto."
+  },
+  {
+    pregunta: "¿Qué soporte o garantía ofreces una vez lanzado el proyecto?",
+    respuesta: "Todos mis desarrollos incluyen un período de garantía técnica post-lanzamiento de 30 a 60 días sin costo extra para resolver cualquier detalle o imprevisto. Además, ofrezco planes opcionales de mantenimiento preventivo y evolución continua según las necesidades de tu empresa."
+  }
+];
+---
+
+<section id="faqs" class="w-full py-12 sm:py-16 md:py-24 bg-[#F4F6F8] border-b border-andes-border relative">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6">
+    
+    <!-- Header de Sección -->
+    <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white border border-andes-border text-andes-text-primary text-[11px] sm:text-xs font-bold tracking-widest uppercase mb-3 shadow-xs">
+        <span class="w-1.5 h-1.5 rounded-full bg-andes-primary"></span>
+        <span>06 · RESOLUCIÓN DE DUDAS FRECUENTES</span>
+      </div>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-andes-text-primary tracking-tight mt-1 mb-2.5 sm:mb-3 text-balance">
+        Preguntas que suelen hacerme los directores antes de empezar
+      </h2>
+      <p class="text-sm sm:text-base text-andes-text-secondary leading-relaxed text-pretty">
+        Respuestas directas y transparentes sobre precios, metodología de trabajo, código y garantías técnicas.
+      </p>
+    </div>
+
+    <!-- Acordeón Visual Accesible Andes UI -->
+    <div class="space-y-3">
+      {faqs.map((faq, index) => (
+        <details 
+          class="group andes-card bg-white border border-andes-border rounded-lg overflow-hidden transition-all duration-200"
+          open={index === 0}
+        >
+          <summary class="flex items-center justify-between p-4 sm:p-5 font-semibold text-sm sm:text-base text-andes-text-primary cursor-pointer select-none list-none group-hover:text-andes-primary transition-colors">
+            <span class="pr-4">{faq.pregunta}</span>
+            <div class="w-6 h-6 rounded-full bg-gray-100 text-andes-text-secondary flex items-center justify-center shrink-0 group-open:bg-indigo-50 group-open:text-andes-primary group-open:rotate-180 transition-transform duration-200">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </div>
+          </summary>
+          <div class="px-4 pb-5 sm:px-5 sm:pb-5 pt-0 text-xs sm:text-sm text-andes-text-secondary leading-relaxed border-t border-gray-100 mt-1">
+            {faq.respuesta}
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <!-- Card de Consulta Directa -->
+    <div class="mt-8 p-5 sm:p-6 rounded-xl bg-white border border-andes-border text-center flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="text-left">
+        <p class="text-sm font-bold text-andes-text-primary">¿Tienes una duda particular sobre tu proyecto?</p>
+        <p class="text-xs text-andes-text-secondary mt-0.5">Podemos coordinar una breve llamada técnica sin ningún compromiso.</p>
+      </div>
+      <a 
+        href="#cotizar" 
+        class="andes-btn-secondary !text-xs !py-2.5 !px-5 whitespace-nowrap font-bold shrink-0"
+      >
+        <span>Consultar directamente &rarr;</span>
+      </a>
+    </div>
+
+  </div>
+</section>

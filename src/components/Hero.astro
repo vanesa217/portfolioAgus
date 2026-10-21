@@ -1,113 +1,97 @@
 ---
+// Hero.astro - Estilo "Editorial Tech / Quiet Luxury" Mobile-First en Modo Oscuro Mate (#0E1111)
 interface Props {
   email?: string;
 }
 
 const { email = "agusllama1@gmail.com" } = Astro.props;
-const mailtoHref = `mailto:${email}?subject=Consulta%20por%20proyecto%20web&body=Hola%20Agust%C3%ADn%2C%20me%20gustar%C3%ADa%20conversar%20sobre%20un%20proyecto%20para%20mi%20negocio.`;
+
+const techPills = [
+  "React",
+  "Astro",
+  "TypeScript",
+  "Node.js",
+  "Tailwind",
+  "PostgreSQL"
+];
 ---
 
-<section class="w-full py-12 sm:py-16 md:py-20 bg-apple-bg border-b border-black/[0.06] relative overflow-hidden">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6">
-    <div class="max-w-3xl">
-      <!-- Status Badge / Apple Bento Tag -->
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-apple-green-light text-apple-green text-xs font-semibold tracking-wide mb-5 sm:mb-6 border border-emerald-500/20">
-        <span class="w-2 h-2 rounded-full bg-apple-green animate-pulse shrink-0"></span>
-        <span class="truncate">Disponible para nuevos proyectos</span>
+<section class="relative w-full pt-8 sm:pt-14 pb-12 sm:pb-16 border-b border-white/[0.06] overflow-hidden">
+  <div class="max-w-xl mx-auto px-4 sm:px-6">
+    
+    <!-- CONTENIDO EN UN SOLO FLUJO VERTICAL LIMPIO -->
+    <div class="flex flex-col items-start space-y-6 sm:space-y-7">
+      
+      <!-- 1. Indicador Plano de Disponibilidad -->
+      <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs font-mono">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+        <span>Disponible para nuevos proyectos</span>
       </div>
 
-      <!-- Eyebrow (Apple Keynote style uppercase caption) -->
-      <p class="text-xs sm:text-sm font-bold uppercase tracking-wider text-apple-text-secondary mb-2.5 sm:mb-3">
-        DESARROLLO WEB Y SISTEMAS A MEDIDA
-      </p>
-
-      <!-- H1 / Propuesta de Valor Comercial -->
-      <h1 class="text-[2rem] sm:text-4xl md:text-5xl font-extrabold text-apple-text-primary tracking-tight leading-[1.16] sm:leading-[1.12] mb-5 sm:mb-6 text-balance">
-        Diseño y desarrollo páginas web y sistemas para hacer crecer tu negocio.
+      <!-- 2. Título Principal (H1) Geométrico Compacto (Estilo Geist / Inter) -->
+      <h1 class="text-[28px] sm:text-3xl md:text-4xl font-extrabold tracking-tight leading-[1.2] text-white text-balance">
+        Desarrollo <span class="text-[#7DD3FC] font-extrabold">plataformas web, sistemas de gestión y e-commerce</span> listos para escalar.
       </h1>
 
-      <!-- Párrafo de Impacto Comercial -->
-      <p class="text-sm sm:text-base md:text-lg text-apple-text-secondary leading-relaxed mb-8 max-w-2xl font-normal text-pretty">
-        Desde el diseño visual hasta el funcionamiento interno, me encargo de todo el desarrollo para que no tengas que preocuparte por la tecnología. Soluciones creadas para aumentar tus ventas y optimizar tu tiempo.
+      <!-- 3. Subtítulo en Gris Medio, Legible y Directo -->
+      <p class="text-sm sm:text-base text-slate-400 leading-relaxed max-w-lg text-pretty">
+        Transformo procesos complejos en productos rápidos y fáciles de usar. Foco en experiencia de usuario, arquitectura limpia y trato directo de principio a fin.
       </p>
 
-      <!-- Botones de Acción (Apple Pill Buttons: min 48px height) -->
-      <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-4">
-        <!-- CTA Primario: Índigo Corporativo #4F46E5 -->
+      <!-- 4. Botón de Acción Principal Sólido Mate + Secundario Sutil -->
+      <div class="flex items-center gap-3 pt-1 w-full sm:w-auto">
+        <!-- Botón Primario: Ver Proyectos -->
         <a 
-          href={mailtoHref} 
-          class="bento-btn-primary min-h-[48px] !text-sm sm:!text-base !py-3.5 !px-8 shadow-sm hover:shadow-md active:scale-[0.98] transition-all justify-center"
+          href="#proyectos" 
+          class="btn-solid-blue w-full sm:w-auto justify-center"
         >
-          <span>Trabajemos juntos</span>
-          <svg class="w-4 h-4 ml-1 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-          </svg>
+          <span>Ver Proyectos</span>
         </a>
 
-        <!-- CTA Secundario: Fondo Neutro #E5E7EB, Texto Oscuro #1D1D1F -->
+        <!-- Botón Secundario: Contactarme -->
         <a 
-          href="#soluciones" 
-          class="bento-btn-secondary min-h-[48px] !text-sm sm:!text-base !py-3.5 !px-6 active:scale-[0.98] transition-all justify-center"
+          href="#contacto" 
+          class="btn-subtle-link w-full sm:w-auto justify-center"
         >
-          <span>Explorar soluciones</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+          <span>Contactarme</span>
         </a>
       </div>
 
-      <!-- Micro-copy de Confianza CRO (Visible justo debajo de los botones) -->
-      <div class="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-1.5 text-xs text-apple-text-secondary mb-10 sm:mb-12 font-medium">
-        <div class="flex items-center gap-1.5">
-          <svg class="w-3.5 h-3.5 text-apple-green shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+      <!-- 5. SECCIÓN DE DETALLES Y BENTO EN UNA SOLA COLUMNA FLUIDA -->
+      <div class="w-full pt-4 space-y-4 border-t border-white/[0.06]">
+        
+        <!-- Ubicación: Icono de Geolocalización + Buenos Aires, Argentina (GMT-3) -->
+        <div class="flex items-center gap-2 text-xs text-slate-400">
+          <svg class="w-3.5 h-3.5 text-slate-400 shrink-0" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
           </svg>
-          <span>Presupuesto sin costo</span>
+          <span class="font-mono">Buenos Aires, Argentina (GMT-3)</span>
         </div>
-        <span class="text-apple-text-tertiary hidden sm:inline">•</span>
-        <div class="flex items-center gap-1.5">
-          <svg class="w-3.5 h-3.5 text-apple-green shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-          </svg>
-          <span>Trato directo sin tecnicismos</span>
+
+        <!-- Tecnologías: Bloque de píldoras grises muy oscuras, compactas y planas sin logos coloridos -->
+        <div>
+          <div class="flex flex-wrap gap-1.5">
+            {techPills.map((tech) => (
+              <span class="text-xs font-mono text-slate-300 bg-white/[0.04] border border-white/[0.07] px-2.5 py-1 rounded-md">
+                {tech}
+              </span>
+            ))}
+          </div>
         </div>
+
+        <!-- Métricas: Una sola línea de texto discreto sin círculos gráficos ni colores brillantes -->
+        <div class="pt-1">
+          <p class="text-xs font-mono text-slate-400 flex items-center gap-1.5">
+            <span class="text-emerald-400 font-bold">✓</span>
+            <span>Lighthouse: 100/100 • Performance • SEO</span>
+          </p>
+        </div>
+
       </div>
 
-      <!-- 3 Pilares Comerciales (Squircle Cards blancas con hover sutil sobre canvas #F5F5F7) -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4 pt-6 sm:pt-8 border-t border-black/[0.06]">
-        <div class="flex items-start gap-3 p-4 rounded-[20px] bg-white border border-black/[0.06] shadow-[0_2px_12px_-2px_rgba(0,0,0,0.03)] hover:shadow-sm hover:-translate-y-0.5 transition-all">
-          <div class="w-9 h-9 rounded-xl bg-[#F0F2F5] text-apple-text-primary flex items-center justify-center shrink-0 mt-0.5">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </div>
-          <div>
-            <h4 class="text-sm font-bold text-apple-text-primary tracking-tight">Servicio Integral</h4>
-            <p class="text-xs text-apple-text-secondary mt-0.5 leading-normal">Sin intermediarios: diseño, desarrollo y puesta en marcha.</p>
-          </div>
-        </div>
-
-        <div class="flex items-start gap-3 p-4 rounded-[20px] bg-white border border-black/[0.06] shadow-[0_2px_12px_-2px_rgba(0,0,0,0.03)] hover:shadow-sm hover:-translate-y-0.5 transition-all">
-          <div class="w-9 h-9 rounded-xl bg-[#F0F2F5] text-apple-text-primary flex items-center justify-center shrink-0 mt-0.5">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-            </svg>
-          </div>
-          <div>
-            <h4 class="text-sm font-bold text-apple-text-primary tracking-tight">Foco en Conversión</h4>
-            <p class="text-xs text-apple-text-secondary mt-0.5 leading-normal">Estructuras pensadas para convertir visitas en ventas.</p>
-          </div>
-        </div>
-
-        <div class="flex items-start gap-3 p-4 rounded-[20px] bg-white border border-black/[0.06] shadow-[0_2px_12px_-2px_rgba(0,0,0,0.03)] hover:shadow-sm hover:-translate-y-0.5 transition-all">
-          <div class="w-9 h-9 rounded-xl bg-[#F0F2F5] text-apple-text-primary flex items-center justify-center shrink-0 mt-0.5">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </div>
-          <div>
-            <h4 class="text-sm font-bold text-apple-text-primary tracking-tight">Ahorro de Tiempo</h4>
-            <p class="text-xs text-apple-text-secondary mt-0.5 leading-normal">Automatización de tareas repetitivas de tu negocio.</p>
-          </div>
-        </div>
-      </div>
     </div>
+
   </div>
 </section>

@@ -2,20 +2,23 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import FloatingCta from '../components/FloatingCta.astro';
 
 interface Props {
   title?: string;
   description?: string;
+  hideDefaultNav?: boolean;
 }
 
 const {
-  title = "Agustín Llama · Desarrollador Full Stack | Soluciones Web para Negocios",
-  description = "Desarrollo plataformas web de principio a fin para negocios y emprendedores. Soluciones digitales escalables, tiendas online y sistemas de gestión sin fricción técnica."
+  title = "Agustín Llama · Desarrollador Web Full Stack | Editorial Tech",
+  description = "Desarrollo plataformas web, sistemas de gestión y e-commerce listos para escalar. Arquitectura limpia, experiencia de usuario y trato directo.",
+  hideDefaultNav = false
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es" class="scroll-smooth">
+<html lang="es" class="scroll-smooth dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,17 +28,28 @@ const {
     <title>{title}</title>
     <meta name="description" content={description} />
     
-    <!-- Open Graph / Meta comercial -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta name="theme-color" content="#4F46E5" />
+    <meta name="theme-color" content="#0E1111" />
   </head>
-  <body class="bg-apple-bg text-apple-text-primary min-h-screen flex flex-col font-sans selection:bg-brand-primary selection:text-white">
-    <Header />
-    <main class="flex-1 w-full">
-      <slot />
-    </main>
-    <Footer />
+  <body class="bg-[#0E1111] text-slate-200 min-h-screen flex flex-col font-sans selection:bg-slate-800 selection:text-white relative overflow-x-hidden">
+    
+    <!-- Capa de Textura Sutil (Casi imperceptible) -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+      <div class="absolute inset-0 bg-quiet-dots opacity-40"></div>
+    </div>
+
+    <!-- Contenido Principal -->
+    <div class="relative z-10 flex flex-col min-h-screen">
+      {!hideDefaultNav && <Header />}
+      <main class="flex-1 w-full">
+        <slot />
+      </main>
+      {!hideDefaultNav && <Footer />}
+      {!hideDefaultNav && <FloatingCta />}
+    </div>
+
   </body>
 </html>

@@ -1,0 +1,95 @@
+---
+// FloatingCta.astro - CTA Flotante Inteligente "Quiet Luxury"
+// Aparece solo después del Hero, se oculta en la sección de contacto, diseño ultra-sobrio.
+interface Props {
+  text?: string;
+  targetId?: string;
+}
+
+const { text = "Contactarme", targetId = "contacto" } = Astro.props;
+---
+
+<a 
+  href={`#${targetId}`}
+  id="floating-cta"
+  class="fixed bottom-5 right-4 sm:bottom-6 sm:right-6 z-40 inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-[#13171D]/95 backdrop-blur-md border border-white/10 text-xs font-medium text-slate-300 hover:text-white hover:border-white/25 shadow-xl transition-all duration-300 ease-out opacity-0 pointer-events-none translate-y-3 active:scale-95 select-none group"
+  aria-label="Ir a la sección de contacto"
+>
+  <!-- Indicador sutil de disponibilidad -->
+  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+  
+  <span>{text}</span>
+  
+  <span class="text-slate-400 group-hover:text-white transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+    ↗
+  </span>
+</a>
+
+<script>
+  function setupFloatingCta() {
+    const cta = document.getElementById('floating-cta');
+    const heroSection = document.querySelector('section');
+    const contactSection = document.getElementById('contacto');
+
+    if (!cta) return;
+
+    let isPastHero = false;
+    let isInContact = false;
+
+    function updateVisibility() {
+      if (isPastHero && !isInContact) {
+        cta?.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-3');
+        cta?.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+      } else {
+        cta?.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+        cta?.classList.add('opacity-0', 'pointer-events-none', 'translate-y-3');
+      }
+    }
+
+    // 1. Observer para detectar cuándo se supera el Hero
+    if (heroSection) {
+      const heroObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            // Si el Hero NO está intersectando en pantalla, ya scrolleó más abajo
+            isPastHero = !entry.isIntersecting;
+            updateVisibility();
+          });
+        },
+        { threshold: 0.15 }
+      );
+      heroObserver.observe(heroSection);
+    }
+
+    // 2. Observer para detectar si el usuario llegó a la sección #contacto
+    if (contactSection) {
+      const contactObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            // Si #contacto está visible, ocultar el botón flotante
+            isInContact = entry.isIntersecting;
+            updateVisibility();
+          });
+        },
+        { threshold: 0.1 }
+      );
+      contactObserver.observe(contactSection);
+    }
+
+    // 3. Smooth scroll al hacer clic
+    cta.addEventListener('click', (e) => {
+      const target = document.getElementById('contacto');
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
+
+  // Inicialización segura con soporte para navegaciones
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupFloatingCta);
+  } else {
+    setupFloatingCta();
+  }
+</script>

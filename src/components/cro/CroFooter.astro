@@ -1,0 +1,50 @@
+---
+// CroFooter.astro - Footer CRO con Descargo de Responsabilidad Legal obligatorio (Disclaimers)
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-white border-t border-andes-border pt-10 pb-8 text-andes-text-secondary">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    
+    <!-- Fila Superior: Identidad & Enlaces de Conversión -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-8 border-b border-gray-100">
+      <div class="flex items-center gap-2.5">
+        <div class="w-7 h-7 rounded bg-andes-primary text-white flex items-center justify-center font-bold text-xs tracking-tight shadow-xs">
+          AL
+        </div>
+        <div>
+          <p class="text-xs font-bold text-andes-text-primary">Agustín Llama · Desarrollo de Software B2B</p>
+          <p class="text-[11px] text-andes-text-tertiary">Ingeniería Web, Plataformas y Automatizaciones</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-4 text-xs font-medium">
+        <a href="#vsl-video" class="hover:text-andes-primary transition-colors">Ver Video</a>
+        <a href="#formulario-calificacion" class="hover:text-andes-primary transition-colors">Agendar Diagnóstico</a>
+        <a href="#preguntas-frecuentes" class="hover:text-andes-primary transition-colors">Preguntas Frecuentes</a>
+        <a href="mailto:agusllama1@gmail.com" class="hover:text-andes-primary transition-colors font-semibold text-andes-primary">Contacto Directo</a>
+      </div>
+    </div>
+
+    <!-- Bloque de Descargo de Responsabilidad Legal (Disclaimers de Resultados B2B) -->
+    <div class="py-6 border-b border-gray-100 text-[11px] text-andes-text-tertiary leading-relaxed">
+      <p class="font-bold text-andes-text-secondary uppercase tracking-wider mb-1">
+        Aviso Legal y Descargo de Responsabilidad sobre Resultados:
+      </p>
+      <p>
+        Los casos de estudio, métricas de incremento en facturación (+30%), ahorro de horas operativas y testimonios presentados en esta página corresponden a resultados reales obtenidos por clientes directos bajo condiciones específicas de implementación técnica y adopción interna. El rendimiento y retorno de inversión de cualquier sistema de software o plataforma web desarrollada a medida dependen directamente del modelo de negocio, volumen de clientes, calidad operativa y ejecución comercial de cada empresa. Por lo tanto, no se garantiza la consecución de resultados idénticos sin antes efectuar una auditoría de requerimientos y un diagnóstico técnico personalizado. Todos los derechos reservados.
+      </p>
+    </div>
+
+    <!-- Fila Inferior: Copyright -->
+    <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-andes-text-tertiary gap-2">
+      <p>© {currentYear} Agustín Llama. Desarrollado con arquitectura Andes UI & Astro.</p>
+      <p class="flex items-center gap-3 text-[11px]">
+        <span>Privacidad y Confidencialidad</span>
+        <span>•</span>
+        <span>Términos del Servicio</span>
+      </p>
+    </div>
+
+  </div>
+</footer>

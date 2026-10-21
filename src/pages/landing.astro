@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AnnouncementBar from '../components/cro/AnnouncementBar.astro';
+import CroHeader from '../components/cro/CroHeader.astro';
+import CroHero from '../components/cro/CroHero.astro';
+import CroVslAndBooking from '../components/cro/CroVslAndBooking.astro';
+import CroTestimonials from '../components/cro/CroTestimonials.astro';
+import CroFaq from '../components/cro/CroFaq.astro';
+import CroFooter from '../components/cro/CroFooter.astro';
+---
+
+<Layout 
+  title="Desarrollo Web & Sistemas a Medida para Empresas B2B | Agustín Llama"
+  description="Diseño y arquitectura de plataformas web y automatizaciones de software para directores de negocio. Sin intermediarios, entregas semanales y ROI auditado."
+  hideDefaultNav={true}
+>
+  <!-- 1. Cabecera Minimalista: Banner Superior Fijo & Header sin fugas de navegación -->
+  <AnnouncementBar />
+  <CroHeader />
+
+  <!-- 2. Sección Principal (Above the Fold): Layout 3 + Distribución de Confianza -->
+  <CroHero />
+
+  <!-- 3. Cuerpo de la Página (Below the Fold / Middle Funnel): VSL + Formulario de Calificación -->
+  <CroVslAndBooking />
+
+  <!-- 4. Cierre de la Página: Testimonios, Preguntas Frecuentes & Disclaimers Legales -->
+  <CroTestimonials />
+  <CroFaq />
+  <CroFooter />
+</Layout>

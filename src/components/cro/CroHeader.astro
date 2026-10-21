@@ -1,0 +1,84 @@
+---
+// CroHeader.astro - Cabecera ultra-minimalista: sin navegación de fuga, logo micro, menú hamburguesa limpio
+---
+
+<header class="w-full bg-white border-b border-andes-border relative z-40">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
+    <!-- Logotipo Micro: Espacio visual optimizado al 100% para conversión -->
+    <a href="#" class="flex items-center gap-2 text-decoration-none group">
+      <div class="w-7 h-7 rounded bg-andes-primary text-white flex items-center justify-center font-bold text-xs tracking-tight shrink-0 shadow-xs">
+        AL
+      </div>
+      <span class="text-xs sm:text-sm font-semibold text-andes-text-primary tracking-tight">
+        Agustín Llama <span class="text-andes-text-tertiary font-normal hidden sm:inline">| Tech Partner B2B</span>
+      </span>
+    </a>
+
+    <!-- Acciones de conversión directas & Menú Hamburguesa limpio -->
+    <div class="flex items-center gap-3">
+      <!-- Botón de conversión rápida directo (Ghost sutil sin competir con el Hero) -->
+      <a 
+        href="#formulario-calificacion" 
+        class="andes-btn-ghost !py-1.5 !px-3 sm:!px-4 !text-xs font-semibold whitespace-nowrap"
+      >
+        <span>Agendar Sesión</span>
+      </a>
+
+      <!-- Menú Hamburguesa limpio (oculta navegación obligatoria para evitar fricción) -->
+      <button 
+        type="button" 
+        id="cro-menu-toggle"
+        class="p-2 text-andes-text-secondary hover:text-andes-text-primary hover:bg-gray-100 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-andes-primary"
+        aria-label="Abrir menú de navegación"
+        aria-expanded="false"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Drawer/Menú Hamburguesa desplegable -->
+  <div 
+    id="cro-mobile-menu" 
+    class="hidden border-t border-andes-border bg-white px-4 py-4 sm:px-6 shadow-md transition-all duration-200"
+  >
+    <div class="max-w-6xl mx-auto flex flex-col gap-3">
+      <p class="text-[11px] uppercase tracking-wider text-andes-text-tertiary font-bold">Navegación Rápida</p>
+      <a href="#vsl-video" class="text-sm font-medium text-andes-text-primary hover:text-andes-primary py-1.5 border-b border-gray-100">
+        1. Video explicativo de la metodología (3 min)
+      </a>
+      <a href="#formulario-calificacion" class="text-sm font-medium text-andes-text-primary hover:text-andes-primary py-1.5 border-b border-gray-100">
+        2. Formulario de calificación & agendamiento
+      </a>
+      <a href="#testimonios" class="text-sm font-medium text-andes-text-primary hover:text-andes-primary py-1.5 border-b border-gray-100">
+        3. Casos de éxito y testimonios de directores
+      </a>
+      <a href="#preguntas-frecuentes" class="text-sm font-medium text-andes-text-primary hover:text-andes-primary py-1.5">
+        4. Preguntas Frecuentes y Garantías
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggleBtn = document.getElementById('cro-menu-toggle');
+  const menu = document.getElementById('cro-mobile-menu');
+
+  if (toggleBtn && menu) {
+    toggleBtn.addEventListener('click', () => {
+      const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+      toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
+      menu.classList.toggle('hidden');
+    });
+
+    // Cerrar menú al hacer clic en un enlace del drawer
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.add('hidden');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+</script>

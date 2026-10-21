@@ -1,133 +1,112 @@
 ---
-const solutions = [
+// Solutions.astro - Habilidades y Servicios en estética Quiet Luxury
+const services = [
   {
-    number: "01",
-    title: "Desarrollo Web Integral",
-    category: "Presencia & Conversión",
-    description: "Sitios web corporativos y plataformas completas diseñadas desde cero. Me encargo del diseño visual, la programación y la publicación para que tengas una presencia digital profesional y confiable.",
-    idealFor: "Empresas y profesionales que necesitan transmitir credibilidad y captar clientes calificados.",
+    title: "Plataformas Web & Interfaces",
+    description: "Aplicaciones web de alto rendimiento, interactivas y totalmente responsivas. Diseñadas para que la experiencia sea instantánea en cualquier dispositivo.",
+    tags: ["Astro", "React", "TypeScript", "Tailwind CSS"],
     icon: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
   },
   {
-    number: "02",
-    title: "Tiendas Online & E-commerce",
-    category: "Ventas Digitales",
-    description: "Comercios digitales rápidos, intuitivos y autoadministrables. Integración de cobros online, catálogo de productos y gestión simple de pedidos para que vendas las 24 horas sin depender de terceros.",
-    idealFor: "Negocios que buscan vender por internet con total control de sus márgenes y procesos.",
-    icon: "M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-  },
-  {
-    number: "03",
-    title: "Sistemas de Gestión a Medida",
-    category: "Automatización & Operaciones",
-    description: "Paneles internos y herramientas personalizadas para organizar turnos, clientes, stock o facturación. Diseñadas exactamente según la dinámica particular de tu empresa.",
-    idealFor: "Equipos que pierden horas en planillas manuales de Excel y tareas administrativas repetitivas.",
+    title: "Sistemas de Gestión & Automatización",
+    description: "Paneles internos, dashboards y automatizaciones que reemplazan planillas desordenadas por herramientas centralizadas con control de permisos y stock.",
+    tags: ["Node.js", "Express", "PostgreSQL", "APIs REST"],
     icon: "M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"
   },
   {
-    number: "04",
-    title: "Optimización & Velocidad Web",
-    category: "Rendimiento & SEO",
-    description: "Auditoría y refactorización de sitios existentes. Mejora radical de la velocidad de carga en teléfonos móviles y optimización técnica para posicionar mejor en búsquedas de Google.",
-    idealFor: "Negocios cuyo sitio web actual es lento, se ve mal en celulares o pierde clientes antes de comprar.",
+    title: "E-commerce Escalable & Pasarelas",
+    description: "Tiendas online robustas con pasarelas de pago integradas, sincronización de pedidos y catálogos optimizados para maximizar la conversión.",
+    tags: ["Checkout", "Pasarelas Online", "Catálogos", "Escalabilidad"],
+    icon: "M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+  },
+  {
+    title: "Rendimiento, SEO & Accesibilidad",
+    description: "Optimización técnica meticulosa para lograr puntuaciones perfectas en Google Lighthouse, Core Web Vitals en verde y posicionamiento orgánico.",
+    tags: ["Lighthouse 100", "Core Web Vitals", "WCAG", "SEO"],
     icon: "M13 10V3L4 14h7v7l9-11h-7z"
   }
 ];
 
 const techStack = [
-  "Astro",
-  "React",
-  "JavaScript (ES6+)",
-  "Node.js",
-  "Tailwind CSS",
-  "Bases de Datos (SQL/NoSQL)",
-  "APIs & Pasarelas de Cobro",
-  "Git & Despliegues Cloud"
+  { category: "Frontend", items: ["Astro", "React", "TypeScript", "JavaScript", "Tailwind CSS", "HTML5 & CSS3"] },
+  { category: "Backend & Datos", items: ["Node.js", "Express", "PostgreSQL", "Bases de datos SQL/NoSQL", "APIs REST"] },
+  { category: "Cloud & DevTools", items: ["Git & GitHub", "Vite", "Cloudflare", "Vercel / Netlify", "Docker basics"] }
 ];
 ---
 
-<section id="soluciones" class="w-full py-12 sm:py-16 md:py-24 bg-[#F4F6F8] border-b border-andes-border relative">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6">
-    <!-- Header de Soluciones -->
-    <div class="max-w-2xl mb-8 sm:mb-12">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white border border-andes-border text-andes-text-primary text-[11px] sm:text-xs font-bold tracking-widest uppercase mb-3 shadow-xs">
-        <span class="w-1.5 h-1.5 rounded-full bg-andes-primary"></span>
-        <span>01 · SERVICIOS & SOLUCIONES</span>
+<section id="habilidades" class="w-full py-14 sm:py-20 border-b border-white/[0.06] relative">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+    
+    <!-- Header de Habilidades -->
+    <div class="max-w-2xl mb-10 sm:mb-14">
+      <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-slate-400 text-xs font-mono mb-3">
+        <span>HABILIDADES & SERVICIOS</span>
       </div>
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-andes-text-primary tracking-tight mt-1 mb-2.5 sm:mb-3 text-balance">
-        Cómo puedo ayudar a hacer crecer tu negocio
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight mt-1 mb-2 text-balance">
+        Qué puedo construir para tu proyecto
       </h2>
-      <p class="text-sm sm:text-base text-andes-text-secondary leading-relaxed text-pretty">
-        Tecnología aplicada con criterio comercial: cada desarrollo apunta a resolver un dolor operativo concreto o generar nuevos canales de facturación.
+      <p class="text-sm sm:text-base text-slate-400 leading-relaxed text-pretty">
+        Combino diseño de interfaz, arquitectura de backend e ingeniería de rendimiento para entregar software listo para producción.
       </p>
     </div>
 
-    <!-- Grilla de Soluciones (4 Cards) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-12">
-      {solutions.map((item) => (
-        <div class="andes-card p-5 sm:p-7 md:p-8 flex flex-col justify-between border-t-2 hover:border-t-andes-primary transition-all duration-200">
+    <!-- Grilla de 4 Servicios/Habilidades Quiet Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 mb-10">
+      {services.map((item) => (
+        <div class="quiet-card p-5 sm:p-6 flex flex-col justify-between group">
           <div>
-            <!-- Header de tarjeta: Icono + Categoría + Número -->
-            <div class="flex items-center justify-between mb-4 sm:mb-5">
-              <div class="flex items-center gap-2.5 sm:gap-3">
-                <div class="w-10 h-10 rounded-lg bg-[#ECEEF2] text-andes-text-primary flex items-center justify-center shrink-0">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d={item.icon} />
-                  </svg>
-                </div>
-                <span class="andes-tag text-xs font-semibold">
-                  {item.category}
-                </span>
+            <!-- Icono + Título -->
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-9 h-9 rounded-lg bg-white/[0.04] border border-white/[0.06] text-slate-300 flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d={item.icon} />
+                </svg>
               </div>
-              <span class="text-xs font-mono font-bold text-andes-text-tertiary">
-                {item.number}
-              </span>
+              <h3 class="text-base font-semibold text-white tracking-tight group-hover:text-sky-300 transition-colors">
+                {item.title}
+              </h3>
             </div>
 
-            <h3 class="text-lg sm:text-xl font-bold text-andes-text-primary mb-2.5 sm:mb-3 tracking-tight">
-              {item.title}
-            </h3>
-
-            <p class="text-sm text-andes-text-secondary leading-relaxed mb-4 sm:mb-5 text-pretty">
+            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-4 text-pretty">
               {item.description}
             </p>
           </div>
 
-          <!-- Bloque de conveniencia comercial sin margenes negativos riesgosos -->
-          <div class="mt-2 pt-3.5 border-t border-andes-border-subtle bg-[#F8F9FA] p-3.5 sm:p-4 rounded-lg">
-            <p class="text-xs text-andes-text-primary flex items-start gap-1.5 leading-normal">
-              <span class="text-andes-primary font-bold shrink-0">🎯</span>
-              <span><strong class="font-semibold text-andes-text-primary">Ideal para:</strong> {item.idealFor}</span>
-            </p>
+          <!-- Tags -->
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-white/[0.06]">
+            {item.tags.map((tag) => (
+              <span class="text-[11px] font-mono text-slate-300 bg-white/[0.03] px-2 py-0.5 rounded border border-white/[0.05]">
+                {tag}
+              </span>
+            ))}
           </div>
         </div>
       ))}
     </div>
 
-    <!-- Barra de Stack Técnico Subyacente -->
-    <div class="bg-white border border-andes-border rounded-xl p-5 sm:p-7 shadow-xs">
-      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-5">
-        <div class="max-w-md">
-          <div class="flex items-center gap-2 mb-1">
-            <svg class="w-4 h-4 text-andes-text-secondary shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-            </svg>
-            <h4 class="text-xs font-bold uppercase tracking-wider text-andes-text-primary">
-              Stack Técnico Subyacente
+    <!-- Stack Tecnológico Organizado -->
+    <div class="quiet-card p-5 sm:p-6">
+      <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-slate-400 mb-4">
+        Stack tecnológico y herramientas principales
+      </h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+        {techStack.map((group) => (
+          <div class="p-3.5 rounded-xl bg-black/25 border border-white/[0.05]">
+            <h4 class="text-xs font-mono font-medium text-slate-300 mb-2">
+              {group.category}
             </h4>
+            <div class="flex flex-wrap gap-1.5">
+              {group.items.map((tech) => (
+                <span class="text-[11px] font-mono text-slate-400 bg-white/[0.03] px-2 py-0.5 rounded border border-white/[0.04]">
+                  {tech}
+                </span>
+              ))}
+            </div>
           </div>
-          <p class="text-xs text-andes-text-secondary">
-            Herramientas seleccionadas para máxima velocidad, alta tasa de conversión y cero mantenimiento engorroso:
-          </p>
-        </div>
-        <div class="flex flex-wrap gap-1.5 sm:gap-2">
-          {techStack.map((tech) => (
-            <span class="text-xs font-medium bg-[#F4F6F8] text-andes-text-primary px-2.5 py-1.5 rounded-md border border-andes-border-subtle">
-              {tech}
-            </span>
-          ))}
-        </div>
+        ))}
       </div>
     </div>
+
   </div>
 </section>

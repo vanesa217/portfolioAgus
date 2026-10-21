@@ -1,4 +1,5 @@
 ---
+// Footer.astro - Pie de página minimalista Quiet Luxury
 interface Props {
   email?: string;
   linkedinUrl?: string;
@@ -9,104 +10,58 @@ const {
   linkedinUrl = "https://www.linkedin.com/in/agustin-llama"
 } = Astro.props;
 
-const mailtoHref = `mailto:${email}?subject=Cotizaci%C3%B3n%20de%20proyecto%20web&body=Hola%20Agust%C3%ADn%2C%20tengo%20un%20proyecto%20en%20mente%20para%20mi%20negocio%20y%20me%20gustar%C3%ADa%20recibir%20una%20propuesta.`;
-const currentYear = 2026;
+const currentYear = new Date().getFullYear();
 ---
 
-<footer class="w-full bg-apple-bg border-t border-black/[0.06] pt-14 sm:pt-20 pb-12 sm:pb-14">
+<footer class="w-full bg-[#0E1111] border-t border-white/[0.06] py-10 sm:py-12 relative z-10">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
-    
-    <!-- Bloque Transaccional de Cierre (Apple Keynote Closing Card) -->
-    <div class="bento-card px-6 py-10 sm:p-14 mb-14 sm:mb-18 text-center max-w-4xl mx-auto bg-white shadow-sm">
-      <span class="bento-tag-success mb-4 text-xs font-semibold">
-        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-        </svg>
-        Presupuesto & Asesoramiento Sin Compromiso
-      </span>
-
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-apple-text-primary tracking-tight mt-1 mb-3 sm:mb-4 text-balance">
-        ¿Listo para crear la herramienta web que tu negocio necesita?
-      </h2>
-
-      <p class="text-sm sm:text-base text-apple-text-secondary max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-8 text-pretty">
-        Escríbeme contándome tu objetivo o cuello de botella actual. Te responderé en menos de 24 horas con una propuesta clara sobre alcance, plazos y costos.
-      </p>
-
-      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4">
-        <!-- Botón Primario: Corporate Indigo (#4F46E5) -->
-        <a 
-          href={mailtoHref} 
-          class="bento-btn-primary min-h-[48px] !text-sm sm:!text-base !py-3.5 !px-8 w-full sm:w-auto justify-center active:scale-[0.98] transition-all shadow-sm"
-        >
-          <span>Cotizar un proyecto</span>
-          <svg class="w-4 h-4 ml-1.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-          </svg>
-        </a>
-
-        <!-- Botón Secundario: Neutro Limpio Pill -->
-        <a 
-          href={`mailto:${email}`}
-          class="bento-btn-secondary min-h-[48px] !text-sm sm:!text-base !py-3.5 !px-6 w-full sm:w-auto justify-center active:scale-[0.98] transition-all"
-        >
-          <svg class="w-4 h-4 text-apple-text-secondary mr-1.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-          </svg>
-          <span class="font-mono text-xs sm:text-sm truncate">{email}</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- Navegación y Enlaces del Footer -->
-    <div class="pt-8 border-t border-black/[0.06] flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
       
-      <!-- Identidad de Marca con Badge Unificado (#4F46E5) -->
-      <div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-xl bg-brand-primary text-white flex items-center justify-center font-bold text-xs shrink-0 tracking-tight shadow-2xs">
+      <!-- Brand & Título -->
+      <div class="flex items-center gap-2.5">
+        <div class="w-7 h-7 rounded-full bg-slate-800 text-[#93C5FD] border border-slate-700/60 flex items-center justify-center font-bold text-xs font-mono shrink-0">
           AL
         </div>
         <div>
-          <p class="text-sm font-bold text-apple-text-primary leading-tight tracking-tight">
+          <p class="text-xs sm:text-sm font-semibold text-white leading-tight">
             Agustín Llama
           </p>
-          <p class="text-xs text-apple-text-secondary leading-tight mt-0.5">
-            Desarrollador Full Stack para Negocios
+          <p class="text-[10px] font-mono text-slate-400 leading-tight mt-0.5">
+            Full Stack Developer
           </p>
         </div>
       </div>
 
       <!-- Enlaces Rápidos -->
-      <nav class="flex flex-wrap items-center justify-center gap-5 sm:gap-6 text-xs sm:text-sm font-medium text-apple-text-secondary">
-        <a href="#soluciones" class="hover:text-apple-text-primary transition-colors py-1.5">Soluciones</a>
-        <a href="#proyectos" class="hover:text-apple-text-primary transition-colors py-1.5">Casos de éxito</a>
-        <a href="#sobre-mi" class="hover:text-apple-text-primary transition-colors py-1.5">Sobre mí</a>
+      <nav class="flex flex-wrap items-center justify-center gap-5 text-xs font-medium text-slate-400">
+        <a href="#proyectos" class="hover:text-white transition-colors">Proyectos</a>
+        <a href="#habilidades" class="hover:text-white transition-colors">Habilidades</a>
+        <a href="#sobre-mi" class="hover:text-white transition-colors">Sobre mí</a>
+        <a href="#contacto" class="hover:text-white transition-colors text-slate-300">Contacto</a>
       </nav>
 
-      <!-- Canales de Contacto Directo -->
-      <div class="flex items-center gap-3">
-        <!-- Email directo -->
+      <!-- Canales Directos -->
+      <div class="flex items-center gap-2.5">
         <a 
           href={`mailto:${email}`} 
-          class="w-10 h-10 rounded-full border border-black/[0.08] bg-white text-apple-text-secondary hover:text-apple-text-primary hover:border-black/20 hover:shadow-xs transition-all flex items-center justify-center"
-          title="Enviar correo a agusllama1@gmail.com"
-          aria-label="Enviar correo"
+          class="w-8 h-8 rounded-lg border border-white/10 bg-white/[0.03] text-slate-400 hover:text-white hover:border-white/25 transition-all flex items-center justify-center"
+          title="Email"
+          aria-label="Email"
         >
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
           </svg>
         </a>
 
-        <!-- LinkedIn (Mocked/Oficial) -->
         <a 
           href={linkedinUrl} 
           target="_blank" 
           rel="noopener noreferrer" 
-          class="w-10 h-10 rounded-full border border-black/[0.08] bg-white text-apple-text-secondary hover:text-apple-text-primary hover:border-black/20 hover:shadow-xs transition-all flex items-center justify-center"
-          title="Perfil de LinkedIn"
+          class="w-8 h-8 rounded-lg border border-white/10 bg-white/[0.03] text-slate-400 hover:text-white hover:border-white/25 transition-all flex items-center justify-center"
+          title="LinkedIn"
           aria-label="LinkedIn"
         >
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
             <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.738-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
           </svg>
         </a>
@@ -114,10 +69,9 @@ const currentYear = 2026;
 
     </div>
 
-    <!-- Copyright y Créditos -->
-    <div class="mt-8 pt-6 text-center text-xs text-apple-text-tertiary">
-      <p>© {currentYear} Agustín Llama · Todos los derechos reservados. Diseñado con arquitectura Bento y desarrollado en Astro.</p>
+    <!-- Copyright -->
+    <div class="mt-6 pt-5 border-t border-white/[0.05] text-center text-[10px] font-mono text-slate-500">
+      <p>© {currentYear} Agustín Llama · Editorial Tech / Quiet Luxury.</p>
     </div>
-
   </div>
 </footer>

@@ -1,0 +1,88 @@
+---
+// Testimonials.astro - Muro de Testimonios B2B para consolidar confianza humana y social proof
+const testimonials = [
+  {
+    quote: "Veníamos de una mala experiencia con una agencia que demoró meses y nos entregó un sistema lleno de errores. Con Agustín tuvimos trato directo desde el día uno: en 6 semanas teníamos la plataforma mayorista funcionando y nuestras ventas subieron un 30% en el primer trimestre.",
+    name: "Martín Giménez",
+    role: "Director General",
+    company: "Distribuidora Mayorista Sur",
+    metric: "+30% Ventas",
+    avatar: "MG"
+  },
+  {
+    quote: "La administración de turnos y pacientes en nuestras sedes era un cuello de botella diario que consumía horas de recepción por WhatsApp. El sistema a medida que Agustín desarrolló eliminó los errores manuales y nos ahorra más de 15 horas de trabajo administrativo cada semana.",
+    name: "Dra. Lucía Ramos",
+    role: "Gerente de Operaciones",
+    company: "Grupo Salud Integrada",
+    metric: "-15h / semana de tareas",
+    avatar: "LR"
+  },
+  {
+    quote: "Lo que más valoro de Agustín es que habla como un socio de negocio y no como un técnico aislado. Cada semana teníamos una demo funcional y cumplió exactamente con el presupuesto y la fecha acordada. El código es 100% nuestro.",
+    name: "Esteban Bianchi",
+    role: "Co-Founder & CTO",
+    company: "Logística Express B2B",
+    metric: "Entrega 100% en fecha",
+    avatar: "EB"
+  }
+];
+---
+
+<section id="testimonios" class="w-full py-12 sm:py-16 md:py-24 bg-white border-b border-andes-border relative">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    
+    <!-- Header de Sección -->
+    <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#F4F6F8] border border-andes-border text-andes-text-primary text-[11px] sm:text-xs font-bold tracking-widest uppercase mb-3 shadow-xs">
+        <span class="w-1.5 h-1.5 rounded-full bg-andes-success"></span>
+        <span>04 · TESTIMONIOS & PRUEBA SOCIAL</span>
+      </div>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-andes-text-primary tracking-tight mt-1 mb-2.5 sm:mb-3 text-balance">
+        La experiencia de quienes ya confiaron en mi trabajo
+      </h2>
+      <p class="text-sm sm:text-base text-andes-text-secondary leading-relaxed text-pretty">
+        Opiniones reales de directores y gerentes sobre la puntualidad, la comunicación 1 a 1 y los resultados obtenidos.
+      </p>
+    </div>
+
+    <!-- Grilla de Testimonios -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+      {testimonials.map((t) => (
+        <div class="andes-card p-6 sm:p-7 bg-white border border-andes-border rounded-xl flex flex-col justify-between shadow-xs hover:shadow-sm transition-all">
+          <div>
+            <!-- Estrellas + Métrica Destacada -->
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex text-amber-400 text-sm tracking-tight" aria-label="5 estrellas">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+              <span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded border border-emerald-200">
+                {t.metric}
+              </span>
+            </div>
+
+            <!-- Cita -->
+            <p class="text-xs sm:text-sm text-andes-text-secondary leading-relaxed mb-6 italic text-pretty">
+              "{t.quote}"
+            </p>
+          </div>
+
+          <!-- Perfil del Cliente -->
+          <div class="pt-4 border-t border-gray-100 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-andes-primary text-white font-bold flex items-center justify-center text-xs shrink-0 shadow-xs">
+              {t.avatar}
+            </div>
+            <div>
+              <h4 class="text-xs sm:text-sm font-bold text-andes-text-primary leading-tight">
+                {t.name}
+              </h4>
+              <p class="text-[11px] text-andes-text-secondary leading-tight mt-0.5">
+                {t.role} • {t.company}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

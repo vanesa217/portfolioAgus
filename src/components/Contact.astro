@@ -1,0 +1,156 @@
+---
+// Contact.astro - Sección de contacto simple y sobria Quiet Luxury
+interface Props {
+  email?: string;
+  linkedinUrl?: string;
+}
+
+const {
+  email = "agusllama1@gmail.com",
+  linkedinUrl = "https://www.linkedin.com/in/agustin-llama"
+} = Astro.props;
+---
+
+<section id="contacto" class="w-full py-14 sm:py-20 border-b border-white/[0.06] relative">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+    
+    <!-- Header de Contacto -->
+    <div class="text-center max-w-xl mx-auto mb-10 sm:mb-14">
+      <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-slate-400 text-xs font-mono mb-3">
+        <span>CONTACTO</span>
+      </div>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight mt-1 mb-2 text-balance">
+        ¿Tienes un proyecto en mente? Hablemos.
+      </h2>
+      <p class="text-sm sm:text-base text-slate-400 leading-relaxed text-pretty">
+        Ya sea que busques crear una plataforma desde cero, renovar un sistema existente o sumar un desarrollador a tu equipo, escríbeme y lo conversamos.
+      </p>
+    </div>
+
+    <!-- Grid de Contacto: Canales Directos + Formulario -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-7 items-start">
+      
+      <!-- Columna Izquierda: Canales Directos (5 cols) -->
+      <div class="md:col-span-5 space-y-3.5">
+        
+        <!-- Tarjeta de Email Directo -->
+        <div class="quiet-card p-5">
+          <p class="text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Email Directo</p>
+          <h3 class="text-sm font-semibold text-white mb-2">Escríbeme un correo</h3>
+          <p class="text-xs text-slate-400 mb-3">
+            Respondo personalmente a todas las consultas en menos de 24 horas.
+          </p>
+          <a 
+            href={`mailto:${email}?subject=Contacto%20desde%20portfolio`} 
+            class="btn-subtle-link !w-full !min-h-[38px] text-xs font-mono justify-center"
+          >
+            <span>{email}</span>
+          </a>
+        </div>
+
+        <!-- Tarjeta de LinkedIn -->
+        <div class="quiet-card p-5">
+          <p class="text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Red Profesional</p>
+          <h3 class="text-sm font-semibold text-white mb-2">LinkedIn</h3>
+          <p class="text-xs text-slate-400 mb-3">
+            Conectemos para charlar sobre proyectos o colaboraciones.
+          </p>
+          <a 
+            href={linkedinUrl} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="btn-subtle-link !w-full !min-h-[38px] text-xs justify-center"
+          >
+            <span>Ver perfil en LinkedIn &rarr;</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Columna Derecha: Formulario Simple (7 cols) -->
+      <div class="md:col-span-7 quiet-card p-5 sm:p-7">
+        <h3 class="text-base font-semibold text-white mb-1">
+          Envíame un mensaje directo
+        </h3>
+        <p class="text-xs text-slate-400 mb-5">
+          Cuéntame brevemente qué necesitas y te responderé a la brevedad.
+        </p>
+
+        <form id="portfolio-contact-form" class="space-y-3.5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label for="contact-name" class="block text-xs font-mono text-slate-400 uppercase tracking-wider mb-1">
+                Nombre
+              </label>
+              <input 
+                type="text" 
+                id="contact-name" 
+                required 
+                placeholder="Tu nombre" 
+                class="w-full px-3 py-2 text-xs sm:text-sm bg-black/30 border border-white/10 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-white/30 transition"
+              />
+            </div>
+
+            <div>
+              <label for="contact-email" class="block text-xs font-mono text-slate-400 uppercase tracking-wider mb-1">
+                Email
+              </label>
+              <input 
+                type="email" 
+                id="contact-email" 
+                required 
+                placeholder="tu@email.com" 
+                class="w-full px-3 py-2 text-xs sm:text-sm bg-black/30 border border-white/10 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-white/30 transition"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label for="contact-message" class="block text-xs font-mono text-slate-400 uppercase tracking-wider mb-1">
+              Mensaje o idea del proyecto
+            </label>
+            <textarea 
+              id="contact-message" 
+              rows="3" 
+              required
+              placeholder="Hola Agustín, me gustaría conversar sobre..." 
+              class="w-full px-3 py-2 text-xs sm:text-sm bg-black/30 border border-white/10 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-white/30 transition resize-y"
+            ></textarea>
+          </div>
+
+          <div class="pt-1">
+            <button 
+              type="submit" 
+              class="btn-solid-blue !w-full !min-h-[42px] text-xs sm:text-sm justify-center cursor-pointer"
+            >
+              <span>Enviar mensaje</span>
+              <svg class="w-3.5 h-3.5 ml-1 shrink-0" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </button>
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('portfolio-contact-form') as HTMLFormElement;
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = (document.getElementById('contact-name') as HTMLInputElement).value;
+      const email = (document.getElementById('contact-email') as HTMLInputElement).value;
+      const message = (document.getElementById('contact-message') as HTMLTextAreaElement).value;
+
+      const subject = `Contacto desde Portfolio: ${name}`;
+      const body = `Hola Agustín,\n\nMi nombre es ${name} (${email}).\n\nMensaje:\n${message}`;
+
+      window.location.href = `mailto:agusllama1@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  }
+</script>
