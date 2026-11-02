@@ -1,5 +1,5 @@
 ---
-// About.astro - Perfil personal y metodología en estilo Quiet Luxury
+// About.astro - Perfil personal y metodología en estilo Bento Grid Dark Flame & Teal
 interface Props {
   email?: string;
 }
@@ -7,117 +7,148 @@ interface Props {
 const { email = "agusllama1@gmail.com" } = Astro.props;
 ---
 
-<section id="sobre-mi" class="w-full py-14 sm:py-20 border-b border-white/[0.06] relative">
+<section id="sobre-mi" class="w-full py-14 sm:py-20 border-b border-white/[0.08] relative scroll-mt-16 bg-[#0A0E11]">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
     
     <!-- Header de Sección -->
     <div class="max-w-2xl mb-10 sm:mb-14">
-      <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-slate-400 text-xs font-mono mb-3">
-        <span>SOBRE MÍ</span>
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#122A28] border border-teal-400/35 text-teal-300 text-xs font-mono font-bold mb-3 shadow-[0_0_12px_rgba(45,212,191,0.15)]">
+        <span class="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse"></span>
+        <span>SOBRE MÍ & METODOLOGÍA</span>
       </div>
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight mt-1 mb-2 text-balance">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight mt-1 mb-2 text-balance">
         Desarrollo con criterio y cercanía
       </h2>
-      <p class="text-sm sm:text-base text-slate-400 leading-relaxed text-pretty">
-        Me enfoco en crear software que funcione con fluidez, código limpio y una comunicación directa durante todo el proceso.
+      <p class="text-sm sm:text-base text-slate-400 leading-relaxed text-pretty font-normal">
+        Combino ingeniería técnica, experiencia de usuario y trato directo de principio a fin, sin intermediarios.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-7 items-start">
+    <!-- BENTO GRID MODERNO (Perfectamente equilibrado en PC y Mobile) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 sm:gap-6">
       
-      <!-- Columna Izquierda: Tarjeta de Presentación y Valores (7 cols) -->
-      <div class="lg:col-span-7 quiet-card p-6 sm:p-7">
-        <div class="flex items-center gap-3 pb-4 mb-4 border-b border-white/[0.06]">
-          <div class="w-10 h-10 rounded-full bg-slate-800 text-[#93C5FD] border border-slate-700/60 flex items-center justify-center font-mono font-medium text-sm shrink-0">
-            AL
-          </div>
-          <div>
-            <h3 class="text-base sm:text-lg font-bold text-white leading-tight">
-              Agustín Llama
-            </h3>
-            <p class="text-xs text-slate-400 font-mono leading-tight mt-0.5">
-              Full Stack Developer
-            </p>
-          </div>
-        </div>
-
-        <div class="space-y-3.5 text-sm text-slate-400 leading-relaxed mb-6 text-pretty">
-          <p>
-            Me apasiona construir aplicaciones web que combinen una experiencia de usuario rápida y pulida con una arquitectura de código sólida y fácil de mantener.
-          </p>
-          <p>
-            Al trabajar de manera independiente, ofrezco un <strong class="text-white font-medium">trato directo y sin intermediarios</strong>. Me involucro personalmente en cada etapa: desde la comprensión de las necesidades del proyecto hasta la base de datos y la puesta en producción.
-          </p>
-          <p>
-            Mi objetivo es que tengas la tranquilidad de saber exactamente qué se está construyendo, con avances visibles y plazos claros en todo momento.
-          </p>
-        </div>
-
-        <!-- 3 Pilares en Micro-Grid -->
-        <div class="grid grid-cols-3 gap-2.5 pt-4 border-t border-white/[0.06] mb-5">
-          <div class="p-2.5 rounded-lg bg-black/25 border border-white/[0.05] text-center">
-            <span class="block text-sm font-mono font-bold text-white">1 a 1</span>
-            <span class="text-[10px] text-slate-400 leading-tight mt-0.5 block">Trato directo</span>
-          </div>
-          <div class="p-2.5 rounded-lg bg-black/25 border border-white/[0.05] text-center">
-            <span class="block text-sm font-mono font-bold text-white">&lt; 24 hs</span>
-            <span class="text-[10px] text-slate-400 leading-tight mt-0.5 block">Respuesta</span>
-          </div>
-          <div class="p-2.5 rounded-lg bg-black/25 border border-white/[0.05] text-center">
-            <span class="block text-sm font-mono font-bold text-white">100%</span>
-            <span class="text-[10px] text-slate-400 leading-tight mt-0.5 block">Código tuyo</span>
-          </div>
-        </div>
+      <!-- FILA 1 - TILE 1: Presentación & Perfil (PC: 8 columnas / Tablet: 2 columnas) -->
+      <div class="sm:col-span-2 lg:col-span-8 quiet-card p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden">
+        <div class="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-teal-400/40 to-transparent pointer-events-none"></div>
 
         <div>
+          <!-- Header de perfil -->
+          <div class="flex items-center gap-3.5 pb-4 mb-4 border-b border-white/[0.08]">
+            <div class="w-12 h-12 rounded-2xl bg-[#162026] text-white border border-[#FF5722]/40 flex items-center justify-center font-mono font-bold text-base shrink-0 shadow-[0_0_12px_rgba(255,87,34,0.2)]">
+              <span class="text-white">A</span><span class="text-[#FF5722]">L</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="text-base sm:text-lg font-black text-white leading-tight">
+                  Agustín Llama
+                </h3>
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#122A28] border border-teal-400/35 text-teal-300 text-[10.5px] font-mono font-bold">
+                  <span class="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse"></span>
+                  Online
+                </span>
+              </div>
+              <p class="text-xs text-slate-400 font-mono leading-tight mt-0.5">
+                Full Stack Developer · Buenos Aires, Argentina
+              </p>
+            </div>
+          </div>
+
+          <!-- Párrafo conciso de valor -->
+          <p class="text-sm sm:text-base text-slate-300 leading-relaxed text-pretty mb-6 font-normal">
+            Me apasiona construir aplicaciones que combinen una <strong class="text-white font-bold">experiencia de usuario fluida e instantánea</strong> con una arquitectura de código sólida, documentada y fácil de escalar. Al trabajar de forma independiente, tienes comunicación técnica 1 a 1 directa conmigo.
+          </p>
+        </div>
+
+        <!-- Botón de Iniciar Conversación: Ergonomía perfecta que no desborda letras en móvil -->
+        <div class="pt-2">
           <a 
             href="#contacto"
-            class="btn-solid-blue !min-h-[40px] text-xs justify-center"
+            class="btn-flame-primary min-h-[44px] !px-5 !py-2.5 !text-xs sm:!text-sm justify-center w-full sm:w-auto active:scale-[0.96] text-center"
           >
-            <span>Iniciar una conversación</span>
-            <svg class="w-3.5 h-3.5 ml-1 shrink-0" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+            <span>Iniciar conversación</span>
+            <svg class="w-4 h-4 ml-1 shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
             </svg>
           </a>
         </div>
       </div>
 
-      <!-- Columna Derecha: Metodología de Trabajo en 3 Pasos (5 cols) -->
-      <div class="lg:col-span-5 quiet-card p-6 sm:p-7">
-        <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-slate-300 mb-5">
-          Metodología de Trabajo
-        </h3>
-
-        <div class="space-y-5 relative border-l border-white/[0.08] ml-3 pl-5">
-          <div class="relative">
-            <div class="absolute -left-[27px] top-0.5 w-5 h-5 rounded-full bg-slate-800 border border-slate-600 text-slate-300 text-[10px] font-mono font-bold flex items-center justify-center">
-              1
+      <!-- FILA 1 - TILE 5: Pipeline / Metodología de Trabajo en 3 Pasos (PC: 4 columnas / Tablet: 2 columnas) -->
+      <div class="sm:col-span-2 lg:col-span-4 quiet-card p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
+        <div class="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-teal-400/40 to-transparent pointer-events-none"></div>
+        <div>
+          <span class="text-[10.5px] font-mono uppercase tracking-wider text-slate-400 font-bold block mb-3">// metodología</span>
+          <div class="space-y-3.5">
+            <div class="flex items-start gap-2.5">
+              <span class="w-6 h-6 rounded-full bg-[#FF5722]/20 border border-[#FF5722]/40 text-[#FF7043] font-mono text-xs flex items-center justify-center shrink-0 mt-0.5 font-black">1</span>
+              <div>
+                <h4 class="text-xs font-bold text-white">Alcance & Definición</h4>
+                <p class="text-[11px] text-slate-400 mt-0.5">Precio cerrado y fechas realistas.</p>
+              </div>
             </div>
-            <h4 class="text-xs sm:text-sm font-semibold text-white">Definición & Alcance</h4>
-            <p class="text-xs text-slate-400 mt-1 leading-relaxed text-pretty">
-              Conversamos sobre tu requerimiento, delimitamos las funcionalidades clave y acordamos tiempos realistas.
-            </p>
-          </div>
-
-          <div class="relative">
-            <div class="absolute -left-[27px] top-0.5 w-5 h-5 rounded-full bg-slate-800 border border-slate-600 text-slate-300 text-[10px] font-mono font-bold flex items-center justify-center">
-              2
+            <div class="flex items-start gap-2.5">
+              <span class="w-6 h-6 rounded-full bg-[#FFA726]/20 border border-[#FFA726]/40 text-[#FFA726] font-mono text-xs flex items-center justify-center shrink-0 mt-0.5 font-black">2</span>
+              <div>
+                <h4 class="text-xs font-bold text-white">Desarrollo Semanal</h4>
+                <p class="text-[11px] text-slate-400 mt-0.5">Código limpio y demos continuas.</p>
+              </div>
             </div>
-            <h4 class="text-xs sm:text-sm font-semibold text-white">Desarrollo & Avances</h4>
-            <p class="text-xs text-slate-400 mt-1 leading-relaxed text-pretty">
-              Escribo el código con revisiones periódicas en un entorno privado para que puedas interactuar con los avances en vivo.
-            </p>
-          </div>
-
-          <div class="relative">
-            <div class="absolute -left-[27px] top-0.5 w-5 h-5 rounded-full bg-slate-800 border border-slate-600 text-slate-300 text-[10px] font-mono font-bold flex items-center justify-center">
-              3
+            <div class="flex items-start gap-2.5">
+              <span class="w-6 h-6 rounded-full bg-teal-500/20 border border-teal-500/40 text-teal-300 font-mono text-xs flex items-center justify-center shrink-0 mt-0.5 font-black">3</span>
+              <div>
+                <h4 class="text-xs font-bold text-white">Lanzamiento & Soporte</h4>
+                <p class="text-[11px] text-slate-400 mt-0.5">Puesta en marcha y garantía técnica.</p>
+              </div>
             </div>
-            <h4 class="text-xs sm:text-sm font-semibold text-white">Lanzamiento & Entrega</h4>
-            <p class="text-xs text-slate-400 mt-1 leading-relaxed text-pretty">
-              Publicamos en tu dominio y te transfiero la totalidad de los repositorios, credenciales y documentación para tu control.
-            </p>
           </div>
+        </div>
+      </div>
+
+      <!-- FILA 2 - TILE 2: Métrica 1 a 1 (PC: 4 columnas / Tablet: 1 columna) -->
+      <div class="col-span-1 sm:col-span-1 lg:col-span-4 quiet-card p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
+        <div class="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-teal-400/40 to-transparent pointer-events-none"></div>
+        <div>
+          <span class="text-[10.5px] font-mono uppercase tracking-wider text-slate-400 font-bold block mb-2">// relación</span>
+          <span class="text-3xl sm:text-4xl font-black font-mono text-white tracking-tight">1 a 1</span>
+          <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+            Sin ejecutivos de cuenta ni burocracia comercial. Trato directo con el desarrollador que escribe la solución.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-white/[0.08] text-[11px] font-mono text-teal-400 font-bold flex items-center gap-1.5">
+          <span>✓</span>
+          <span>Cero teléfono descompuesto</span>
+        </div>
+      </div>
+
+      <!-- FILA 2 - TILE 3: Entregables Semanales (PC: 4 columnas / Tablet: 1 columna) -->
+      <div class="col-span-1 sm:col-span-1 lg:col-span-4 quiet-card p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
+        <div class="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-teal-400/40 to-transparent pointer-events-none"></div>
+        <div>
+          <span class="text-[10.5px] font-mono uppercase tracking-wider text-slate-400 font-bold block mb-2">// cadencia</span>
+          <span class="text-3xl sm:text-4xl font-black font-mono text-white tracking-tight">7 días</span>
+          <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+            Demos funcionales en un entorno privado cada semana para que pruebes los avances en vivo.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-white/[0.08] text-[11px] font-mono text-teal-400 font-bold flex items-center gap-1.5">
+          <span>✓</span>
+          <span>Progreso semanal auditado</span>
+        </div>
+      </div>
+
+      <!-- FILA 2 - TILE 4: Propiedad Intelectual 100% (PC: 4 columnas / Tablet: 2 columnas) -->
+      <div class="col-span-1 sm:col-span-2 lg:col-span-4 quiet-card p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
+        <div class="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-teal-400/40 to-transparent pointer-events-none"></div>
+        <div>
+          <span class="text-[10.5px] font-mono uppercase tracking-wider text-slate-400 font-bold block mb-2">// propiedad</span>
+          <span class="text-3xl sm:text-4xl font-black font-mono text-white tracking-tight">100%</span>
+          <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+            Código fuente, repositorios, accesos a servidores y bases de datos a nombre de tu empresa.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-white/[0.08] text-[11px] font-mono text-teal-400 font-bold flex items-center gap-1.5">
+          <span>✓</span>
+          <span>Sin mensualidades cautivas</span>
         </div>
       </div>
 

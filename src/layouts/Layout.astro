@@ -11,8 +11,8 @@ interface Props {
 }
 
 const {
-  title = "Agustín Llama · Desarrollador Web Full Stack | Editorial Tech",
-  description = "Desarrollo plataformas web, sistemas de gestión y e-commerce listos para escalar. Arquitectura limpia, experiencia de usuario y trato directo.",
+  title = "AgusLlama · Desarrollador Web Full Stack",
+  description = "Desarrollo software web y e-commerce listos para escalar. Arquitectura limpia, experiencia de usuario y trato directo.",
   hideDefaultNav = false
 } = Astro.props;
 ---
@@ -32,12 +32,19 @@ const {
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta name="theme-color" content="#0E1111" />
+    <meta name="theme-color" content="#0A0E11" />
   </head>
-  <body class="bg-[#0E1111] text-slate-200 min-h-screen flex flex-col font-sans selection:bg-slate-800 selection:text-white relative overflow-x-hidden">
+  <body class="bg-[#0A0E11] text-white min-h-screen flex flex-col font-sans selection:bg-[#FF5722]/30 selection:text-white relative overflow-x-hidden">
     
-    <!-- Capa de Textura Sutil (Casi imperceptible) -->
-    <div class="fixed inset-0 pointer-events-none z-0">
+    <!-- Capa de Resplandores y Textura Unificada (Sin cortes entre Header y Hero) -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+      <!-- Resplandor Teal / Mint superior izquierdo que cubre Header y Hero -->
+      <div class="absolute -top-24 -left-24 w-[450px] sm:w-[650px] h-[450px] sm:h-[650px] bg-teal-500/[0.12] rounded-full blur-[120px]"></div>
+      <!-- Resplandor Cálido Fuego detrás de AgusLlama -->
+      <div class="absolute top-28 left-1/4 w-[320px] sm:w-[450px] h-[320px] sm:h-[450px] bg-orange-600/[0.08] rounded-full blur-[100px]"></div>
+      <!-- Resplandor Teal lateral derecho -->
+      <div class="absolute top-28 -right-16 w-[400px] sm:w-[500px] h-[400px] sm:h-[500px] bg-teal-400/[0.08] rounded-full blur-[120px]"></div>
+      <!-- Textura sutil -->
       <div class="absolute inset-0 bg-quiet-dots opacity-40"></div>
     </div>
 

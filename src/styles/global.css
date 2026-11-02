@@ -1,16 +1,24 @@
 @import "tailwindcss";
 
 @theme {
-  /* Quiet Luxury & Editorial Tech Palette */
-  --color-quiet-bg: #0E1111;
-  --color-quiet-surface: #13171D;
-  --color-quiet-border: rgba(255, 255, 255, 0.08);
-  --color-quiet-border-subtle: rgba(255, 255, 255, 0.05);
+  /* Paleta Oficial del Sistema de Diseño (Inspirada en Canva & Fuego 3D) */
+  --color-flame: #FF5722;            /* Naranja Fuego / Coral Primario */
+  --color-flame-hover: #F4511E;
+  --color-flame-light: #FF7043;
+  --color-flame-amber: #FFA726;
 
-  /* Accents */
-  --color-accent-blue: #2563EB;
-  --color-accent-cyan: #38BDF8;
-  --color-accent-muted-cyan: #7DD3FC;
+  --color-teal-accent: #2DD4BF;      /* Verde Mint / Teal Neón */
+  --color-mint: #2DD4BF;
+  --color-emerald-accent: #10B981;
+
+  --color-bg-dark: #0A0E11;          /* Fondo Cinemático Oscuro Base */
+  --color-surface-dark: #11181C;     /* Superficie de Tarjetas Glass */
+  --color-surface-chip: #182126;     /* Chips & Pills oscuros */
+
+  /* Aliases y tokens semánticos */
+  --color-primary: #FF5722;
+  --color-primary-dark: #E64A19;
+  --color-accent: #2DD4BF;
 
   /* Typography */
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", "Geist", "Helvetica Neue", Arial, sans-serif;
@@ -20,8 +28,8 @@
 /* Base resets & Dark Mode Spatial Setup */
 html {
   scroll-behavior: smooth;
-  background-color: #0E1111;
-  color: #F1F5F9;
+  background-color: #0A0E11;
+  color: #F8FAFC;
   font-family: var(--font-sans);
   overflow-x: hidden;
   color-scheme: dark;
@@ -30,7 +38,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #0E1111;
+  background-color: #0A0E11;
   color: #E2E8F0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -38,89 +46,106 @@ body {
   width: 100%;
 }
 
-/* Grilla de puntos casi imperceptible */
+/* Grilla de textura sutil */
 .bg-quiet-dots {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 20px 20px;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
-/* Tarjetas discretas Quiet Luxury (Bordes finos de 1px y opacidad muy baja) */
+/* Tarjetas oscuras refinadas con rim light teal/cyan */
 .quiet-card {
-  background-color: rgba(19, 23, 29, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 14px;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
+  background-color: rgba(17, 24, 28, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(45, 212, 191, 0.15);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(45, 212, 191, 0.15);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
 }
 
 .quiet-card:hover {
-  border-color: rgba(255, 255, 255, 0.14);
-  background-color: rgba(19, 23, 29, 0.85);
+  border-color: rgba(45, 212, 191, 0.4);
+  box-shadow: 0 16px 40px -4px rgba(0, 0, 0, 0.7), 0 0 24px -4px rgba(45, 212, 191, 0.25);
 }
 
-/* Botón principal azul sólido mate */
-.btn-solid-blue {
+/* Botón Fuego Naranja Principal (Idéntico a Canva) */
+.btn-flame-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background-color: #2563EB;
+  background: linear-gradient(135deg, #FF5722 0%, #FF3D00 100%);
   color: #FFFFFF;
-  font-weight: 500;
-  font-size: 14px;
-  padding: 10px 22px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  transition: background-color 0.15s ease, transform 0.1s ease;
+  font-weight: 800;
+  font-size: 13px;
+  padding: 12px 20px;
+  border-radius: 9999px;
+  letter-spacing: 0.02em;
+  border: 1px solid rgba(255, 112, 67, 0.4);
+  box-shadow: 0 8px 25px rgba(255, 87, 34, 0.45);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
-  white-space: nowrap;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
-.btn-solid-blue:hover {
-  background-color: #1D4ED8;
+@media (min-width: 640px) {
+  .btn-flame-primary {
+    font-size: 13.5px;
+    padding: 13px 26px;
+  }
 }
 
-.btn-solid-blue:active {
-  transform: scale(0.98);
+.btn-flame-primary:hover {
+  background: linear-gradient(135deg, #FF6E40 0%, #FF5722 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 32px rgba(255, 87, 34, 0.65);
 }
 
-/* Botón secundario discreto / enlace */
-.btn-subtle-link {
+.btn-flame-primary:active {
+  transform: scale(0.97);
+}
+
+/* Botón Secundario Cápsula Oscura */
+.btn-subtle-dark {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  background: transparent;
-  color: #94A3B8;
-  font-weight: 500;
+  gap: 10px;
+  background-color: rgba(21, 29, 34, 0.9);
+  color: #E2E8F0;
+  font-weight: 600;
   font-size: 14px;
-  padding: 10px 18px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: color 0.15s ease, border-color 0.15s ease;
+  padding: 13px 24px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  transition: all 0.15s ease;
   text-decoration: none;
   white-space: nowrap;
 }
 
-.btn-subtle-link:hover {
+.btn-subtle-dark:hover {
   color: #FFFFFF;
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(26, 37, 43, 0.95);
 }
 
-.btn-subtle-link:active {
+.btn-subtle-dark:active {
   transform: scale(0.98);
 }
 
-/* Custom Scrollbar sobrio */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0E1111;
+  background: #0A0E11;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 87, 34, 0.5);
 }

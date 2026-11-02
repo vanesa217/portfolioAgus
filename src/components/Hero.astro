@@ -1,97 +1,12 @@
 ---
-// Hero.astro - Estilo "Editorial Tech / Quiet Luxury" Mobile-First en Modo Oscuro Mate (#0E1111)
+// Hero.astro - Montaje optimizado con React & Framer Motion (client:load para animación inmediata de fuego al entrar)
+import { ModernHero } from './react/ModernHero';
+
 interface Props {
   email?: string;
 }
 
 const { email = "agusllama1@gmail.com" } = Astro.props;
-
-const techPills = [
-  "React",
-  "Astro",
-  "TypeScript",
-  "Node.js",
-  "Tailwind",
-  "PostgreSQL"
-];
 ---
 
-<section class="relative w-full pt-8 sm:pt-14 pb-12 sm:pb-16 border-b border-white/[0.06] overflow-hidden">
-  <div class="max-w-xl mx-auto px-4 sm:px-6">
-    
-    <!-- CONTENIDO EN UN SOLO FLUJO VERTICAL LIMPIO -->
-    <div class="flex flex-col items-start space-y-6 sm:space-y-7">
-      
-      <!-- 1. Indicador Plano de Disponibilidad -->
-      <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs font-mono">
-        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-        <span>Disponible para nuevos proyectos</span>
-      </div>
-
-      <!-- 2. Título Principal (H1) Geométrico Compacto (Estilo Geist / Inter) -->
-      <h1 class="text-[28px] sm:text-3xl md:text-4xl font-extrabold tracking-tight leading-[1.2] text-white text-balance">
-        Desarrollo <span class="text-[#7DD3FC] font-extrabold">plataformas web, sistemas de gestión y e-commerce</span> listos para escalar.
-      </h1>
-
-      <!-- 3. Subtítulo en Gris Medio, Legible y Directo -->
-      <p class="text-sm sm:text-base text-slate-400 leading-relaxed max-w-lg text-pretty">
-        Transformo procesos complejos en productos rápidos y fáciles de usar. Foco en experiencia de usuario, arquitectura limpia y trato directo de principio a fin.
-      </p>
-
-      <!-- 4. Botón de Acción Principal Sólido Mate + Secundario Sutil -->
-      <div class="flex items-center gap-3 pt-1 w-full sm:w-auto">
-        <!-- Botón Primario: Ver Proyectos -->
-        <a 
-          href="#proyectos" 
-          class="btn-solid-blue w-full sm:w-auto justify-center"
-        >
-          <span>Ver Proyectos</span>
-        </a>
-
-        <!-- Botón Secundario: Contactarme -->
-        <a 
-          href="#contacto" 
-          class="btn-subtle-link w-full sm:w-auto justify-center"
-        >
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
-          <span>Contactarme</span>
-        </a>
-      </div>
-
-      <!-- 5. SECCIÓN DE DETALLES Y BENTO EN UNA SOLA COLUMNA FLUIDA -->
-      <div class="w-full pt-4 space-y-4 border-t border-white/[0.06]">
-        
-        <!-- Ubicación: Icono de Geolocalización + Buenos Aires, Argentina (GMT-3) -->
-        <div class="flex items-center gap-2 text-xs text-slate-400">
-          <svg class="w-3.5 h-3.5 text-slate-400 shrink-0" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-          </svg>
-          <span class="font-mono">Buenos Aires, Argentina (GMT-3)</span>
-        </div>
-
-        <!-- Tecnologías: Bloque de píldoras grises muy oscuras, compactas y planas sin logos coloridos -->
-        <div>
-          <div class="flex flex-wrap gap-1.5">
-            {techPills.map((tech) => (
-              <span class="text-xs font-mono text-slate-300 bg-white/[0.04] border border-white/[0.07] px-2.5 py-1 rounded-md">
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <!-- Métricas: Una sola línea de texto discreto sin círculos gráficos ni colores brillantes -->
-        <div class="pt-1">
-          <p class="text-xs font-mono text-slate-400 flex items-center gap-1.5">
-            <span class="text-emerald-400 font-bold">✓</span>
-            <span>Lighthouse: 100/100 • Performance • SEO</span>
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-</section>
+<ModernHero client:load email={email} />

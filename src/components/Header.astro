@@ -1,56 +1,47 @@
 ---
-// Header.astro - Navbar Quiet Luxury / Editorial Tech & Bottom Dock
-interface Props {
-  ctaText?: string;
-}
-
-const { ctaText = "Iniciar Proyecto ↗" } = Astro.props;
-
+// Header.astro - Barra Superior 100% Integrada (Sin bordes, sin cortes de color, sin botón)
 const navItems = [
   {
     name: "Proyectos",
-    href: "#proyectos",
-    icon: `<svg class="w-4 h-4 mb-0.5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>`
+    href: "#proyectos"
   },
   {
     name: "Habilidades",
-    href: "#habilidades",
-    icon: `<svg class="w-4 h-4 mb-0.5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>`
+    href: "#habilidades"
   },
   {
     name: "Sobre mí",
-    href: "#sobre-mi",
-    icon: `<svg class="w-4 h-4 mb-0.5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>`
+    href: "#sobre-mi"
   },
   {
     name: "Contacto",
-    href: "#contacto",
-    icon: `<svg class="w-4 h-4 mb-0.5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>`
+    href: "#contacto"
   }
 ];
 ---
 
-<!-- HEADER SUPERIOR (Móvil & Desktop) -->
-<header class="sticky top-0 z-40 w-full bg-[#0E1111]/90 backdrop-blur-md border-b border-white/[0.06] transition-all">
-  <div class="max-w-6xl mx-auto h-16 px-4 sm:px-6 flex items-center justify-between">
+<!-- HEADER SUPERIOR (Totalmente transparente y sin bordes) -->
+<header id="main-header" class="sticky top-0 z-40 w-full bg-transparent border-none transition-all duration-300">
+  <div class="max-w-6xl mx-auto h-16 sm:h-20 px-4 sm:px-6 lg:px-8 flex items-center justify-between">
     
-    <!-- A la izquierda: Isotipo circular "AL" desaturado + Agustín Llama + Full Stack Developer -->
-    <a href="#" class="flex items-center gap-3 group shrink-0 text-decoration-none">
-      <div class="w-8 h-8 rounded-full bg-slate-800/80 text-[#93C5FD] border border-slate-700/50 flex items-center justify-center font-mono font-medium text-xs shrink-0 transition-colors group-hover:border-slate-600">
-        AL
+    <!-- A la izquierda: Isotipo "AL" + AgusLlama + Full Stack Developer -->
+    <a href="#" class="flex items-center gap-2.5 sm:gap-3 group shrink-0 text-decoration-none active:scale-[0.97] transition-transform">
+      <div class="w-8 h-8 rounded-full bg-[#121A1F] text-white border border-[#FF5722]/40 flex items-center justify-center font-mono font-bold text-xs shrink-0 shadow-[0_0_10px_rgba(255,87,34,0.25)] transition-transform group-hover:scale-105">
+        <span class="text-white">A</span><span class="text-[#FF5722]">L</span>
       </div>
       <div class="flex flex-col">
-        <span class="text-sm font-semibold text-white tracking-tight leading-tight">
-          Agustín Llama
+        <span class="text-xs sm:text-sm font-black text-white tracking-tight leading-tight flex items-center gap-1.5">
+          <span>AgusLlama</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-[#FF5722] shadow-[0_0_6px_#FF5722]"></span>
         </span>
-        <span class="text-[10px] text-slate-400 font-mono leading-tight">
+        <span class="text-[9.5px] sm:text-[10px] text-slate-400 font-mono leading-tight">
           Full Stack Developer
         </span>
       </div>
     </a>
 
-    <!-- Al centro (Desktop lg:): Links de navegación sutiles -->
-    <nav class="hidden lg:flex items-center gap-8 text-xs sm:text-sm font-medium text-slate-400">
+    <!-- A la derecha (Desktop lg:): Links de navegación -->
+    <nav class="hidden lg:flex items-center gap-8 text-xs sm:text-sm font-medium text-slate-300">
       {navItems.map((item) => (
         <a 
           href={item.href} 
@@ -61,17 +52,30 @@ const navItems = [
       ))}
     </nav>
 
-    <!-- A la derecha: Botón muy compacto y plano con borde fino, sin brillo -->
-    <div class="flex items-center shrink-0">
-      <a 
-        href="#contacto" 
-        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-transparent border border-white/15 text-xs font-medium text-slate-300 hover:text-white hover:border-white/30 active:scale-95 transition-all"
-      >
-        <span>{ctaText}</span>
-      </a>
-    </div>
-
   </div>
 </header>
 
+<script>
+  // Transición suave: 100% transparente en el Hero, sutil cristal al scrollear
+  function setupHeaderScroll() {
+    const header = document.getElementById('main-header');
+    if (!header) return;
 
+    function onScroll() {
+      if (window.scrollY > 40) {
+        header?.classList.add('bg-[#0A0E11]/85', 'backdrop-blur-md');
+      } else {
+        header?.classList.remove('bg-[#0A0E11]/85', 'backdrop-blur-md');
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupHeaderScroll);
+  } else {
+    setupHeaderScroll();
+  }
+</script>
