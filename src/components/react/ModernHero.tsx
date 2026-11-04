@@ -255,7 +255,7 @@ export const ModernHero: React.FC<ModernHeroProps> = ({ email = "agusllama1@gmai
                   {techPills.map((tech) => (
                     <span 
                       key={tech}
-                      className="text-xs font-mono font-medium text-slate-300 bg-slate-950/60 border border-white/[0.08] px-3.5 py-1.5 rounded-xl hover:border-orange-500/30 hover:text-white transition-all duration-300 cursor-default"
+                      className="text-xs font-mono font-medium text-slate-300 bg-slate-950/60 border border-white/[0.08] px-3.5 py-1.5 rounded-xl hover:-translate-y-0.5 hover:border-orange-500/40 hover:bg-white/[0.06] transition-all duration-200 cursor-default"
                     >
                       {tech}
                     </span>

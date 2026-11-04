@@ -1,5 +1,5 @@
 ---
-// Contact.astro - Sección de contacto simple y sobria Linear / Vercel
+// Contact.astro - Sección de contacto simple y sobria Linear / Vercel con feedback de 3 estados
 interface Props {
   email?: string;
   linkedinUrl?: string;
@@ -74,7 +74,7 @@ const {
 
       </div>
 
-      <!-- Columna Derecha: Formulario Refinado (7 cols) -->
+      <!-- Columna Derecha: Formulario Refinado con 3 Estados (7 cols) -->
       <div class="md:col-span-7 quiet-card spotlight-card p-6 sm:p-8 relative overflow-hidden">
         <div class="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-orange-500/40 to-transparent pointer-events-none"></div>
         <div class="relative z-10">
@@ -127,15 +127,34 @@ const {
               ></textarea>
             </div>
 
+            <!-- Botón de Envío con 3 Estados (Reposo, Enviando, Éxito) -->
             <div class="pt-2">
               <button 
                 type="submit" 
-                class="btn-flame-primary !w-full !min-h-[48px] text-xs sm:text-sm justify-center cursor-pointer"
+                id="contact-submit-btn"
+                class="btn-flame-primary !w-full !min-h-[48px] text-xs sm:text-sm justify-center cursor-pointer transition-all duration-300 select-none"
               >
-                <span>Enviar mensaje</span>
-                <svg class="w-4 h-4 ml-1 shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                </svg>
+                <!-- 1. Estado Reposo -->
+                <span id="btn-state-idle" class="inline-flex items-center justify-center gap-2">
+                  <span>Enviar mensaje</span>
+                  <svg class="w-4 h-4 ml-0.5 shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </span>
+
+                <!-- 2. Estado Enviando: Spinner animate-spin + Enviando... -->
+                <span id="btn-state-sending" class="hidden items-center justify-center gap-2">
+                  <svg class="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  <span>Enviando...</span>
+                </span>
+
+                <!-- 3. Estado Éxito: Fondo emerald-600 + ✓ Mensaje enviado con éxito -->
+                <span id="btn-state-success" class="hidden items-center justify-center gap-2 text-white font-bold tracking-wide">
+                  <span>✓ Mensaje enviado con éxito</span>
+                </span>
               </button>
             </div>
           </form>
@@ -149,18 +168,90 @@ const {
 </section>
 
 <script>
-  const form = document.getElementById('portfolio-contact-form') as HTMLFormElement;
-  if (form) {
+  // Gestión de los 3 estados del botón de envío del formulario
+  function setupContactForm() {
+    const form = document.getElementById('portfolio-contact-form') as HTMLFormElement;
+    const submitBtn = document.getElementById('contact-submit-btn') as HTMLButtonElement;
+    const stateIdle = document.getElementById('btn-state-idle');
+    const stateSending = document.getElementById('btn-state-sending');
+    const stateSuccess = document.getElementById('btn-state-success');
+
+    if (!form || !submitBtn || !stateIdle || !stateSending || !stateSuccess) return;
+
+    let resetTimer: number | undefined;
+
+    function setBtnState(state: 'idle' | 'sending' | 'success') {
+      if (state === 'idle') {
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('!bg-emerald-600', '!border-emerald-500/50', '!shadow-[0_0_20px_rgba(16,185,129,0.4)]', 'pointer-events-none');
+        submitBtn.classList.add('cursor-pointer');
+        
+        stateIdle.classList.remove('hidden');
+        stateIdle.classList.add('inline-flex');
+        
+        stateSending.classList.add('hidden');
+        stateSending.classList.remove('inline-flex');
+        
+        stateSuccess.classList.add('hidden');
+        stateSuccess.classList.remove('inline-flex');
+      } else if (state === 'sending') {
+        submitBtn.disabled = true;
+        submitBtn.classList.add('pointer-events-none');
+        submitBtn.classList.remove('cursor-pointer');
+
+        stateIdle.classList.add('hidden');
+        stateIdle.classList.remove('inline-flex');
+
+        stateSending.classList.remove('hidden');
+        stateSending.classList.add('inline-flex');
+
+        stateSuccess.classList.add('hidden');
+        stateSuccess.classList.remove('inline-flex');
+      } else if (state === 'success') {
+        submitBtn.disabled = true;
+        submitBtn.classList.add('!bg-emerald-600', '!border-emerald-500/50', '!shadow-[0_0_20px_rgba(16,185,129,0.4)]', 'pointer-events-none');
+        submitBtn.classList.remove('cursor-pointer');
+
+        stateIdle.classList.add('hidden');
+        stateIdle.classList.remove('inline-flex');
+
+        stateSending.classList.add('hidden');
+        stateSending.classList.remove('inline-flex');
+
+        stateSuccess.classList.remove('hidden');
+        stateSuccess.classList.add('inline-flex');
+      }
+    }
+
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = (document.getElementById('contact-name') as HTMLInputElement).value;
-      const email = (document.getElementById('contact-email') as HTMLInputElement).value;
-      const message = (document.getElementById('contact-message') as HTMLTextAreaElement).value;
 
-      const subject = `Contacto desde Portfolio: ${name}`;
-      const body = `Hola Agustín,\n\nMi nombre es ${name} (${email}).\n\nMensaje:\n${message}`;
+      const nameInput = document.getElementById('contact-name') as HTMLInputElement;
+      const emailInput = document.getElementById('contact-email') as HTMLInputElement;
+      const messageInput = document.getElementById('contact-message') as HTMLTextAreaElement;
 
-      window.location.href = `mailto:agusllama1@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const name = nameInput.value;
+      const email = emailInput.value;
+      const message = messageInput.value;
+
+      // 1. Activar estado 'Enviando...'
+      setBtnState('sending');
+
+      // 2. Transición tras despacho a 'Éxito' durante 4 segundos
+      setTimeout(() => {
+        const subject = `Contacto desde Portfolio: ${name}`;
+        const body = `Hola Agustín,\n\nMi nombre es ${name} (${email}).\n\nMensaje:\n${message}`;
+        window.location.href = `mailto:agusllama1@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        setBtnState('success');
+        form.reset();
+
+        // 3. Restaurar a estado 'Reposo' tras 4 segundos
+        if (resetTimer) clearTimeout(resetTimer);
+        resetTimer = window.setTimeout(() => {
+          setBtnState('idle');
+        }, 4000);
+      }, 700);
     });
   }
 
@@ -178,10 +269,15 @@ const {
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setupContactSpotlight);
-  } else {
+  function initContact() {
+    setupContactForm();
     setupContactSpotlight();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initContact);
+  } else {
+    initContact();
   }
 </script>
 
@@ -191,7 +287,7 @@ const {
     position: absolute;
     inset: -1px;
     border-radius: inherit;
-    background: radial-gradient(400px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(255, 77, 0, 0.12), transparent 80%);
+    background: radial-gradient(350px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(255, 87, 34, 0.15), transparent 80%);
     opacity: 0;
     transition: opacity 0.3s;
     pointer-events-none;

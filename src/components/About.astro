@@ -24,11 +24,11 @@ const { email = "agusllama1@gmail.com" } = Astro.props;
       </p>
     </div>
 
-    <!-- BENTO GRID MODERNO (Equilibrado en PC y Mobile con Spotlight) -->
+    <!-- BENTO GRID MODERNO (Equilibrado en PC y Mobile con Spotlight y Scroll Reveal) -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 sm:gap-6">
       
       <!-- FILA 1 - TILE 1: Presentación & Perfil (PC: 8 columnas / Tablet: 2 columnas) -->
-      <div class="sm:col-span-2 lg:col-span-8 quiet-card spotlight-card p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden">
+      <div class="sm:col-span-2 lg:col-span-8 quiet-card spotlight-card scroll-reveal-item p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden">
         <div class="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"></div>
 
         <div class="relative z-10">
@@ -78,7 +78,7 @@ const { email = "agusllama1@gmail.com" } = Astro.props;
       </div>
 
       <!-- FILA 1 - TILE 5: Pipeline / Metodología de Trabajo en 3 Pasos (PC: 4 columnas / Tablet: 2 columnas) -->
-      <div class="sm:col-span-2 lg:col-span-4 quiet-card spotlight-card p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
+      <div class="sm:col-span-2 lg:col-span-4 quiet-card spotlight-card scroll-reveal-item p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
         <div class="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"></div>
         <div class="relative z-10">
           <span class="text-[10.5px] font-mono uppercase tracking-wider text-slate-400 font-bold block mb-3">// metodología</span>
@@ -109,7 +109,7 @@ const { email = "agusllama1@gmail.com" } = Astro.props;
       </div>
 
       <!-- FILA 2 - TILE 2: Métrica 1 a 1 (PC: 4 columnas / Tablet: 1 columna) -->
-      <div class="col-span-1 sm:col-span-1 lg:col-span-4 quiet-card spotlight-card p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
+      <div class="col-span-1 sm:col-span-1 lg:col-span-4 quiet-card spotlight-card scroll-reveal-item p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
         <div class="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"></div>
         <div class="relative z-10">
           <span class="text-[10.5px] font-mono uppercase tracking-wider text-slate-400 font-bold block mb-2">// relación</span>
@@ -125,7 +125,7 @@ const { email = "agusllama1@gmail.com" } = Astro.props;
       </div>
 
       <!-- FILA 2 - TILE 3: Entregables Semanales (PC: 4 columnas / Tablet: 1 columna) -->
-      <div class="col-span-1 sm:col-span-1 lg:col-span-4 quiet-card spotlight-card p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
+      <div class="col-span-1 sm:col-span-1 lg:col-span-4 quiet-card spotlight-card scroll-reveal-item p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
         <div class="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"></div>
         <div class="relative z-10">
           <span class="text-[10.5px] font-mono uppercase tracking-wider text-slate-400 font-bold block mb-2">// cadencia</span>
@@ -141,7 +141,7 @@ const { email = "agusllama1@gmail.com" } = Astro.props;
       </div>
 
       <!-- FILA 2 - TILE 4: Propiedad Intelectual 100% (PC: 4 columnas / Tablet: 2 columnas) -->
-      <div class="col-span-1 sm:col-span-2 lg:col-span-4 quiet-card spotlight-card p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
+      <div class="col-span-1 sm:col-span-2 lg:col-span-4 quiet-card spotlight-card scroll-reveal-item p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
         <div class="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"></div>
         <div class="relative z-10">
           <span class="text-[10.5px] font-mono uppercase tracking-wider text-slate-400 font-bold block mb-2">// propiedad</span>
@@ -162,7 +162,7 @@ const { email = "agusllama1@gmail.com" } = Astro.props;
 </section>
 
 <script>
-  // Spotlight effect cursor follower para tarjetas bento
+  // 1. Spotlight effect cursor follower para tarjetas bento
   function setupAboutSpotlight() {
     const cards = document.querySelectorAll('#sobre-mi .spotlight-card');
     cards.forEach((card) => {
@@ -176,20 +176,65 @@ const { email = "agusllama1@gmail.com" } = Astro.props;
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setupAboutSpotlight);
-  } else {
+  // 2. Transición de entrada al entrar en viewport: opacity 0 -> 1, y: 16 -> 0, cubic-bezier(0.16, 1, 0.3, 1), 0.5s con stagger 0.08s
+  function setupAboutScrollReveal() {
+    const section = document.getElementById('sobre-mi');
+    if (!section) return;
+
+    const items = section.querySelectorAll('.scroll-reveal-item');
+    if (!items.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            items.forEach((item, index) => {
+              setTimeout(() => {
+                item.classList.add('is-visible');
+              }, index * 80);
+            });
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    observer.observe(section);
+  }
+
+  function initAbout() {
     setupAboutSpotlight();
+    setupAboutScrollReveal();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAbout);
+  } else {
+    initAbout();
   }
 </script>
 
 <style>
+  /* Animación de entrada por scroll */
+  .scroll-reveal-item {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+  .scroll-reveal-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Spotlight interactivo */
   .spotlight-card::before {
     content: '';
     position: absolute;
     inset: -1px;
     border-radius: inherit;
-    background: radial-gradient(400px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(255, 77, 0, 0.12), transparent 80%);
+    background: radial-gradient(350px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(255, 87, 34, 0.15), transparent 80%);
     opacity: 0;
     transition: opacity 0.3s;
     pointer-events-none;

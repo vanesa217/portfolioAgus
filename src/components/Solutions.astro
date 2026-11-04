@@ -51,10 +51,10 @@ const techStack = [
       </p>
     </div>
 
-    <!-- Grilla de 4 Servicios/Habilidades Quiet Cards con Spotlight -->
+    <!-- Grilla de 4 Servicios/Habilidades Quiet Cards con Spotlight y Scroll Reveal -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-10">
       {services.map((item) => (
-        <div class="quiet-card spotlight-card p-6 sm:p-7 flex flex-col justify-between group relative overflow-hidden">
+        <div class="quiet-card spotlight-card scroll-reveal-item p-6 sm:p-7 flex flex-col justify-between group relative overflow-hidden">
           <div class="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"></div>
           <div class="relative z-10">
             <!-- Icono + Título -->
@@ -74,10 +74,10 @@ const techStack = [
             </p>
           </div>
 
-          <!-- Tags -->
+          <!-- Tags de tecnologías con microinteracción suave -->
           <div class="flex flex-wrap gap-1.5 pt-4 border-t border-white/[0.08] relative z-10">
             {item.tags.map((tag) => (
-              <span class="text-[11px] font-mono font-medium text-slate-300 bg-slate-950/60 border border-white/[0.08] px-2.5 py-1 rounded-md">
+              <span class="text-[11px] font-mono font-medium text-slate-300 bg-slate-950/60 border border-white/[0.08] px-2.5 py-1 rounded-md hover:-translate-y-0.5 hover:border-orange-500/40 hover:bg-white/[0.06] transition-all duration-200 cursor-default">
                 {tag}
               </span>
             ))}
@@ -86,8 +86,8 @@ const techStack = [
       ))}
     </div>
 
-    <!-- Stack Tecnológico Organizado -->
-    <div class="quiet-card spotlight-card p-6 sm:p-8 relative overflow-hidden">
+    <!-- Stack Tecnológico Organizado con Scroll Reveal -->
+    <div class="quiet-card spotlight-card scroll-reveal-item p-6 sm:p-8 relative overflow-hidden">
       <div class="relative z-10">
         <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-300 mb-5 flex items-center gap-2">
           <span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00]"></span>
@@ -103,7 +103,7 @@ const techStack = [
               </h4>
               <div class="flex flex-wrap gap-1.5">
                 {group.items.map((tech) => (
-                  <span class="text-[11px] font-mono font-medium text-slate-300 bg-white/[0.04] px-2.5 py-1 rounded-md border border-white/[0.06] shadow-xs">
+                  <span class="text-[11px] font-mono font-medium text-slate-300 bg-white/[0.04] px-2.5 py-1 rounded-md border border-white/[0.06] shadow-xs hover:-translate-y-0.5 hover:border-orange-500/40 hover:bg-white/[0.06] transition-all duration-200 cursor-default">
                     {tech}
                   </span>
                 ))}
@@ -118,9 +118,9 @@ const techStack = [
 </section>
 
 <script>
-  // Spotlight effect cursor follower para tarjetas estáticas
+  // 1. Spotlight effect cursor follower
   function setupSpotlightCards() {
-    const cards = document.querySelectorAll('.spotlight-card');
+    const cards = document.querySelectorAll('#habilidades .spotlight-card');
     cards.forEach((card) => {
       (card as HTMLElement).addEventListener('mousemove', (e: MouseEvent) => {
         const rect = (card as HTMLElement).getBoundingClientRect();
@@ -132,20 +132,65 @@ const techStack = [
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setupSpotlightCards);
-  } else {
+  // 2. Transición de entrada al entrar en viewport: opacity 0 -> 1, y: 16 -> 0, cubic-bezier(0.16, 1, 0.3, 1), 0.5s con stagger 0.08s
+  function setupSolutionsScrollReveal() {
+    const section = document.getElementById('habilidades');
+    if (!section) return;
+
+    const items = section.querySelectorAll('.scroll-reveal-item');
+    if (!items.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            items.forEach((item, index) => {
+              setTimeout(() => {
+                item.classList.add('is-visible');
+              }, index * 80);
+            });
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    observer.observe(section);
+  }
+
+  function initSolutions() {
     setupSpotlightCards();
+    setupSolutionsScrollReveal();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSolutions);
+  } else {
+    initSolutions();
   }
 </script>
 
 <style>
+  /* Animación de entrada por scroll */
+  .scroll-reveal-item {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+  .scroll-reveal-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Spotlight interactivo */
   .spotlight-card::before {
     content: '';
     position: absolute;
     inset: -1px;
     border-radius: inherit;
-    background: radial-gradient(400px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(255, 77, 0, 0.12), transparent 80%);
+    background: radial-gradient(350px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(255, 87, 34, 0.15), transparent 80%);
     opacity: 0;
     transition: opacity 0.3s;
     pointer-events-none;

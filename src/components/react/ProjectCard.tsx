@@ -13,28 +13,28 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   email = "agusllama1@gmail.com",
   index = 0
 }) => {
-  const [spotlightPos, setSpotlightPos] = useState({ x: 0, y: 0 });
+  const [mouse, setMouse] = useState({ x: 0, y: 0 });
 
   const mailtoHref = `mailto:${email}?subject=${encodeURIComponent(project.inquirySubject)}&body=${encodeURIComponent(`Hola Agustín, vi tu proyecto "${project.title}" en tu portfolio y me gustaría conversar sobre algo similar para mi negocio.`)}`;
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    setSpotlightPos({
+    setMouse({
       x: e.clientX - rect.left,
       y: e.clientY - rect.top,
     });
   };
 
   return (
-    <motion.article
+    <article
       onMouseMove={handleMouseMove}
       className="relative h-full rounded-3xl bg-slate-900/60 backdrop-blur-md border border-white/[0.08] hover:border-orange-500/30 transition-all duration-300 overflow-hidden flex flex-col justify-between p-6 sm:p-7 shadow-[0_16px_36px_rgba(0,0,0,0.4)] group select-none"
     >
-      {/* Spotlight Card Effect: brillo radial que sigue el cursor sobre el borde */}
+      {/* Spotlight interactivo en tarjetas Bento: degradado radial dinámico sobre el borde */}
       <div 
         className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 transition-opacity duration-300 group-hover:opacity-100 -z-0"
         style={{
-          background: `radial-gradient(450px circle at ${spotlightPos.x}px ${spotlightPos.y}px, rgba(255, 77, 0, 0.12), transparent 80%)`,
+          background: `radial-gradient(350px circle at ${mouse.x}px ${mouse.y}px, rgba(255, 87, 34, 0.15), transparent 80%)`,
         }}
       />
 
@@ -87,12 +87,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
       {/* Footer con Tecnologías y Botón */}
       <div className="relative z-10">
-        {/* Tags de Tecnologías monocromáticos sutiles */}
+        {/* Tags de Tecnologías con microinteracción suave */}
         <div className="flex flex-wrap gap-1.5 pt-4 pb-4 border-t border-white/[0.08]">
           {project.techTags.map((tech) => (
             <span 
               key={tech}
-              className="text-[11px] font-mono font-medium text-slate-300 bg-slate-950/60 border border-white/[0.08] px-2.5 py-1 rounded-md"
+              className="text-[11px] font-mono font-medium text-slate-300 bg-slate-950/60 border border-white/[0.08] px-2.5 py-1 rounded-md hover:-translate-y-0.5 hover:border-orange-500/40 hover:bg-white/[0.06] transition-all duration-200 cursor-default"
             >
               {tech}
             </span>
@@ -110,6 +110,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           </svg>
         </a>
       </div>
-    </motion.article>
+    </article>
   );
 };

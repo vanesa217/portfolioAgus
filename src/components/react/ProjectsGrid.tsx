@@ -9,6 +9,30 @@ interface ProjectsGridProps {
   email?: string;
 }
 
+// Variantes de animación de scroll Linear / Vercel estándar
+const projectContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.04,
+    },
+  },
+};
+
+const projectCardScrollVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
+};
+
 export const ProjectsGrid: React.FC<ProjectsGridProps> = ({ 
   projects, 
   email = "agusllama1@gmail.com" 
@@ -95,15 +119,16 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({
       {/* Contenedor del Carrusel Snap en mobile / Grilla 3 columnas en desktop */}
       <motion.div 
         ref={scrollRef}
-        variants={containerStagger}
+        variants={projectContainerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-50px" }}
+        viewport={{ once: true, margin: "-40px" }}
         className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 pt-1 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 lg:grid lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:pb-0 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
       >
         {projects.map((project, index) => (
-          <div 
+          <motion.div 
             key={project.id}
+            variants={projectCardScrollVariants}
             className="w-[85vw] max-w-[360px] sm:w-[380px] lg:w-auto snap-center flex-shrink-0 lg:flex-shrink"
           >
             <ProjectCard 
@@ -111,7 +136,7 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({
               email={email} 
               index={index}
             />
-          </div>
+          </motion.div>
         ))}
       </motion.div>
 
