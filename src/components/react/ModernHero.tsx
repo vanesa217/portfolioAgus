@@ -65,7 +65,7 @@ export const ModernHero: React.FC<ModernHeroProps> = ({ email = "agusllama1@gmai
   return (
     <section 
       id="hero" 
-      className="relative w-full min-h-[calc(100vh-4.5rem)] min-h-[calc(100dvh-4.5rem)] flex flex-col justify-between border-b border-white/[0.08] bg-[#0B0F17] text-white overflow-hidden"
+      className="relative w-full flex flex-col justify-center border-b border-white/[0.08] bg-[#0B0F17] text-white overflow-hidden lg:min-h-[calc(100vh-4.5rem)] lg:min-h-[calc(100dvh-4.5rem)]"
     >
       {/* Resplandor Ambiental Sutil: radial gradient de nivel Linear / Vercel */}
       <div 
@@ -73,7 +73,7 @@ export const ModernHero: React.FC<ModernHeroProps> = ({ email = "agusllama1@gmai
       />
 
       {/* Contenedor Principal: Centrado verticalmente con stagger fade-in */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-center py-6 sm:py-10 lg:py-14 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-center py-8 sm:py-12 lg:py-14 relative z-10">
         
         {/* Grid Responsivo: 1 Columna en Mobile/Tablet, 2 Columnas en Desktop */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -194,20 +194,39 @@ export const ModernHero: React.FC<ModernHeroProps> = ({ email = "agusllama1@gmai
               </a>
             </motion.div>
 
-            {/* 5. Separador Térmico y Fila de Micro-atributos Monocromáticos */}
-            <motion.div variants={heroItemVariants} className="w-full max-w-md flex flex-col gap-3 pt-2">
-              {/* Línea horizontal ultra fina con gradiente sutil */}
-              <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+            {/* 5. Barra de confianza de 3 métricas compactas (distribuidas horizontalmente en 1 fila de 3 columnas) */}
+            <motion.div 
+              variants={heroItemVariants} 
+              className="w-full max-w-lg mt-6 mb-8 grid grid-cols-3 gap-2 p-3 rounded-xl bg-slate-900/40 border border-white/[0.06] backdrop-blur-sm text-center"
+            >
+              {/* Métrica 1: Core Web Vitals */}
+              <div className="flex flex-col items-center justify-center py-0.5 px-1">
+                <span className="font-mono font-bold text-white text-sm leading-tight">
+                  100/100
+                </span>
+                <span className="text-[11px] text-slate-400 font-normal leading-tight mt-1">
+                  Core Web Vitals
+                </span>
+              </div>
 
-              <div className="flex flex-wrap items-center gap-5 sm:gap-7 text-xs font-mono text-slate-400">
-                <div className="flex items-center gap-2">
-                  <span className="text-slate-400 font-bold">&lt;&gt;</span>
-                  <span className="tracking-wide">Stack 100% Moderno</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-[#FF4D00] font-bold drop-shadow-[0_0_6px_rgba(255,77,0,0.4)]">⚡</span>
-                  <span className="tracking-wide">Performance & SEO First</span>
-                </div>
+              {/* Métrica 2: Ventas digitales */}
+              <div className="flex flex-col items-center justify-center py-0.5 px-1 border-x border-white/[0.06]">
+                <span className="font-mono font-bold text-orange-500 text-sm leading-tight">
+                  +30%
+                </span>
+                <span className="text-[11px] text-slate-400 font-normal leading-tight mt-1">
+                  Ventas digitales
+                </span>
+              </div>
+
+              {/* Métrica 3: Trato directo */}
+              <div className="flex flex-col items-center justify-center py-0.5 px-1">
+                <span className="font-mono font-bold text-white text-sm leading-tight">
+                  1 a 1
+                </span>
+                <span className="text-[11px] text-slate-400 font-normal leading-tight mt-1">
+                  Trato directo
+                </span>
               </div>
             </motion.div>
 
@@ -298,20 +317,6 @@ export const ModernHero: React.FC<ModernHeroProps> = ({ email = "agusllama1@gmai
 
         </div>
 
-      </div>
-
-      {/* Indicador Inferior: Señal hacia los proyectos destacados con animación de rebote vertical */}
-      <div className="w-full pb-3 pt-1 flex items-center justify-center shrink-0 relative z-10">
-        <a 
-          href="#proyectos" 
-          className="inline-flex items-center gap-1.5 text-[10.5px] sm:text-xs font-mono text-slate-300 hover:text-white transition-colors py-1 px-3.5 rounded-full hover:bg-white/[0.05] group active:scale-[0.97] duration-100 ease-out"
-          aria-label="Ver proyectos destacados más abajo"
-        >
-          <span className="tracking-wider uppercase text-[10px] font-semibold text-slate-300 group-hover:text-white">Proyectos destacados abajo</span>
-          <svg className="w-3.5 h-3.5 text-slate-300 group-hover:text-white animate-bounce duration-1000 transition-transform" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-          </svg>
-        </a>
       </div>
     </section>
   );
