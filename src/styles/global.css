@@ -102,7 +102,8 @@ body {
 }
 
 .btn-flame-primary:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
+  transition: transform 100ms ease-out;
 }
 
 /* Botón Secundario Cápsula Oscura Glass */
@@ -133,7 +134,8 @@ body {
 }
 
 .btn-subtle-dark:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
+  transition: transform 100ms ease-out;
 }
 
 /* Custom Scrollbar */

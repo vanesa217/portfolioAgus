@@ -171,23 +171,23 @@ export const ModernHero: React.FC<ModernHeroProps> = ({ email = "agusllama1@gmai
               Transformo procesos comerciales en plataformas rápidas, visualmente memorables y fáciles de usar. Foco en experiencia de usuario, arquitectura limpia y trato directo 1 a 1.
             </motion.p>
 
-            {/* 4. Botones de Acción (CTAs estándar Linear / Vercel) */}
+            {/* 4. Botones de Acción (CTAs estándar Linear / Vercel con feedback táctil activo) */}
             <motion.div variants={heroItemVariants} className="flex flex-wrap items-center gap-3 sm:gap-4 w-full sm:w-auto pt-1">
-              {/* Botón Primario ("VER PROYECTOS") */}
+              {/* Botón Primario ("VER PROYECTOS") con flecha animate-bounce */}
               <a 
                 href="#proyectos" 
-                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-orange-600 hover:bg-orange-500 text-white text-xs sm:text-sm font-bold tracking-wider uppercase shadow-[0_0_20px_-3px_rgba(255,77,0,0.4)] hover:shadow-[0_0_25px_0px_rgba(255,77,0,0.6)] hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200 cursor-pointer border border-white/10"
+                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-orange-600 hover:bg-orange-500 text-white text-xs sm:text-sm font-bold tracking-wider uppercase shadow-[0_0_20px_-3px_rgba(255,77,0,0.4)] hover:shadow-[0_0_25px_0px_rgba(255,77,0,0.6)] hover:-translate-y-0.5 active:scale-[0.97] transition-transform duration-100 ease-out cursor-pointer border border-white/10"
               >
                 <span>VER PROYECTOS</span>
-                <svg className="w-4 h-4 stroke-[2.6] text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 stroke-[2.6] text-white animate-bounce duration-1000" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
               </a>
 
-              {/* Botón Secundario ("Contactarme") con elevación y compresión suave */}
+              {/* Botón Secundario ("Contactarme") con elevación y compresión táctil */}
               <a 
                 href="#contacto" 
-                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-slate-900/60 hover:bg-slate-800/80 text-slate-200 hover:text-white text-xs sm:text-sm font-semibold border border-white/10 hover:border-orange-500/40 shadow-sm backdrop-blur-md hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200 cursor-pointer"
+                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-slate-900/60 hover:bg-slate-800/80 text-slate-200 hover:text-white text-xs sm:text-sm font-semibold border border-white/10 hover:border-orange-500/40 shadow-sm backdrop-blur-md hover:-translate-y-0.5 active:scale-[0.97] transition-transform duration-100 ease-out cursor-pointer"
               >
                 <span className="w-2 h-2 rounded-full bg-[#FF4D00] shadow-[0_0_8px_#FF4D00]" />
                 <span>Contactarme</span>
@@ -300,15 +300,15 @@ export const ModernHero: React.FC<ModernHeroProps> = ({ email = "agusllama1@gmai
 
       </div>
 
-      {/* Indicador Inferior: Señal hacia los proyectos destacados */}
+      {/* Indicador Inferior: Señal hacia los proyectos destacados con animación de rebote vertical */}
       <div className="w-full pb-3 pt-1 flex items-center justify-center shrink-0 relative z-10">
         <a 
           href="#proyectos" 
-          className="inline-flex items-center gap-1.5 text-[10.5px] sm:text-xs font-mono text-slate-400 hover:text-white transition-colors py-1 px-3.5 rounded-full hover:bg-white/[0.05] group"
+          className="inline-flex items-center gap-1.5 text-[10.5px] sm:text-xs font-mono text-slate-300 hover:text-white transition-colors py-1 px-3.5 rounded-full hover:bg-white/[0.05] group active:scale-[0.97] duration-100 ease-out"
           aria-label="Ver proyectos destacados más abajo"
         >
-          <span className="tracking-wider uppercase text-[10px] font-semibold">Proyectos destacados abajo</span>
-          <svg className="w-3.5 h-3.5 text-slate-400 group-hover:text-white group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24">
+          <span className="tracking-wider uppercase text-[10px] font-semibold text-slate-300 group-hover:text-white">Proyectos destacados abajo</span>
+          <svg className="w-3.5 h-3.5 text-slate-300 group-hover:text-white animate-bounce duration-1000 transition-transform" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
           </svg>
         </a>

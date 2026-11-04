@@ -28,7 +28,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <article
       onMouseMove={handleMouseMove}
-      className="relative h-full rounded-3xl bg-slate-900/60 backdrop-blur-md border border-white/[0.08] hover:border-orange-500/30 transition-all duration-300 overflow-hidden flex flex-col justify-between p-6 sm:p-7 shadow-[0_16px_36px_rgba(0,0,0,0.4)] group select-none"
+      className="relative h-full rounded-3xl bg-slate-900/60 backdrop-blur-md border border-white/[0.08] hover:border-orange-500/30 transition-all duration-300 active:scale-[0.97] duration-100 ease-out overflow-hidden flex flex-col justify-between p-6 sm:p-7 shadow-[0_16px_36px_rgba(0,0,0,0.4)] group select-none"
     >
       {/* Spotlight interactivo en tarjetas Bento: degradado radial dinámico sobre el borde */}
       <div 
@@ -39,9 +39,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       />
 
       <div className="relative z-10">
-        {/* Eyebrow limpio monocromático */}
+        {/* Eyebrow limpio monocromático de alto contraste */}
         <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-white/[0.08]">
-          <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 font-semibold">
+          <span className="text-[11px] font-mono uppercase tracking-wider text-slate-300 font-bold">
             0{index + 1} // {project.category}
           </span>
           <span className="inline-flex items-center gap-1.5 text-[10px] font-mono text-zinc-400 font-medium bg-white/[0.04] px-2.5 py-0.5 rounded-full border border-white/[0.08]">
@@ -99,10 +99,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           ))}
         </div>
 
-        {/* Botón CTA Linear/Vercel (bg-orange-600 hover:bg-orange-500, elevación y compresión) */}
+        {/* Botón CTA Linear/Vercel (bg-orange-600 hover:bg-orange-500, elevación y compresión activa táctil) */}
         <a 
           href={mailtoHref}
-          className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-orange-600 hover:bg-orange-500 text-white shadow-[0_0_20px_-3px_rgba(255,77,0,0.4)] hover:shadow-[0_0_25px_0px_rgba(255,77,0,0.6)] transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98] text-xs font-mono font-bold cursor-pointer"
+          className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-orange-600 hover:bg-orange-500 text-white shadow-[0_0_20px_-3px_rgba(255,77,0,0.4)] hover:shadow-[0_0_25px_0px_rgba(255,77,0,0.6)] transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.97] transition-transform duration-100 ease-out text-xs font-mono font-bold cursor-pointer"
         >
           <span>Consultar desarrollo similar</span>
           <svg className="w-3.5 h-3.5 ml-0.5 text-white group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" strokeWidth="2.4" viewBox="0 0 24 24">

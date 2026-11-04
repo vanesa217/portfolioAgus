@@ -51,10 +51,10 @@ const techStack = [
       </p>
     </div>
 
-    <!-- Grilla de 4 Servicios/Habilidades Quiet Cards con Spotlight y Scroll Reveal -->
+    <!-- Grilla de 4 Servicios/Habilidades Quiet Cards con Spotlight, Scroll Reveal y feedback táctil -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-10">
       {services.map((item) => (
-        <div class="quiet-card spotlight-card scroll-reveal-item p-6 sm:p-7 flex flex-col justify-between group relative overflow-hidden">
+        <div class="quiet-card spotlight-card scroll-reveal-item p-6 sm:p-7 flex flex-col justify-between group relative overflow-hidden active:scale-[0.97] transition-all duration-100 ease-out">
           <div class="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"></div>
           <div class="relative z-10">
             <!-- Icono + Título -->

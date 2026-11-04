@@ -35,17 +35,17 @@ const {
       <div class="md:col-span-5 space-y-4">
         
         <!-- Tarjeta de Email Directo -->
-        <div class="quiet-card spotlight-card p-6 relative overflow-hidden">
+        <div class="quiet-card spotlight-card p-6 relative overflow-hidden active:scale-[0.97] transition-all duration-100 ease-out">
           <div class="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"></div>
           <div class="relative z-10">
-            <p class="text-[10.5px] font-mono uppercase tracking-wider text-slate-400 font-bold mb-1">Email Directo</p>
+            <p class="text-[10.5px] font-mono uppercase tracking-wider text-slate-300 font-bold mb-1">Email Directo</p>
             <h3 class="text-sm font-bold text-white mb-1.5">Escríbeme un correo</h3>
             <p class="text-xs text-slate-400 mb-4 font-normal">
               Respondo personalmente a todas las consultas en menos de 24 horas.
             </p>
             <a 
               href={`mailto:${email}?subject=Contacto%20desde%20portfolio`} 
-              class="btn-subtle-dark !w-full !min-h-[44px] text-xs font-mono font-bold justify-center"
+              class="btn-subtle-dark !w-full !min-h-[44px] text-xs font-mono font-bold justify-center active:scale-[0.97] transition-transform duration-100 ease-out"
             >
               <span>{email}</span>
             </a>
@@ -53,10 +53,10 @@ const {
         </div>
 
         <!-- Tarjeta de LinkedIn -->
-        <div class="quiet-card spotlight-card p-6 relative overflow-hidden">
+        <div class="quiet-card spotlight-card p-6 relative overflow-hidden active:scale-[0.97] transition-all duration-100 ease-out">
           <div class="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"></div>
           <div class="relative z-10">
-            <p class="text-[10.5px] font-mono uppercase tracking-wider text-slate-400 font-bold mb-1">Red Profesional</p>
+            <p class="text-[10.5px] font-mono uppercase tracking-wider text-slate-300 font-bold mb-1">Red Profesional</p>
             <h3 class="text-sm font-bold text-white mb-1.5">LinkedIn</h3>
             <p class="text-xs text-slate-400 mb-4 font-normal">
               Conectemos para charlar sobre proyectos o colaboraciones.
@@ -65,7 +65,7 @@ const {
               href={linkedinUrl} 
               target="_blank" 
               rel="noopener noreferrer" 
-              class="btn-subtle-dark !w-full !min-h-[44px] text-xs font-bold justify-center"
+              class="btn-subtle-dark !w-full !min-h-[44px] text-xs font-bold justify-center active:scale-[0.97] transition-transform duration-100 ease-out"
             >
               <span>Ver perfil en LinkedIn &rarr;</span>
             </a>
@@ -86,7 +86,7 @@ const {
           </p>
 
           <form id="portfolio-contact-form" class="space-y-4">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label for="contact-name" class="block text-xs font-mono font-bold text-slate-300 uppercase tracking-wider mb-1.5">
                   Nombre
@@ -94,9 +94,13 @@ const {
                 <input 
                   type="text" 
                   id="contact-name" 
+                  name="name"
                   required 
                   placeholder="Tu nombre" 
-                  class="w-full min-h-[44px] px-3.5 py-2.5 text-xs sm:text-sm bg-slate-950/60 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-orange-500/50 focus:ring-1 focus:ring-orange-500/30 transition-colors shadow-xs"
+                  autocomplete="name"
+                  autocapitalize="words"
+                  enterkeyhint="next"
+                  class="w-full min-h-[48px] px-4 py-3 text-base bg-slate-950/60 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-orange-500/50 focus:ring-1 focus:ring-orange-500/30 transition-colors shadow-xs"
                 />
               </div>
 
@@ -107,9 +111,14 @@ const {
                 <input 
                   type="email" 
                   id="contact-email" 
+                  name="email"
                   required 
                   placeholder="tu@email.com" 
-                  class="w-full min-h-[44px] px-3.5 py-2.5 text-xs sm:text-sm bg-slate-950/60 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-orange-500/50 focus:ring-1 focus:ring-orange-500/30 transition-colors shadow-xs"
+                  autocomplete="email"
+                  inputmode="email"
+                  autocapitalize="none"
+                  enterkeyhint="next"
+                  class="w-full min-h-[48px] px-4 py-3 text-base bg-slate-950/60 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-orange-500/50 focus:ring-1 focus:ring-orange-500/30 transition-colors shadow-xs"
                 />
               </div>
             </div>
@@ -120,19 +129,21 @@ const {
               </label>
               <textarea 
                 id="contact-message" 
-                rows="3" 
+                name="message"
+                rows="4" 
                 required
                 placeholder="Hola Agustín, me gustaría conversar sobre..." 
-                class="w-full px-3.5 py-2.5 text-xs sm:text-sm bg-slate-950/60 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-orange-500/50 focus:ring-1 focus:ring-orange-500/30 transition-colors resize-y shadow-xs"
+                enterkeyhint="send"
+                class="w-full px-4 py-3 text-base bg-slate-950/60 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-orange-500/50 focus:ring-1 focus:ring-orange-500/30 transition-colors resize-y shadow-xs"
               ></textarea>
             </div>
 
-            <!-- Botón de Envío con 3 Estados (Reposo, Enviando, Éxito) -->
+            <!-- Botón de Envío con 3 Estados (Reposo, Enviando, Éxito) y ergonomía táctil -->
             <div class="pt-2">
               <button 
                 type="submit" 
                 id="contact-submit-btn"
-                class="btn-flame-primary !w-full !min-h-[48px] text-xs sm:text-sm justify-center cursor-pointer transition-all duration-300 select-none"
+                class="btn-flame-primary !w-full !min-h-[48px] text-xs sm:text-sm justify-center cursor-pointer transition-all duration-300 select-none active:scale-[0.97] transition-transform duration-100 ease-out"
               >
                 <!-- 1. Estado Reposo -->
                 <span id="btn-state-idle" class="inline-flex items-center justify-center gap-2">

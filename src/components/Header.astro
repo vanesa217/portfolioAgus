@@ -1,5 +1,5 @@
 ---
-// Header.astro - Barra Superior 100% Integrada (Sin bordes, sin cortes de color, sin botón)
+// Header.astro - Barra Superior 100% Integrada con Menú Drawer Móvil Accesible (<768px)
 const navItems = [
   {
     name: "Proyectos",
@@ -20,12 +20,16 @@ const navItems = [
 ];
 ---
 
-<!-- HEADER SUPERIOR (Totalmente transparente y sin bordes) -->
-<header id="main-header" class="sticky top-0 z-40 w-full bg-transparent border-none transition-all duration-300">
+<!-- HEADER SUPERIOR -->
+<header id="main-header" class="sticky top-0 z-50 w-full bg-transparent border-none transition-all duration-300">
   <div class="max-w-6xl mx-auto h-16 sm:h-20 px-4 sm:px-6 lg:px-8 flex items-center justify-between">
     
     <!-- A la izquierda: Isotipo "AL" + AgusLlama + Full Stack Developer -->
-    <a href="#" class="flex items-center gap-2.5 sm:gap-3 group shrink-0 text-decoration-none active:scale-[0.97] transition-transform">
+    <a 
+      href="#" 
+      class="flex items-center gap-2.5 sm:gap-3 group shrink-0 text-decoration-none active:scale-[0.97] transition-transform duration-100 ease-out"
+      aria-label="Ir al inicio"
+    >
       <div class="w-8 h-8 rounded-full bg-slate-900 text-white border border-white/10 flex items-center justify-center font-mono font-bold text-xs shrink-0 shadow-[0_0_10px_rgba(255,77,0,0.15)] transition-transform group-hover:scale-105 group-hover:border-[#FF4D00]/40">
         <span class="text-white">A</span><span class="text-[#FF4D00]">L</span>
       </div>
@@ -40,8 +44,8 @@ const navItems = [
       </div>
     </a>
 
-    <!-- A la derecha (Desktop lg:): Links de navegación -->
-    <nav class="hidden lg:flex items-center gap-8 text-xs sm:text-sm font-medium text-slate-400">
+    <!-- A la derecha en Desktop (md:flex): Links de navegación individuales -->
+    <nav class="hidden md:flex items-center gap-8 text-xs sm:text-sm font-medium text-slate-400">
       {navItems.map((item) => (
         <a 
           href={item.href} 
@@ -52,20 +56,82 @@ const navItems = [
       ))}
     </nav>
 
+    <!-- Botón Hamburguesa Accesible (<768px md:hidden) con dos líneas estilizadas -->
+    <button
+      id="mobile-menu-btn"
+      type="button"
+      class="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-xl bg-slate-900/80 border border-white/10 text-white active:scale-[0.97] transition-all duration-100 ease-out focus:outline-none focus:ring-1 focus:ring-orange-500/50 cursor-pointer"
+      aria-label="Abrir menú de navegación"
+      aria-expanded="false"
+      aria-controls="mobile-drawer"
+    >
+      <span class="hamburger-line-1 w-5 h-[2px] bg-white rounded-full transition-all duration-300 origin-center"></span>
+      <span class="hamburger-line-2 w-3.5 h-[2px] bg-[#FF4D00] rounded-full transition-all duration-300 mt-1.5 self-end mr-2 origin-center"></span>
+    </button>
+
+  </div>
+
+  <!-- Mobile Drawer Vertical (<768px): bg-slate-950/95 backdrop-blur-xl -->
+  <div 
+    id="mobile-drawer"
+    class="fixed inset-x-0 top-16 sm:top-20 bottom-0 bg-slate-950/95 backdrop-blur-xl border-t border-white/[0.08] flex flex-col justify-between p-6 sm:p-8 transition-all duration-300 ease-out opacity-0 pointer-events-none -translate-y-2 md:hidden z-50 overflow-y-auto"
+    aria-hidden="true"
+  >
+    <!-- Enlaces de navegación con fuentes grandes (text-lg) y separación amplia de 20px (gap-5) -->
+    <nav class="flex flex-col gap-5 pt-2">
+      <div class="text-[10.5px] font-mono uppercase tracking-widest text-slate-300 font-bold mb-1">
+        // NAVEGACIÓN
+      </div>
+      {navItems.map((item, idx) => (
+        <a
+          href={item.href}
+          class="mobile-drawer-link group flex items-center justify-between text-lg font-bold text-slate-200 hover:text-white active:scale-[0.97] transition-all duration-100 ease-out py-2.5 border-b border-white/[0.06]"
+        >
+          <span class="flex items-center gap-3">
+            <span class="text-xs font-mono text-zinc-400 font-normal">0{idx + 1}</span>
+            <span>{item.name}</span>
+          </span>
+          <span class="text-slate-300 group-hover:text-[#FF4D00] group-hover:translate-x-1 transition-all text-sm font-mono">
+            →
+          </span>
+        </a>
+      ))}
+    </nav>
+
+    <!-- Botón directo a Contacto / WhatsApp en la parte inferior del Drawer -->
+    <div class="pt-6 pb-2 border-t border-white/[0.08] flex flex-col gap-3">
+      <a
+        href="https://wa.me/5491100000000?text=Hola%20Agust%C3%ADn,%20vi%20tu%20portfolio%20y%20me%20gustar%C3%ADa%20conversar%20sobre%20un%20proyecto"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mobile-drawer-link inline-flex items-center justify-center gap-2.5 w-full min-h-[48px] px-5 py-3 rounded-2xl bg-emerald-600/90 hover:bg-emerald-500 text-white font-mono font-bold text-sm border border-emerald-400/30 shadow-[0_0_20px_rgba(16,185,129,0.3)] active:scale-[0.97] transition-all duration-100 ease-out cursor-pointer"
+      >
+        <span>💬 Contactar por WhatsApp</span>
+        <span class="text-xs">↗</span>
+      </a>
+
+      <a
+        href="#contacto"
+        class="mobile-drawer-link btn-flame-primary !w-full !min-h-[48px] !text-sm justify-center active:scale-[0.97] transition-all duration-100 ease-out cursor-pointer"
+      >
+        <span>Iniciar un proyecto directo</span>
+        <span>→</span>
+      </a>
+    </div>
   </div>
 </header>
 
 <script>
-  // Transición suave: 100% transparente en el Hero, sutil cristal al scrollear
+  // 1. Transición suave de transparencia y cristal en scroll
   function setupHeaderScroll() {
     const header = document.getElementById('main-header');
     if (!header) return;
 
     function onScroll() {
       if (window.scrollY > 40) {
-        header?.classList.add('bg-[#0B0F17]/80', 'backdrop-blur-md', 'border-b', 'border-white/[0.06]');
+        header?.classList.add('bg-[#0B0F17]/90', 'backdrop-blur-md', 'border-b', 'border-white/[0.06]');
       } else {
-        header?.classList.remove('bg-[#0B0F17]/80', 'backdrop-blur-md', 'border-b', 'border-white/[0.06]');
+        header?.classList.remove('bg-[#0B0F17]/90', 'backdrop-blur-md', 'border-b', 'border-white/[0.06]');
       }
     }
 
@@ -73,9 +139,83 @@ const navItems = [
     onScroll();
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setupHeaderScroll);
-  } else {
+  // 2. Control de Drawer Móvil Accesible (<768px)
+  function setupMobileMenu() {
+    const btn = document.getElementById('mobile-menu-btn');
+    const drawer = document.getElementById('mobile-drawer');
+    const line1 = btn?.querySelector('.hamburger-line-1');
+    const line2 = btn?.querySelector('.hamburger-line-2');
+    const links = document.querySelectorAll('.mobile-drawer-link');
+
+    if (!btn || !drawer) return;
+
+    let isOpen = false;
+
+    function toggleMenu(open?: boolean) {
+      isOpen = typeof open === 'boolean' ? open : !isOpen;
+      btn?.setAttribute('aria-expanded', String(isOpen));
+      drawer?.setAttribute('aria-hidden', String(!isOpen));
+
+      if (isOpen) {
+        drawer?.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-2');
+        drawer?.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+        document.body.style.overflow = 'hidden';
+
+        // Transformar icono a X estilizada
+        if (line1 && line2) {
+          line1.classList.add('rotate-45', 'translate-y-[4px]');
+          line2.classList.remove('w-3.5', 'self-end', 'mr-2');
+          line2.classList.add('w-5', '-rotate-45', '-translate-y-[4px]');
+        }
+      } else {
+        drawer?.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+        drawer?.classList.add('opacity-0', 'pointer-events-none', '-translate-y-2');
+        document.body.style.overflow = '';
+
+        // Restaurar icono a 2 líneas paralelas
+        if (line1 && line2) {
+          line1.classList.remove('rotate-45', 'translate-y-[4px]');
+          line2.classList.add('w-3.5', 'self-end', 'mr-2');
+          line2.classList.remove('w-5', '-rotate-45', '-translate-y-[4px]');
+        }
+      }
+    }
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    // Cerrar menú al hacer clic en un enlace
+    links.forEach((link) => {
+      link.addEventListener('click', () => {
+        toggleMenu(false);
+      });
+    });
+
+    // Cerrar al presionar tecla ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        toggleMenu(false);
+      }
+    });
+
+    // Cerrar si se redimensiona a pantalla de escritorio (>=768px)
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768 && isOpen) {
+        toggleMenu(false);
+      }
+    });
+  }
+
+  function initHeader() {
     setupHeaderScroll();
+    setupMobileMenu();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeader);
+  } else {
+    initHeader();
   }
 </script>
