@@ -1,5 +1,5 @@
 ---
-// Solutions.astro - Habilidades y Servicios en estética Dark Flame & Teal
+// Solutions.astro - Habilidades y Servicios en estética Linear / Vercel
 const services = [
   {
     title: "Plataformas Web & Interfaces",
@@ -34,13 +34,13 @@ const techStack = [
 ];
 ---
 
-<section id="habilidades" class="w-full py-14 sm:py-20 border-b border-white/[0.08] relative scroll-mt-16 bg-[#0A0E11]">
+<section id="habilidades" class="w-full py-14 sm:py-20 border-b border-white/[0.08] relative scroll-mt-16 bg-[#0B0F17]">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
     
     <!-- Header de Habilidades -->
     <div class="max-w-2xl mb-10 sm:mb-14">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#122A28] border border-teal-400/35 text-teal-300 text-xs font-mono font-bold mb-3 shadow-[0_0_12px_rgba(45,212,191,0.15)]">
-        <span class="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse"></span>
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-slate-300 text-xs font-mono font-medium mb-3 shadow-xs">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00]"></span>
         <span>HABILIDADES & SERVICIOS</span>
       </div>
       <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight mt-1 mb-2 text-balance">
@@ -51,20 +51,20 @@ const techStack = [
       </p>
     </div>
 
-    <!-- Grilla de 4 Servicios/Habilidades Quiet Cards -->
+    <!-- Grilla de 4 Servicios/Habilidades Quiet Cards con Spotlight -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-10">
       {services.map((item) => (
-        <div class="quiet-card p-6 sm:p-7 flex flex-col justify-between group relative overflow-hidden">
-          <div class="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-teal-400/40 to-transparent pointer-events-none"></div>
-          <div>
+        <div class="quiet-card spotlight-card p-6 sm:p-7 flex flex-col justify-between group relative overflow-hidden">
+          <div class="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"></div>
+          <div class="relative z-10">
             <!-- Icono + Título -->
             <div class="flex items-center gap-3.5 mb-3.5">
-              <div class="w-10 h-10 rounded-2xl bg-[#182126] border border-white/10 text-teal-300 flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 group-hover:border-teal-400/40 transition-all">
+              <div class="w-10 h-10 rounded-2xl bg-slate-950/60 border border-white/10 text-slate-300 flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 group-hover:border-orange-500/40 group-hover:text-orange-400 transition-all duration-300">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d={item.icon} />
+                  <path strokeLinecap="round" stroke-linejoin="round" d={item.icon} />
                 </svg>
               </div>
-              <h3 class="text-base sm:text-lg font-bold text-white tracking-tight group-hover:text-teal-300 transition-colors">
+              <h3 class="text-base sm:text-lg font-bold text-white tracking-tight group-hover:text-orange-400/90 transition-colors">
                 {item.title}
               </h3>
             </div>
@@ -75,9 +75,9 @@ const techStack = [
           </div>
 
           <!-- Tags -->
-          <div class="flex flex-wrap gap-1.5 pt-4 border-t border-white/[0.08]">
+          <div class="flex flex-wrap gap-1.5 pt-4 border-t border-white/[0.08] relative z-10">
             {item.tags.map((tag) => (
-              <span class="text-[11px] font-mono font-semibold text-slate-300 bg-[#182126] border border-white/10 px-2.5 py-1 rounded-md">
+              <span class="text-[11px] font-mono font-medium text-slate-300 bg-slate-950/60 border border-white/[0.08] px-2.5 py-1 rounded-md">
                 {tag}
               </span>
             ))}
@@ -87,30 +87,71 @@ const techStack = [
     </div>
 
     <!-- Stack Tecnológico Organizado -->
-    <div class="quiet-card p-6 sm:p-8">
-      <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-300 mb-5 flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
-        <span>Stack tecnológico y herramientas principales</span>
-      </h3>
+    <div class="quiet-card spotlight-card p-6 sm:p-8 relative overflow-hidden">
+      <div class="relative z-10">
+        <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-300 mb-5 flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00]"></span>
+          <span>Stack tecnológico y herramientas principales</span>
+        </h3>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {techStack.map((group) => (
-          <div class="p-4 rounded-2xl bg-[#141C21] border border-white/[0.08]">
-            <h4 class="text-xs font-mono font-bold text-white mb-2.5 flex items-center gap-1.5">
-              <span class="text-[#FF7043]">✦</span>
-              <span>{group.category}</span>
-            </h4>
-            <div class="flex flex-wrap gap-1.5">
-              {group.items.map((tech) => (
-                <span class="text-[11px] font-mono font-semibold text-slate-300 bg-[#1B252C] px-2.5 py-1 rounded-md border border-white/[0.08] shadow-xs">
-                  {tech}
-                </span>
-              ))}
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {techStack.map((group) => (
+            <div class="p-4 rounded-2xl bg-slate-950/50 border border-white/[0.08]">
+              <h4 class="text-xs font-mono font-bold text-white mb-2.5 flex items-center gap-1.5">
+                <span class="text-[#FF4D00]">✦</span>
+                <span>{group.category}</span>
+              </h4>
+              <div class="flex flex-wrap gap-1.5">
+                {group.items.map((tech) => (
+                  <span class="text-[11px] font-mono font-medium text-slate-300 bg-white/[0.04] px-2.5 py-1 rounded-md border border-white/[0.06] shadow-xs">
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
 
   </div>
 </section>
+
+<script>
+  // Spotlight effect cursor follower para tarjetas estáticas
+  function setupSpotlightCards() {
+    const cards = document.querySelectorAll('.spotlight-card');
+    cards.forEach((card) => {
+      (card as HTMLElement).addEventListener('mousemove', (e: MouseEvent) => {
+        const rect = (card as HTMLElement).getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        (card as HTMLElement).style.setProperty('--mouse-x', `${x}px`);
+        (card as HTMLElement).style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupSpotlightCards);
+  } else {
+    setupSpotlightCards();
+  }
+</script>
+
+<style>
+  .spotlight-card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: radial-gradient(400px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(255, 77, 0, 0.12), transparent 80%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events-none;
+    z-index: 0;
+  }
+  .spotlight-card:hover::before {
+    opacity: 1;
+  }
+</style>

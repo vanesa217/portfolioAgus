@@ -1,5 +1,5 @@
 ---
-// About.astro - Perfil personal y metodología en estilo Bento Grid Dark Flame & Teal
+// About.astro - Perfil personal y metodología en estilo Bento Grid Linear / Vercel
 interface Props {
   email?: string;
 }
@@ -7,13 +7,13 @@ interface Props {
 const { email = "agusllama1@gmail.com" } = Astro.props;
 ---
 
-<section id="sobre-mi" class="w-full py-14 sm:py-20 border-b border-white/[0.08] relative scroll-mt-16 bg-[#0A0E11]">
+<section id="sobre-mi" class="w-full py-14 sm:py-20 border-b border-white/[0.08] relative scroll-mt-16 bg-[#0B0F17]">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
     
     <!-- Header de Sección -->
     <div class="max-w-2xl mb-10 sm:mb-14">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#122A28] border border-teal-400/35 text-teal-300 text-xs font-mono font-bold mb-3 shadow-[0_0_12px_rgba(45,212,191,0.15)]">
-        <span class="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse"></span>
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-slate-300 text-xs font-mono font-medium mb-3 shadow-xs">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00]"></span>
         <span>SOBRE MÍ & METODOLOGÍA</span>
       </div>
       <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight mt-1 mb-2 text-balance">
@@ -24,27 +24,31 @@ const { email = "agusllama1@gmail.com" } = Astro.props;
       </p>
     </div>
 
-    <!-- BENTO GRID MODERNO (Perfectamente equilibrado en PC y Mobile) -->
+    <!-- BENTO GRID MODERNO (Equilibrado en PC y Mobile con Spotlight) -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 sm:gap-6">
       
       <!-- FILA 1 - TILE 1: Presentación & Perfil (PC: 8 columnas / Tablet: 2 columnas) -->
-      <div class="sm:col-span-2 lg:col-span-8 quiet-card p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden">
-        <div class="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-teal-400/40 to-transparent pointer-events-none"></div>
+      <div class="sm:col-span-2 lg:col-span-8 quiet-card spotlight-card p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden">
+        <div class="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"></div>
 
-        <div>
+        <div class="relative z-10">
           <!-- Header de perfil -->
           <div class="flex items-center gap-3.5 pb-4 mb-4 border-b border-white/[0.08]">
-            <div class="w-12 h-12 rounded-2xl bg-[#162026] text-white border border-[#FF5722]/40 flex items-center justify-center font-mono font-bold text-base shrink-0 shadow-[0_0_12px_rgba(255,87,34,0.2)]">
-              <span class="text-white">A</span><span class="text-[#FF5722]">L</span>
+            <div class="w-12 h-12 rounded-2xl bg-slate-950 text-white border border-white/10 flex items-center justify-center font-mono font-bold text-base shrink-0 shadow-[0_0_12px_rgba(255,77,0,0.15)]">
+              <span class="text-white">A</span><span class="text-[#FF4D00]">L</span>
             </div>
             <div>
               <div class="flex items-center gap-2">
                 <h3 class="text-base sm:text-lg font-black text-white leading-tight">
                   Agustín Llama
                 </h3>
-                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#122A28] border border-teal-400/35 text-teal-300 text-[10.5px] font-mono font-bold">
-                  <span class="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse"></span>
-                  Online
+                <!-- Pulso verde en vivo exclusivo -->
+                <span class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-slate-950/60 border border-white/[0.08] text-slate-300 text-[10.5px] font-mono font-medium">
+                  <span class="relative flex h-2 w-2 shrink-0">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400 shadow-[0_0_8px_#34D399]"></span>
+                  </span>
+                  <span>Online</span>
                 </span>
               </div>
               <p class="text-xs text-slate-400 font-mono leading-tight mt-0.5">
@@ -59,42 +63,42 @@ const { email = "agusllama1@gmail.com" } = Astro.props;
           </p>
         </div>
 
-        <!-- Botón de Iniciar Conversación: Ergonomía perfecta que no desborda letras en móvil -->
-        <div class="pt-2">
+        <!-- Botón de Iniciar Conversación: CTA Linear/Vercel -->
+        <div class="pt-2 relative z-10 flex">
           <a 
             href="#contacto"
-            class="btn-flame-primary min-h-[44px] !px-5 !py-2.5 !text-xs sm:!text-sm justify-center w-full sm:w-auto active:scale-[0.96] text-center"
+            class="btn-flame-primary min-h-[44px] !px-5 !py-2.5 !text-xs sm:!text-sm justify-center w-full sm:w-auto max-w-xs text-center whitespace-nowrap"
           >
             <span>Iniciar conversación</span>
             <svg class="w-4 h-4 ml-1 shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
             </svg>
           </a>
         </div>
       </div>
 
       <!-- FILA 1 - TILE 5: Pipeline / Metodología de Trabajo en 3 Pasos (PC: 4 columnas / Tablet: 2 columnas) -->
-      <div class="sm:col-span-2 lg:col-span-4 quiet-card p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
-        <div class="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-teal-400/40 to-transparent pointer-events-none"></div>
-        <div>
+      <div class="sm:col-span-2 lg:col-span-4 quiet-card spotlight-card p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
+        <div class="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"></div>
+        <div class="relative z-10">
           <span class="text-[10.5px] font-mono uppercase tracking-wider text-slate-400 font-bold block mb-3">// metodología</span>
           <div class="space-y-3.5">
             <div class="flex items-start gap-2.5">
-              <span class="w-6 h-6 rounded-full bg-[#FF5722]/20 border border-[#FF5722]/40 text-[#FF7043] font-mono text-xs flex items-center justify-center shrink-0 mt-0.5 font-black">1</span>
+              <span class="w-6 h-6 rounded-full bg-white/[0.04] border border-white/10 text-orange-400 font-mono text-xs flex items-center justify-center shrink-0 mt-0.5 font-bold">1</span>
               <div>
                 <h4 class="text-xs font-bold text-white">Alcance & Definición</h4>
                 <p class="text-[11px] text-slate-400 mt-0.5">Precio cerrado y fechas realistas.</p>
               </div>
             </div>
             <div class="flex items-start gap-2.5">
-              <span class="w-6 h-6 rounded-full bg-[#FFA726]/20 border border-[#FFA726]/40 text-[#FFA726] font-mono text-xs flex items-center justify-center shrink-0 mt-0.5 font-black">2</span>
+              <span class="w-6 h-6 rounded-full bg-white/[0.04] border border-white/10 text-orange-400 font-mono text-xs flex items-center justify-center shrink-0 mt-0.5 font-bold">2</span>
               <div>
                 <h4 class="text-xs font-bold text-white">Desarrollo Semanal</h4>
                 <p class="text-[11px] text-slate-400 mt-0.5">Código limpio y demos continuas.</p>
               </div>
             </div>
             <div class="flex items-start gap-2.5">
-              <span class="w-6 h-6 rounded-full bg-teal-500/20 border border-teal-500/40 text-teal-300 font-mono text-xs flex items-center justify-center shrink-0 mt-0.5 font-black">3</span>
+              <span class="w-6 h-6 rounded-full bg-white/[0.04] border border-white/10 text-orange-400 font-mono text-xs flex items-center justify-center shrink-0 mt-0.5 font-bold">3</span>
               <div>
                 <h4 class="text-xs font-bold text-white">Lanzamiento & Soporte</h4>
                 <p class="text-[11px] text-slate-400 mt-0.5">Puesta en marcha y garantía técnica.</p>
@@ -105,49 +109,49 @@ const { email = "agusllama1@gmail.com" } = Astro.props;
       </div>
 
       <!-- FILA 2 - TILE 2: Métrica 1 a 1 (PC: 4 columnas / Tablet: 1 columna) -->
-      <div class="col-span-1 sm:col-span-1 lg:col-span-4 quiet-card p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
-        <div class="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-teal-400/40 to-transparent pointer-events-none"></div>
-        <div>
+      <div class="col-span-1 sm:col-span-1 lg:col-span-4 quiet-card spotlight-card p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
+        <div class="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"></div>
+        <div class="relative z-10">
           <span class="text-[10.5px] font-mono uppercase tracking-wider text-slate-400 font-bold block mb-2">// relación</span>
           <span class="text-3xl sm:text-4xl font-black font-mono text-white tracking-tight">1 a 1</span>
           <p class="text-xs text-slate-400 mt-2 leading-relaxed">
             Sin ejecutivos de cuenta ni burocracia comercial. Trato directo con el desarrollador que escribe la solución.
           </p>
         </div>
-        <div class="mt-4 pt-3 border-t border-white/[0.08] text-[11px] font-mono text-teal-400 font-bold flex items-center gap-1.5">
-          <span>✓</span>
+        <div class="mt-4 pt-3 border-t border-white/[0.08] text-[11px] font-mono text-slate-300 font-medium flex items-center gap-1.5 relative z-10">
+          <span class="text-zinc-400 font-bold">✓</span>
           <span>Cero teléfono descompuesto</span>
         </div>
       </div>
 
       <!-- FILA 2 - TILE 3: Entregables Semanales (PC: 4 columnas / Tablet: 1 columna) -->
-      <div class="col-span-1 sm:col-span-1 lg:col-span-4 quiet-card p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
-        <div class="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-teal-400/40 to-transparent pointer-events-none"></div>
-        <div>
+      <div class="col-span-1 sm:col-span-1 lg:col-span-4 quiet-card spotlight-card p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
+        <div class="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"></div>
+        <div class="relative z-10">
           <span class="text-[10.5px] font-mono uppercase tracking-wider text-slate-400 font-bold block mb-2">// cadencia</span>
           <span class="text-3xl sm:text-4xl font-black font-mono text-white tracking-tight">7 días</span>
           <p class="text-xs text-slate-400 mt-2 leading-relaxed">
             Demos funcionales en un entorno privado cada semana para que pruebes los avances en vivo.
           </p>
         </div>
-        <div class="mt-4 pt-3 border-t border-white/[0.08] text-[11px] font-mono text-teal-400 font-bold flex items-center gap-1.5">
-          <span>✓</span>
+        <div class="mt-4 pt-3 border-t border-white/[0.08] text-[11px] font-mono text-slate-300 font-medium flex items-center gap-1.5 relative z-10">
+          <span class="text-zinc-400 font-bold">✓</span>
           <span>Progreso semanal auditado</span>
         </div>
       </div>
 
       <!-- FILA 2 - TILE 4: Propiedad Intelectual 100% (PC: 4 columnas / Tablet: 2 columnas) -->
-      <div class="col-span-1 sm:col-span-2 lg:col-span-4 quiet-card p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
-        <div class="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-teal-400/40 to-transparent pointer-events-none"></div>
-        <div>
+      <div class="col-span-1 sm:col-span-2 lg:col-span-4 quiet-card spotlight-card p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
+        <div class="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"></div>
+        <div class="relative z-10">
           <span class="text-[10.5px] font-mono uppercase tracking-wider text-slate-400 font-bold block mb-2">// propiedad</span>
           <span class="text-3xl sm:text-4xl font-black font-mono text-white tracking-tight">100%</span>
           <p class="text-xs text-slate-400 mt-2 leading-relaxed">
             Código fuente, repositorios, accesos a servidores y bases de datos a nombre de tu empresa.
           </p>
         </div>
-        <div class="mt-4 pt-3 border-t border-white/[0.08] text-[11px] font-mono text-teal-400 font-bold flex items-center gap-1.5">
-          <span>✓</span>
+        <div class="mt-4 pt-3 border-t border-white/[0.08] text-[11px] font-mono text-slate-300 font-medium flex items-center gap-1.5 relative z-10">
+          <span class="text-zinc-400 font-bold">✓</span>
           <span>Sin mensualidades cautivas</span>
         </div>
       </div>
@@ -156,3 +160,42 @@ const { email = "agusllama1@gmail.com" } = Astro.props;
 
   </div>
 </section>
+
+<script>
+  // Spotlight effect cursor follower para tarjetas bento
+  function setupAboutSpotlight() {
+    const cards = document.querySelectorAll('#sobre-mi .spotlight-card');
+    cards.forEach((card) => {
+      (card as HTMLElement).addEventListener('mousemove', (e: MouseEvent) => {
+        const rect = (card as HTMLElement).getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        (card as HTMLElement).style.setProperty('--mouse-x', `${x}px`);
+        (card as HTMLElement).style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupAboutSpotlight);
+  } else {
+    setupAboutSpotlight();
+  }
+</script>
+
+<style>
+  .spotlight-card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: radial-gradient(400px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(255, 77, 0, 0.12), transparent 80%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events-none;
+    z-index: 0;
+  }
+  .spotlight-card:hover::before {
+    opacity: 1;
+  }
+</style>

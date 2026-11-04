@@ -26,13 +26,13 @@ const navItems = [
     
     <!-- A la izquierda: Isotipo "AL" + AgusLlama + Full Stack Developer -->
     <a href="#" class="flex items-center gap-2.5 sm:gap-3 group shrink-0 text-decoration-none active:scale-[0.97] transition-transform">
-      <div class="w-8 h-8 rounded-full bg-[#121A1F] text-white border border-[#FF5722]/40 flex items-center justify-center font-mono font-bold text-xs shrink-0 shadow-[0_0_10px_rgba(255,87,34,0.25)] transition-transform group-hover:scale-105">
-        <span class="text-white">A</span><span class="text-[#FF5722]">L</span>
+      <div class="w-8 h-8 rounded-full bg-slate-900 text-white border border-white/10 flex items-center justify-center font-mono font-bold text-xs shrink-0 shadow-[0_0_10px_rgba(255,77,0,0.15)] transition-transform group-hover:scale-105 group-hover:border-[#FF4D00]/40">
+        <span class="text-white">A</span><span class="text-[#FF4D00]">L</span>
       </div>
       <div class="flex flex-col">
         <span class="text-xs sm:text-sm font-black text-white tracking-tight leading-tight flex items-center gap-1.5">
           <span>AgusLlama</span>
-          <span class="w-1.5 h-1.5 rounded-full bg-[#FF5722] shadow-[0_0_6px_#FF5722]"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] shadow-[0_0_8px_#FF4D00]"></span>
         </span>
         <span class="text-[9.5px] sm:text-[10px] text-slate-400 font-mono leading-tight">
           Full Stack Developer
@@ -41,7 +41,7 @@ const navItems = [
     </a>
 
     <!-- A la derecha (Desktop lg:): Links de navegación -->
-    <nav class="hidden lg:flex items-center gap-8 text-xs sm:text-sm font-medium text-slate-300">
+    <nav class="hidden lg:flex items-center gap-8 text-xs sm:text-sm font-medium text-slate-400">
       {navItems.map((item) => (
         <a 
           href={item.href} 
@@ -63,9 +63,9 @@ const navItems = [
 
     function onScroll() {
       if (window.scrollY > 40) {
-        header?.classList.add('bg-[#0A0E11]/85', 'backdrop-blur-md');
+        header?.classList.add('bg-[#0B0F17]/80', 'backdrop-blur-md', 'border-b', 'border-white/[0.06]');
       } else {
-        header?.classList.remove('bg-[#0A0E11]/85', 'backdrop-blur-md');
+        header?.classList.remove('bg-[#0B0F17]/80', 'backdrop-blur-md', 'border-b', 'border-white/[0.06]');
       }
     }
 

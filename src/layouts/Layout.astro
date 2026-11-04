@@ -32,18 +32,14 @@ const {
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta name="theme-color" content="#0A0E11" />
+    <meta name="theme-color" content="#0B0F17" />
   </head>
-  <body class="bg-[#0A0E11] text-white min-h-screen flex flex-col font-sans selection:bg-[#FF5722]/30 selection:text-white relative overflow-x-hidden">
+  <body class="bg-[#0B0F17] text-white min-h-screen flex flex-col font-sans selection:bg-[#FF4D00]/30 selection:text-white relative overflow-x-hidden">
     
-    <!-- Capa de Resplandores y Textura Unificada (Sin cortes entre Header y Hero) -->
+    <!-- Capa de Resplandores y Textura Unificada estilo Linear / Vercel -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      <!-- Resplandor Teal / Mint superior izquierdo que cubre Header y Hero -->
-      <div class="absolute -top-24 -left-24 w-[450px] sm:w-[650px] h-[450px] sm:h-[650px] bg-teal-500/[0.12] rounded-full blur-[120px]"></div>
-      <!-- Resplandor Cálido Fuego detrás de AgusLlama -->
-      <div class="absolute top-28 left-1/4 w-[320px] sm:w-[450px] h-[320px] sm:h-[450px] bg-orange-600/[0.08] rounded-full blur-[100px]"></div>
-      <!-- Resplandor Teal lateral derecho -->
-      <div class="absolute top-28 -right-16 w-[400px] sm:w-[500px] h-[400px] sm:h-[500px] bg-teal-400/[0.08] rounded-full blur-[120px]"></div>
+      <!-- Resplandor ambiental sutil en el fondo del Hero (gradiente radial) -->
+      <div class="absolute inset-x-0 top-0 h-[700px] bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(255,77,0,0.15),rgba(255,255,255,0))] pointer-events-none"></div>
       <!-- Textura sutil -->
       <div class="absolute inset-0 bg-quiet-dots opacity-40"></div>
     </div>

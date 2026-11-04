@@ -1,5 +1,5 @@
 ---
-// Footer.astro - Pie de página minimalista Dark Flame & Teal
+// Footer.astro - Pie de página minimalista Linear / Vercel
 interface Props {
   email?: string;
   linkedinUrl?: string;
@@ -13,19 +13,19 @@ const {
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="w-full bg-[#0A0E11] border-t border-white/[0.08] py-10 sm:py-12 relative z-10">
+<footer class="w-full bg-[#0B0F17] border-t border-white/[0.08] py-10 sm:py-12 relative z-10">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
       
       <!-- Brand & Título -->
       <div class="flex items-center gap-2.5">
-        <div class="w-8 h-8 rounded-full bg-[#162026] text-white border border-[#FF5722]/40 flex items-center justify-center font-bold text-xs font-mono shrink-0 shadow-[0_0_8px_rgba(255,87,34,0.3)]">
-          <span class="text-white">A</span><span class="text-[#FF5722]">L</span>
+        <div class="w-8 h-8 rounded-full bg-slate-900 text-white border border-white/10 flex items-center justify-center font-bold text-xs font-mono shrink-0 shadow-[0_0_8px_rgba(255,77,0,0.2)]">
+          <span class="text-white">A</span><span class="text-[#FF4D00]">L</span>
         </div>
         <div>
           <p class="text-xs sm:text-sm font-black text-white leading-tight flex items-center gap-1.5 justify-center md:justify-start">
             <span>Agustín Llama</span>
-            <span class="w-1.5 h-1.5 rounded-full bg-[#FF5722]"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00]"></span>
           </p>
           <p class="text-[10.5px] font-mono text-slate-400 leading-tight mt-0.5">
             Full Stack Developer
@@ -34,7 +34,7 @@ const currentYear = new Date().getFullYear();
       </div>
 
       <!-- Enlaces Rápidos -->
-      <nav class="flex flex-wrap items-center justify-center gap-6 text-xs font-semibold text-slate-300">
+      <nav class="flex flex-wrap items-center justify-center gap-6 text-xs font-semibold text-slate-400">
         <a href="#proyectos" class="hover:text-white transition-colors">Proyectos</a>
         <a href="#habilidades" class="hover:text-white transition-colors">Habilidades</a>
         <a href="#sobre-mi" class="hover:text-white transition-colors">Sobre mí</a>
@@ -45,7 +45,7 @@ const currentYear = new Date().getFullYear();
       <div class="flex items-center gap-2.5">
         <a 
           href={`mailto:${email}`} 
-          class="w-9 h-9 rounded-xl border border-white/10 bg-[#162026] text-slate-300 hover:text-white hover:border-[#FF5722]/50 hover:bg-[#1C2830] transition-all flex items-center justify-center shadow-xs"
+          class="w-9 h-9 rounded-xl border border-white/10 bg-slate-900/60 text-slate-300 hover:text-white hover:border-[#FF4D00]/50 hover:bg-slate-800 transition-all flex items-center justify-center shadow-xs"
           title="Email"
           aria-label="Email"
         >
@@ -58,7 +58,7 @@ const currentYear = new Date().getFullYear();
           href={linkedinUrl} 
           target="_blank" 
           rel="noopener noreferrer" 
-          class="w-9 h-9 rounded-xl border border-white/10 bg-[#162026] text-slate-300 hover:text-white hover:border-[#FF5722]/50 hover:bg-[#1C2830] transition-all flex items-center justify-center shadow-xs"
+          class="w-9 h-9 rounded-xl border border-white/10 bg-slate-900/60 text-slate-300 hover:text-white hover:border-[#FF4D00]/50 hover:bg-slate-800 transition-all flex items-center justify-center shadow-xs"
           title="LinkedIn"
           aria-label="LinkedIn"
         >

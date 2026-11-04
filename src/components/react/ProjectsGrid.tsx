@@ -54,7 +54,7 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({
       
       {/* Degradado lateral sutil en el borde derecho en mobile para sugerir continuidad */}
       {canScrollRight && (
-        <div className="absolute -right-4 sm:-right-6 top-0 bottom-4 w-12 bg-gradient-to-l from-[#0A0E11] via-[#0A0E11]/70 to-transparent pointer-events-none z-10 lg:hidden" />
+        <div className="absolute -right-4 sm:-right-6 top-0 bottom-4 w-12 bg-gradient-to-l from-[#0B0F17] via-[#0B0F17]/70 to-transparent pointer-events-none z-10 lg:hidden" />
       )}
 
       {/* Flechita flotante latente indicadora (Solo en mobile cuando hay más tarjetas) */}
@@ -76,11 +76,11 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({
             }}
             onClick={scrollNext}
             aria-label="Ver siguiente proyecto"
-            className="absolute -right-2 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#151D22]/95 border border-white/20 text-teal-300 flex items-center justify-center shadow-[0_4px_24px_rgba(0,0,0,0.8),0_0_18px_rgba(45,212,191,0.45)] backdrop-blur-xl lg:hidden active:scale-90 transition-transform cursor-pointer"
+            className="absolute -right-2 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-slate-900/90 border border-white/20 text-slate-200 flex items-center justify-center shadow-[0_4px_24px_rgba(0,0,0,0.8),0_0_18px_rgba(255,77,0,0.25)] backdrop-blur-xl lg:hidden active:scale-90 transition-transform cursor-pointer"
           >
-            {/* Icono de flecha con latido de luz verde teal */}
+            {/* Icono de flecha */}
             <svg 
-              className="w-5 h-5 text-teal-300 drop-shadow-[0_0_6px_rgba(45,212,191,0.7)]" 
+              className="w-5 h-5 text-slate-200 drop-shadow-[0_0_6px_rgba(255,77,0,0.4)]" 
               fill="none" 
               stroke="currentColor" 
               strokeWidth="2.8" 
@@ -123,12 +123,12 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({
           <motion.span 
             animate={{ x: [0, 4, 0], opacity: [0.6, 1, 0.6] }}
             transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-            className="inline-flex text-[#FF7043] font-extrabold text-sm"
+            className="inline-flex text-[#FF4D00] font-extrabold text-sm"
           >
             →
           </motion.span>
         </span>
-        <span className="text-[10px] font-bold text-teal-300 bg-[#182126] px-2.5 py-0.5 rounded-full border border-white/10 shadow-sm">
+        <span className="text-[10px] font-medium text-zinc-400 bg-white/[0.04] px-2.5 py-0.5 rounded-full border border-white/[0.08] shadow-xs">
           {projects.length} proyectos
         </span>
       </div>

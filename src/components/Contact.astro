@@ -1,5 +1,5 @@
 ---
-// Contact.astro - Sección de contacto simple y sobria Dark Flame & Teal
+// Contact.astro - Sección de contacto simple y sobria Linear / Vercel
 interface Props {
   email?: string;
   linkedinUrl?: string;
@@ -11,13 +11,13 @@ const {
 } = Astro.props;
 ---
 
-<section id="contacto" class="w-full py-14 sm:py-20 border-b border-white/[0.08] relative scroll-mt-16 bg-[#0A0E11]">
+<section id="contacto" class="w-full py-14 sm:py-20 border-b border-white/[0.08] relative scroll-mt-16 bg-[#0B0F17]">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
     
     <!-- Header de Contacto -->
     <div class="text-center max-w-xl mx-auto mb-10 sm:mb-14">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#122A28] border border-teal-400/35 text-teal-300 text-xs font-mono font-bold mb-3 shadow-[0_0_12px_rgba(45,212,191,0.15)]">
-        <span class="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse"></span>
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-slate-300 text-xs font-mono font-medium mb-3 shadow-xs">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00]"></span>
         <span>CONTACTO DIRECTO</span>
       </div>
       <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight mt-1 mb-2 text-balance">
@@ -35,105 +35,111 @@ const {
       <div class="md:col-span-5 space-y-4">
         
         <!-- Tarjeta de Email Directo -->
-        <div class="quiet-card p-6 relative overflow-hidden">
-          <div class="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-teal-400/40 to-transparent pointer-events-none"></div>
-          <p class="text-[10.5px] font-mono uppercase tracking-wider text-slate-400 font-bold mb-1">Email Directo</p>
-          <h3 class="text-sm font-bold text-white mb-1.5">Escríbeme un correo</h3>
-          <p class="text-xs text-slate-400 mb-4 font-normal">
-            Respondo personalmente a todas las consultas en menos de 24 horas.
-          </p>
-          <a 
-            href={`mailto:${email}?subject=Contacto%20desde%20portfolio`} 
-            class="btn-subtle-dark !w-full !min-h-[44px] text-xs font-mono font-bold justify-center active:scale-[0.97]"
-          >
-            <span>{email}</span>
-          </a>
+        <div class="quiet-card spotlight-card p-6 relative overflow-hidden">
+          <div class="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"></div>
+          <div class="relative z-10">
+            <p class="text-[10.5px] font-mono uppercase tracking-wider text-slate-400 font-bold mb-1">Email Directo</p>
+            <h3 class="text-sm font-bold text-white mb-1.5">Escríbeme un correo</h3>
+            <p class="text-xs text-slate-400 mb-4 font-normal">
+              Respondo personalmente a todas las consultas en menos de 24 horas.
+            </p>
+            <a 
+              href={`mailto:${email}?subject=Contacto%20desde%20portfolio`} 
+              class="btn-subtle-dark !w-full !min-h-[44px] text-xs font-mono font-bold justify-center"
+            >
+              <span>{email}</span>
+            </a>
+          </div>
         </div>
 
         <!-- Tarjeta de LinkedIn -->
-        <div class="quiet-card p-6 relative overflow-hidden">
-          <div class="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-teal-400/40 to-transparent pointer-events-none"></div>
-          <p class="text-[10.5px] font-mono uppercase tracking-wider text-slate-400 font-bold mb-1">Red Profesional</p>
-          <h3 class="text-sm font-bold text-white mb-1.5">LinkedIn</h3>
-          <p class="text-xs text-slate-400 mb-4 font-normal">
-            Conectemos para charlar sobre proyectos o colaboraciones.
-          </p>
-          <a 
-            href={linkedinUrl} 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="btn-subtle-dark !w-full !min-h-[44px] text-xs font-bold justify-center active:scale-[0.97]"
-          >
-            <span>Ver perfil en LinkedIn &rarr;</span>
-          </a>
+        <div class="quiet-card spotlight-card p-6 relative overflow-hidden">
+          <div class="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"></div>
+          <div class="relative z-10">
+            <p class="text-[10.5px] font-mono uppercase tracking-wider text-slate-400 font-bold mb-1">Red Profesional</p>
+            <h3 class="text-sm font-bold text-white mb-1.5">LinkedIn</h3>
+            <p class="text-xs text-slate-400 mb-4 font-normal">
+              Conectemos para charlar sobre proyectos o colaboraciones.
+            </p>
+            <a 
+              href={linkedinUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="btn-subtle-dark !w-full !min-h-[44px] text-xs font-bold justify-center"
+            >
+              <span>Ver perfil en LinkedIn &rarr;</span>
+            </a>
+          </div>
         </div>
 
       </div>
 
-      <!-- Columna Derecha: Formulario Simple (7 cols) -->
-      <div class="md:col-span-7 quiet-card p-6 sm:p-8 relative overflow-hidden">
-        <div class="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#FF5722]/50 to-transparent pointer-events-none"></div>
-        <h3 class="text-base sm:text-lg font-black text-white mb-1">
-          Envíame un mensaje directo
-        </h3>
-        <p class="text-xs text-slate-400 mb-5 font-normal">
-          Cuéntame brevemente qué necesitas y te responderé a la brevedad.
-        </p>
+      <!-- Columna Derecha: Formulario Refinado (7 cols) -->
+      <div class="md:col-span-7 quiet-card spotlight-card p-6 sm:p-8 relative overflow-hidden">
+        <div class="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-orange-500/40 to-transparent pointer-events-none"></div>
+        <div class="relative z-10">
+          <h3 class="text-base sm:text-lg font-black text-white mb-1">
+            Envíame un mensaje directo
+          </h3>
+          <p class="text-xs text-slate-400 mb-5 font-normal">
+            Cuéntame brevemente qué necesitas y te responderé a la brevedad.
+          </p>
 
-        <form id="portfolio-contact-form" class="space-y-4">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-            <div>
-              <label for="contact-name" class="block text-xs font-mono font-bold text-slate-300 uppercase tracking-wider mb-1.5">
-                Nombre
-              </label>
-              <input 
-                type="text" 
-                id="contact-name" 
-                required 
-                placeholder="Tu nombre" 
-                class="w-full min-h-[44px] px-3.5 py-2.5 text-xs sm:text-sm bg-[#151D22] border border-white/10 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-[#FF5722] focus:bg-[#1A252B] transition shadow-xs"
-              />
+          <form id="portfolio-contact-form" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              <div>
+                <label for="contact-name" class="block text-xs font-mono font-bold text-slate-300 uppercase tracking-wider mb-1.5">
+                  Nombre
+                </label>
+                <input 
+                  type="text" 
+                  id="contact-name" 
+                  required 
+                  placeholder="Tu nombre" 
+                  class="w-full min-h-[44px] px-3.5 py-2.5 text-xs sm:text-sm bg-slate-950/60 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-orange-500/50 focus:ring-1 focus:ring-orange-500/30 transition-colors shadow-xs"
+                />
+              </div>
+
+              <div>
+                <label for="contact-email" class="block text-xs font-mono font-bold text-slate-300 uppercase tracking-wider mb-1.5">
+                  Email
+                </label>
+                <input 
+                  type="email" 
+                  id="contact-email" 
+                  required 
+                  placeholder="tu@email.com" 
+                  class="w-full min-h-[44px] px-3.5 py-2.5 text-xs sm:text-sm bg-slate-950/60 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-orange-500/50 focus:ring-1 focus:ring-orange-500/30 transition-colors shadow-xs"
+                />
+              </div>
             </div>
 
             <div>
-              <label for="contact-email" class="block text-xs font-mono font-bold text-slate-300 uppercase tracking-wider mb-1.5">
-                Email
+              <label for="contact-message" class="block text-xs font-mono font-bold text-slate-300 uppercase tracking-wider mb-1.5">
+                Mensaje o idea del proyecto
               </label>
-              <input 
-                type="email" 
-                id="contact-email" 
-                required 
-                placeholder="tu@email.com" 
-                class="w-full min-h-[44px] px-3.5 py-2.5 text-xs sm:text-sm bg-[#151D22] border border-white/10 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-[#FF5722] focus:bg-[#1A252B] transition shadow-xs"
-              />
+              <textarea 
+                id="contact-message" 
+                rows="3" 
+                required
+                placeholder="Hola Agustín, me gustaría conversar sobre..." 
+                class="w-full px-3.5 py-2.5 text-xs sm:text-sm bg-slate-950/60 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-orange-500/50 focus:ring-1 focus:ring-orange-500/30 transition-colors resize-y shadow-xs"
+              ></textarea>
             </div>
-          </div>
 
-          <div>
-            <label for="contact-message" class="block text-xs font-mono font-bold text-slate-300 uppercase tracking-wider mb-1.5">
-              Mensaje o idea del proyecto
-            </label>
-            <textarea 
-              id="contact-message" 
-              rows="3" 
-              required
-              placeholder="Hola Agustín, me gustaría conversar sobre..." 
-              class="w-full px-3.5 py-2.5 text-xs sm:text-sm bg-[#151D22] border border-white/10 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-[#FF5722] focus:bg-[#1A252B] transition resize-y shadow-xs"
-            ></textarea>
-          </div>
-
-          <div class="pt-2">
-            <button 
-              type="submit" 
-              class="btn-flame-primary !w-full !min-h-[48px] text-xs sm:text-sm justify-center cursor-pointer active:scale-[0.97]"
-            >
-              <span>Enviar mensaje</span>
-              <svg class="w-4 h-4 ml-1 shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-              </svg>
-            </button>
-          </div>
-        </form>
+            <div class="pt-2">
+              <button 
+                type="submit" 
+                class="btn-flame-primary !w-full !min-h-[48px] text-xs sm:text-sm justify-center cursor-pointer"
+              >
+                <span>Enviar mensaje</span>
+                <svg class="w-4 h-4 ml-1 shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
 
       </div>
 
@@ -157,4 +163,41 @@ const {
       window.location.href = `mailto:agusllama1@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
   }
+
+  // Spotlight effect cursor follower para tarjetas de contacto
+  function setupContactSpotlight() {
+    const cards = document.querySelectorAll('#contacto .spotlight-card');
+    cards.forEach((card) => {
+      (card as HTMLElement).addEventListener('mousemove', (e: MouseEvent) => {
+        const rect = (card as HTMLElement).getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        (card as HTMLElement).style.setProperty('--mouse-x', `${x}px`);
+        (card as HTMLElement).style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupContactSpotlight);
+  } else {
+    setupContactSpotlight();
+  }
 </script>
+
+<style>
+  .spotlight-card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: radial-gradient(400px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(255, 77, 0, 0.12), transparent 80%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events-none;
+    z-index: 0;
+  }
+  .spotlight-card:hover::before {
+    opacity: 1;
+  }
+</style>

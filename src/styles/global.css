@@ -1,24 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  /* Paleta Oficial del Sistema de Diseño (Inspirada en Canva & Fuego 3D) */
-  --color-flame: #FF5722;            /* Naranja Fuego / Coral Primario */
-  --color-flame-hover: #F4511E;
+  /* Paleta Oficial del Sistema de Diseño - Linear / Vercel Dark Elegance */
+  --color-flame: #FF4D00;            /* Naranja Vibrante Principal */
+  --color-flame-hover: #FF5500;
   --color-flame-light: #FF7043;
   --color-flame-amber: #FFA726;
 
-  --color-teal-accent: #2DD4BF;      /* Verde Mint / Teal Neón */
-  --color-mint: #2DD4BF;
-  --color-emerald-accent: #10B981;
+  --color-live-green: #10B981;       /* Verde exclusivo para pulso en vivo / Online */
 
-  --color-bg-dark: #0A0E11;          /* Fondo Cinemático Oscuro Base */
-  --color-surface-dark: #11181C;     /* Superficie de Tarjetas Glass */
-  --color-surface-chip: #182126;     /* Chips & Pills oscuros */
+  --color-bg-dark: #0B0F17;          /* Fondo Base Negro Azulado Profundo (slate-950) */
+  --color-surface-dark: #0F172A;     /* Superficie Slate-900 */
+  --color-surface-chip: rgba(255, 255, 255, 0.04); /* Chips & Pills sutiles */
 
   /* Aliases y tokens semánticos */
-  --color-primary: #FF5722;
-  --color-primary-dark: #E64A19;
-  --color-accent: #2DD4BF;
+  --color-primary: #FF4D00;
+  --color-primary-dark: #E64500;
+  --color-accent: #FF4D00;
 
   /* Typography */
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", "Geist", "Helvetica Neue", Arial, sans-serif;
@@ -28,7 +26,7 @@
 /* Base resets & Dark Mode Spatial Setup */
 html {
   scroll-behavior: smooth;
-  background-color: #0A0E11;
+  background-color: #0B0F17;
   color: #F8FAFC;
   font-family: var(--font-sans);
   overflow-x: hidden;
@@ -38,7 +36,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #0A0E11;
+  background-color: #0B0F17;
   color: #E2E8F0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -52,41 +50,42 @@ body {
   background-size: 24px 24px;
 }
 
-/* Tarjetas oscuras refinadas con rim light teal/cyan */
+/* Tarjetas glassmorphism refinado estándar Linear / Vercel */
 .quiet-card {
-  background-color: rgba(17, 24, 28, 0.88);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(45, 212, 191, 0.15);
-  border-radius: 20px;
-  box-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(45, 212, 191, 0.15);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+  background-color: rgba(15, 23, 42, 0.6); /* bg-slate-900/60 */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08); /* border-white/[0.08] */
+  border-radius: 24px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .quiet-card:hover {
-  border-color: rgba(45, 212, 191, 0.4);
-  box-shadow: 0 16px 40px -4px rgba(0, 0, 0, 0.7), 0 0 24px -4px rgba(45, 212, 191, 0.25);
+  border-color: rgba(249, 115, 22, 0.3); /* hover:border-orange-500/30 */
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
 }
 
-/* Botón Fuego Naranja Principal (Idéntico a Canva) */
+/* Botón CTA Primario: Naranja Linear/Vercel con elevación y compresión */
 .btn-flame-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: linear-gradient(135deg, #FF5722 0%, #FF3D00 100%);
+  background-color: #ea580c; /* bg-orange-600 */
   color: #FFFFFF;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 13px;
-  padding: 12px 20px;
+  padding: 12px 22px;
   border-radius: 9999px;
   letter-spacing: 0.02em;
-  border: 1px solid rgba(255, 112, 67, 0.4);
-  box-shadow: 0 8px 25px rgba(255, 87, 34, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 20px -3px rgba(255, 77, 0, 0.4);
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
   max-width: 100%;
+  white-space: nowrap;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 @media (min-width: 640px) {
@@ -97,38 +96,40 @@ body {
 }
 
 .btn-flame-primary:hover {
-  background: linear-gradient(135deg, #FF6E40 0%, #FF5722 100%);
-  transform: translateY(-1px);
-  box-shadow: 0 12px 32px rgba(255, 87, 34, 0.65);
+  background-color: #f97316; /* hover:bg-orange-500 */
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px 0px rgba(255, 77, 0, 0.6);
 }
 
 .btn-flame-primary:active {
-  transform: scale(0.97);
+  transform: scale(0.98);
 }
 
-/* Botón Secundario Cápsula Oscura */
+/* Botón Secundario Cápsula Oscura Glass */
 .btn-subtle-dark {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background-color: rgba(21, 29, 34, 0.9);
+  background-color: rgba(15, 23, 42, 0.6);
   color: #E2E8F0;
   font-weight: 600;
-  font-size: 14px;
-  padding: 13px 24px;
+  font-size: 13.5px;
+  padding: 12px 24px;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-  transition: all 0.15s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
-  white-space: nowrap;
+  backdrop-filter: blur(8px);
 }
 
 .btn-subtle-dark:hover {
   color: #FFFFFF;
-  border-color: rgba(255, 255, 255, 0.25);
-  background-color: rgba(26, 37, 43, 0.95);
+  border-color: rgba(249, 115, 22, 0.35);
+  background-color: rgba(30, 41, 59, 0.8);
+  box-shadow: 0 0 16px rgba(249, 115, 22, 0.15);
+  transform: translateY(-1px);
 }
 
 .btn-subtle-dark:active {
@@ -140,12 +141,12 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0A0E11;
+  background: #0B0F17;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.12);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 87, 34, 0.5);
+  background: rgba(255, 77, 0, 0.5);
 }
